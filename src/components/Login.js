@@ -15,7 +15,11 @@ class Login extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        // add prop to login (redux)
+        this.props.loginUser(this.state)
+        this.setState({
+            username: "",
+            password: ""
+        })
     }
 
     render() {
