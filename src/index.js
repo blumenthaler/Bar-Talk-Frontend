@@ -3,19 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-import { thunk } from 'redux-thunk';
 import { Provider } from 'react-redux';
-import users from './reducers/users.js';
-import currentUser from './reducers/currentUser.js';
+import store from './store.js';
 
-
-const reducer = combineReducers({
-  users,
-  currentUser
-})
-
-const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
   <Provider store={store}>
