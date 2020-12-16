@@ -1,13 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
-import LoginContainer from './containers/LoginContainer.js'
+import Login from './components/Login.js'
 
 class App extends React.Component {
 
   render () {
   return (
-   <LoginContainer />
+   <Login />
   );
   }
 }
