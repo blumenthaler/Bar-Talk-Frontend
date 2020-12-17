@@ -5,7 +5,8 @@ class Recipe extends React.Component {
     render() {
         return (
             <li>
-               {this.props.recipe}
+               {/* {this.props.recipe} */} 
+               This is a recipe
             </li>
         )
     }

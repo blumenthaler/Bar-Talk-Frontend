@@ -7,7 +7,7 @@ class RecipesContainer extends React.Component {
 
     render() {
         // console.log(this.props.state)
-        console.log(this.props.loginUser)
+        // console.log(this.props)
         return (
             <Recipes />
         )
@@ -21,10 +21,11 @@ const mapStateToProps = state => {
 }
 
 // map state/dispatch to props here
-const mapDispatchToProps = dispatch => {
-    return {
-        loginUser: user => dispatch(loginUser(user))
-    }
-}
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         loginUser: user => dispatch(loginUser(user))
+//     }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer)
+// export default connect(mapStateToProps, mapDispatchToProps)(RecipesContainer)
+export default connect(mapStateToProps)(RecipesContainer)
