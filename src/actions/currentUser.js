@@ -44,7 +44,27 @@ export const login = credentials => {
 
 export const signup = credentials => {
   return dispatch => {
-    return fetch(`${DOMAIN_URL}/api/v1/users`)
+    const info = {
+      user: credentials
+    }
+    return fetch(`http://localhost:3000/api/v1/signup`, {
+      credentials: 'include',
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(info)
+    })
+    .then(resp => resp.json())
+    .then(user => {
+        if (user.error) {
+          console.log(user.error)
+        }
+        else {
+          dispatch(login(credentials))
+        }
+    })
+    .catch(console.log)
   }
 }
 
