@@ -1,3 +1,5 @@
+import {DOMAIN_URL} from '../domain.js'
+
 // sync
 export const setCurrentUser = user => {
     return {
@@ -14,7 +16,7 @@ export const clearCurrentUser = () => {
 }
 
 
-const DOMAIN_URL = 'http://localhost:3000' 
+// const DOMAIN_URL = 'http://localhost:3000' 
 // async
 export const login = credentials => {
     // console.log("credentials are", credentials)
