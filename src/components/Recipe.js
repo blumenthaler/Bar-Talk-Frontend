@@ -1,12 +1,24 @@
 import React from 'react'
 
 class Recipe extends React.Component {
+    
 
     render() {
+        
+        const {attributes} = this.props.recipe
+        console.log(attributes)
+        
         return (
             <li>
-               {/* {this.props.recipe} */} 
-               This is a recipe
+                {attributes.name}
+                <br />
+                {attributes.ingredients}
+                <br />
+                {attributes.garnish}
+                <br />
+                {attributes.notes}
+                <br />
+                {attributes.votes}
             </li>
         )
     }
