@@ -4,6 +4,7 @@ import React from 'react';
 import Login from './components/Login.js'
 import Signup from './components/Signup.js'
 import Logout from './components/Logout.js'
+import RecipesContainer from './containers/RecipesContainer.js'
 import { getCurrentUser } from './actions/currentUser.js';
 import { connect } from 'react-redux';
 
@@ -15,7 +16,7 @@ class App extends React.Component {
 
   render () {
   return (
-    this.props.currentUser ? <Logout /> : <><Login /> <Signup /></>
+    this.props.currentUser ? <Logout /> : <><Login /> <Signup /> <RecipesContainer /></>
   );
   }
 }
