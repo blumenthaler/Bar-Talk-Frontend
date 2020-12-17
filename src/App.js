@@ -16,7 +16,7 @@ class App extends React.Component {
 
   render () {
   return (
-    this.props.currentUser ? <Logout /> : <><Login /> <Signup /> <RecipesContainer /></>
+    this.props.currentUser ? <><Logout /><RecipesContainer /></> : <><Login /> <Signup /> </>
   );
   }
 }
