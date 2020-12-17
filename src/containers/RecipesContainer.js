@@ -12,7 +12,7 @@ class RecipesContainer extends React.Component {
     render() {
         return (
             <div>
-                <Recipes recipes={this.props.recipes}/>
+                <Recipes recipes={this.props.recipes} currentUser={this.props.currentUser}/>
             </div>
         )
     }

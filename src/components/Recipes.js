@@ -10,9 +10,13 @@ class Recipes extends React.Component {
             )
         }
         else {
+            // gathers all recipes by the current user
+            const userRecipes = this.props.recipes.filter(recipe => this.props.currentUser.id == recipe.relationships.user.data.id)
+            // console.log(this.props)
+            // console.log(userRecipes)
             return (
                 <ol>
-                    {this.props.recipes.map(recipe => <Recipe key={recipe.id} recipe={recipe} />)}
+                    {userRecipes.map(recipe => <Recipe key={recipe.id} recipe={recipe} />)}
                 </ol>
             )
         }
