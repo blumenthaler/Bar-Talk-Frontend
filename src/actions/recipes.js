@@ -1,3 +1,16 @@
+import {DOMAIN_URL} from '../domain.js'
+
+// sync
+export const getRecipes = recipes => {
+    return {
+        type: "GET_ALL_RECIPES",
+        recipes
+    }
+}
+
+
+
+//async
 // get all recipes
 export const getAllRecipes = () => {
     return dispatch => {
