@@ -4,12 +4,18 @@ import Recipe from './Recipe.js'
 class Recipes extends React.Component {
 
     render() {
-        return (
-            <ol>
-                {/* {this.props.recipes.map(recipe => <Recipe recipe={recipe}/>)} */}
-                <Recipe />
-            </ol>
-        )
+        if (!this.props.recipes) {
+            return (
+                <h2>loading...</h2>
+            )
+        }
+        else {
+            return (
+                <ol>
+                    {this.props.recipes.map(recipe => <Recipe key={recipe.id} recipe={recipe} />)}
+                </ol>
+            )
+        }
     }
 }
 

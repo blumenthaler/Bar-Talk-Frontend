@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Recipes from '../components/Recipes.js';
-// import { loginUser } from '../actions/loginUser.js';
 import { getAllRecipes } from '../actions/recipes.js';
 
 class RecipesContainer extends React.Component {
@@ -11,26 +10,18 @@ class RecipesContainer extends React.Component {
     }
 
     render() {
-        // console.log(this.props.state)
-        // console.log(this.props)
         return (
-            <Recipes />
+            <div>
+                <Recipes recipes={this.props.recipes}/>
+            </div>
         )
     }
 }
 
 const mapStateToProps = state => {
     return {
-        state
+        recipes: state.recipes.data
     }
 }
 
-// map state/dispatch to props here
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         loginUser: user => dispatch(loginUser(user))
-//     }
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(RecipesContainer)
 export default connect(mapStateToProps, {getAllRecipes})(RecipesContainer)
