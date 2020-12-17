@@ -6,11 +6,20 @@ export const setCurrentUser = user => {
     }
 }
 
+// clear current user from Redux store
+export const clearCurrentUser = user => {
+  return {
+    type: 'CLEAR_CURRENT_USER'
+  }
+}
+
+
+
 
 
 // async
 export const login = credentials => {
-    console.log("credentials are", credentials)
+    // console.log("credentials are", credentials)
     return dispatch => {
       return fetch("http://localhost:3000/api/v1/login", {
         credentials: "include",
@@ -23,7 +32,7 @@ export const login = credentials => {
       .then(resp => resp.json())
       .then(user => {
           if (user.error) {
-            alert(user.error)
+            console.log(user.error)
           }
           else {
             dispatch(setCurrentUser(user))
@@ -35,7 +44,7 @@ export const login = credentials => {
 
 // get the logged in user
 export const getCurrentUser = () => {
-    console.log('checking for current user...')
+    // console.log('checking for current user...')
     return dispatch => {
       return fetch("http://localhost:3000/api/v1/get_current_user", {
         credentials: "include",
@@ -47,7 +56,7 @@ export const getCurrentUser = () => {
       .then(resp => resp.json())
       .then(user => {
           if (user.error) {
-            alert(user.error)
+            console.log(user.error)
           }
           else {
             dispatch(setCurrentUser(user))
@@ -55,4 +64,15 @@ export const getCurrentUser = () => {
       })
       .catch(console.log)
     }
+}
+
+// logging out / clear sessions
+export const logout = () => {
+  return dispatch => {
+    dispatch(clearCurrentUser())
+    return fetch('http://localhost:3000/api/v1/logout', {
+      credentials: 'include',
+      method: 'DELETE'
+    })
+  }
 }
