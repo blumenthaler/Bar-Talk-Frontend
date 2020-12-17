@@ -14,8 +14,6 @@ export const clearCurrentUser = () => {
 }
 
 
-
-
 const DOMAIN_URL = 'http://localhost:3000' 
 // async
 export const login = credentials => {
@@ -47,7 +45,7 @@ export const signup = credentials => {
     const info = {
       user: credentials
     }
-    return fetch(`http://localhost:3000/api/v1/signup`, {
+    return fetch(`${DOMAIN_URL}/api/v1/signup`, {
       credentials: 'include',
       method: 'POST',
       headers: {
