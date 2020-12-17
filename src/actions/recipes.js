@@ -26,7 +26,7 @@ export const getAllRecipes = () => {
             console.log(recipes.error)
           }
           else {
-            console.log(recipes)
+            dispatch(getRecipes(recipes))
           }
       })
       .catch(console.log)
