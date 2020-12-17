@@ -7,7 +7,7 @@ export const setCurrentUser = user => {
 }
 
 // clear current user from Redux store
-export const clearCurrentUser = user => {
+export const clearCurrentUser = () => {
   return {
     type: 'CLEAR_CURRENT_USER'
   }
