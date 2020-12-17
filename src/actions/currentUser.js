@@ -16,12 +16,12 @@ export const clearCurrentUser = () => {
 
 
 
-
+const DOMAIN_URL = 'http://localhost:3000' 
 // async
 export const login = credentials => {
     // console.log("credentials are", credentials)
     return dispatch => {
-      return fetch("http://localhost:3000/api/v1/login", {
+      return fetch(`${DOMAIN_URL}/api/v1/login`, {
         credentials: "include",
         method: "POST",
         headers: {
@@ -42,11 +42,17 @@ export const login = credentials => {
     }
 }
 
+export const signup = credentials => {
+  return dispatch => {
+    return fetch(`${DOMAIN_URL}/api/v1/users`)
+  }
+}
+
 // get the logged in user
 export const getCurrentUser = () => {
     // console.log('checking for current user...')
     return dispatch => {
-      return fetch("http://localhost:3000/api/v1/get_current_user", {
+      return fetch(`${DOMAIN_URL}/api/v1/get_current_user`, {
         credentials: "include",
         method: "GET",
         headers: {
@@ -70,7 +76,7 @@ export const getCurrentUser = () => {
 export const logout = () => {
   return dispatch => {
     dispatch(clearCurrentUser())
-    return fetch('http://localhost:3000/api/v1/logout', {
+    return fetch(`${DOMAIN_URL}/api/v1/logout`, {
       credentials: 'include',
       method: 'DELETE'
     })
