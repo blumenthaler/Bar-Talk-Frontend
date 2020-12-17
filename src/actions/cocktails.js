@@ -3,7 +3,7 @@ import {DOMAIN_URL} from '../domain.js'
 // sync
 export const getCocktails = cocktails => {
     return {
-        type: "GET_ALL_RECIPES",
+        type: "GET_ALL_COCKTAILS",
         cocktails
     }
 }
