@@ -3,7 +3,7 @@ import {DOMAIN_URL} from '../domain.js'
 // sync
 export const getRecipes = recipes => {
     return {
-        type: "GET_ALL_RECIPES",
+        type: "ADD_RECIPES",
         recipes
     }
 }
@@ -14,6 +14,7 @@ export const getRecipes = recipes => {
 // get all recipes
 export const getAllRecipes = () => {
     return dispatch => {
+      dispatch({type: "LOADING_RECIPES"})
       return fetch(`${DOMAIN_URL}/api/v1/recipes`, {
         method: "GET",
         headers: {
