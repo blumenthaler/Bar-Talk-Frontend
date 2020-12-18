@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getAllUsers } from '../../actions/users.js';
+import Users from '../users/Users.js';
 
 
 class UsersContainer extends React.Component {
@@ -10,10 +11,20 @@ class UsersContainer extends React.Component {
     }
 
     render() {
-        console.log(this.props)
-        return (
-            <div>users container</div>
-        )
+        if ((this.props.users.loading) || (this.props.users.users.length === 0)) {
+            return (<h2>Loading...</h2>)
+        }
+        else {
+            return (
+                // <Users />
+                <Users 
+                    users={this.props.users.users.filter(user => (this.props.recipes.map(recipe => recipe.relationships.user.data.id)).includes(user.id.toString()) )} 
+                    cocktail={this.props.cocktail}
+                    recipes={this.props.recipes}
+                    currentUser={this.props.currentUser}
+                />
+            )
+        }
     }
 }
 
