@@ -7,7 +7,7 @@ class Recipe extends React.Component {
         
         const {attributes} = this.props.recipe
         // console.log(this.props)
-        
+
         return (
             <li>
                 {attributes.name}
@@ -19,6 +19,7 @@ class Recipe extends React.Component {
                 {attributes.notes}
                 <br />
                 {attributes.votes}
+                <br /><br />
             </li>
         )
     }
