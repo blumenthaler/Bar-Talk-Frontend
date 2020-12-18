@@ -12,7 +12,7 @@ export const getUsers = users => {
 
 //async
 // get all users
-export const getAllRecipes = () => {
+export const getAllUsers = () => {
     return dispatch => {
       dispatch({type: "LOADING_USERS"})
       return fetch(`${DOMAIN_URL}/api/v1/users`, {
