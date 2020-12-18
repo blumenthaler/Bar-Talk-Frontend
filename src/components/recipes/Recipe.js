@@ -1,4 +1,5 @@
 import React from 'react'
+import CommentsContainer from '../containers/CommentsContainer.js'
 
 class Recipe extends React.Component {
     
@@ -6,7 +7,7 @@ class Recipe extends React.Component {
     render() {
         
         const {attributes} = this.props.recipe
-        // console.log(this.props)
+        console.log(this.props)
 
         return (
             <li>
@@ -20,6 +21,7 @@ class Recipe extends React.Component {
                 <br />
                 {attributes.votes}
                 <br /><br />
+                <CommentsContainer />
             </li>
         )
     }
