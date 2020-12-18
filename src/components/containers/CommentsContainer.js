@@ -10,12 +10,9 @@ class CommentsContainer extends React.Component {
     }
 
     render() {
-        // console.log(this.props)
             return (
                 <div>
-                    {/* <Comments /> */}
                     <Comments comments={this.props.comments.comments.filter(comment => (this.props.recipe.relationships.comments.data.map(comment => comment.id)).includes(comment.id.toString()))} /> 
-                        
                 </div>
             )
     }

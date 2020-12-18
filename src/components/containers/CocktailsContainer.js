@@ -17,7 +17,6 @@ class CocktailsContainer extends React.Component {
             return (
                 <div>
                     <Cocktails cocktails={this.props.cocktails.cocktails.data} loading={this.props.cocktails.loading} recipes={this.props.cocktails.cocktails.included} currentUser={this.props.currentUser}/>
-                {/* <Cocktails /> */}
                 </div>
             )
         }

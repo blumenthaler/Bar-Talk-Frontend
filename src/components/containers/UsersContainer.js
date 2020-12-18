@@ -24,7 +24,6 @@ class UsersContainer extends React.Component {
         }, [])
 
             return (
-                // <Users />
                 <Users 
                     users={sorted.filter(user => (this.props.recipes.map(recipe => recipe.relationships.user.data.id)).includes(user.id.toString()) )} 
                     cocktail={this.props.cocktail}

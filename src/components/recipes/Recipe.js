@@ -7,7 +7,6 @@ class Recipe extends React.Component {
     render() {
         
         const {attributes} = this.props.recipe
-        console.log(this.props)
 
         return (
             <li>
