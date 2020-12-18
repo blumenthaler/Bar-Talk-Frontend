@@ -5,28 +5,15 @@ import Cocktail from './Cocktail.js'
 class Cocktails extends React.Component {
 
     render() {
-        if ((!this.props.cocktails) || (!this.props.recipes)) {
+        if ((this.props.loading) || (!this.props.cocktails)) {
             return (
                 <h2>loading...</h2>
             )
         }
         else {
-            // gathers all cocktails by the current user
-            // console.log(this.props)
-            const {cocktails} = this.props
-
-            const currentUserRecipes = this.props.recipes.filter(recipe => this.props.currentUser.id.toString() === recipe.relationships.user.data.id)
-
-            const currentUserCocktails = []
-            currentUserRecipes.forEach(recipe => {
-                currentUserCocktails.push(cocktails.find(cocktail => cocktail.id === recipe.relationships.cocktail.data.id))
-            })
-        
-            // console.log(currentUserCocktails)
-  
             return (
                 <ol>
-                    {currentUserCocktails.map(cocktail => <Cocktail key={cocktail.id} cocktail={cocktail} />)}
+                    {this.props.cocktails.map(cocktail => <Cocktail key={cocktail.id} cocktail={cocktail} recipes={this.props.recipes.filter(recipe => cocktail.id === recipe.relationships.cocktail.data.id)} currentUser={this.props.currentUser} />)}
                     {/* <Cocktail /> */}
                 </ol>
             )
