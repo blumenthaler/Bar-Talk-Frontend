@@ -1,29 +1,30 @@
 import React from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import Comments from '../comments/Comments.js';
-// import { getAllCocktails } from '../../actions/cocktails.js';
+import { getAllComments } from '../../actions/comments.js';
 
 class CommentsContainer extends React.Component {
 
-    // componentDidMount() {
-    //     this.props.getAllCocktails()
-    // }
+    componentDidMount() {
+        this.props.getAllComments()
+    }
 
     render() {
-
+        // console.log(this.props)
             return (
                 <div>
-                    <Comments />
+                    {/* <Comments /> */}
+                    <Comments comments={this.props.comments.comments.filter(comment => (this.props.recipe.relationships.comments.data.map(comment => comment.id)).includes(comment.id.toString()))} /> 
+                        
                 </div>
             )
     }
 }
 
-// const mapStateToProps = state => {
-//     return {
-//         cocktails: state.cocktails,
-//     }
-// }
+const mapStateToProps = state => {
+    return {
+        comments: state.comments,
+    }
+}
 
-// export default connect(mapStateToProps, {getAllCocktails})(CommentsContainer)
-export default CommentsContainer
+export default connect(mapStateToProps, {getAllComments})(CommentsContainer)
