@@ -1,6 +1,6 @@
 import React from 'react';
 // import { connect } from 'react-redux';
-// import Cocktails from '../cocktails/Cocktails.js';
+import Comments from '../comments/Comments.js';
 // import { getAllCocktails } from '../../actions/cocktails.js';
 
 class CommentsContainer extends React.Component {
@@ -13,7 +13,7 @@ class CommentsContainer extends React.Component {
 
             return (
                 <div>
-                    This is the comments container
+                    <Comments />
                 </div>
             )
     }
