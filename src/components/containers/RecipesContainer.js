@@ -7,10 +7,10 @@ import Recipes from '../recipes/Recipes.js';
 class RecipesContainer extends React.Component {
 
     render() {
+
         return (
             <div>
-                <Recipes recipes={this.props.recipes} currentUser={this.props.currentUser}/>
-                {/* <Recipes /> */}
+                <Recipes recipes={this.props.recipes} currentUser={this.props.currentUser} />
             </div>
         )
     }
