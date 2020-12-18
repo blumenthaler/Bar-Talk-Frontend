@@ -6,7 +6,6 @@ export default (state = {
         case "LOADING_COCKTAILS":
             return {
                 ...state,
-                cocktails: [...state.cocktails],
                 loading: true
             }
         case "ADD_COCKTAILS":
