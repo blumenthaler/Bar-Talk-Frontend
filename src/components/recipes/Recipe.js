@@ -21,7 +21,8 @@ class Recipe extends React.Component {
                 <br />
                 {attributes.votes}
                 <br /><br />
-                <CommentsContainer />
+                <CommentsContainer recipe={this.props.recipe} currentUser={this.props.currentUser}/>
+                <br />
             </li>
         )
     }
