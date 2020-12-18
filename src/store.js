@@ -5,6 +5,7 @@ import loginForm from './reducers/loginForm.js';
 import signupForm from './reducers/signupForm.js';
 import recipes from './reducers/recipes.js';
 import cocktails from './reducers/cocktails.js';
+import comments from './reducers/comments.js';
 import thunk from 'redux-thunk';
 // import loginUserReducer from './reducers/loginUser.js';
 
@@ -14,7 +15,8 @@ const reducer = combineReducers({
     loginForm,
     signupForm,
     recipes,
-    cocktails
+    cocktails,
+    comments
     // loginUser: loginUserReducer
 })
 
