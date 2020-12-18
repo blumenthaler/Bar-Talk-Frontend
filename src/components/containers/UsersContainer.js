@@ -15,10 +15,18 @@ class UsersContainer extends React.Component {
             return (<h2>Loading...</h2>)
         }
         else {
+
+        const sorted = this.props.users.users.reduce((acc, user) => {
+            if (user.username === this.props.currentUser.username) {
+                return [user, ...acc];
+            }
+            return [...acc, user]
+        }, [])
+
             return (
                 // <Users />
                 <Users 
-                    users={this.props.users.users.filter(user => (this.props.recipes.map(recipe => recipe.relationships.user.data.id)).includes(user.id.toString()) )} 
+                    users={sorted.filter(user => (this.props.recipes.map(recipe => recipe.relationships.user.data.id)).includes(user.id.toString()) )} 
                     cocktail={this.props.cocktail}
                     recipes={this.props.recipes}
                     currentUser={this.props.currentUser}
