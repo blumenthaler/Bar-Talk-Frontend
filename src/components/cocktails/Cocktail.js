@@ -1,5 +1,5 @@
 import React from 'react'
-import RecipesContainer from '../containers/RecipesContainer.js';
+import UsersContainer from '../containers/UsersContainer.js';
 
 class Cocktail extends React.Component {
 
@@ -9,7 +9,7 @@ class Cocktail extends React.Component {
         return (
             <li>
                 {attributes.name} - {attributes.spirit}
-                <RecipesContainer cocktail={this.props.cocktail} recipes={this.props.recipes} currentUser={this.props.currentUser}/>
+                <UsersContainer cocktail={this.props.cocktail} recipes={this.props.recipes} currentUser={this.props.currentUser}/>
             </li>
         )
     }
