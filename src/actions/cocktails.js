@@ -3,7 +3,7 @@ import {DOMAIN_URL} from '../domain.js'
 // sync
 export const getCocktails = cocktails => {
     return {
-        type: "GET_ALL_COCKTAILS",
+        type: "ADD_COCKTAILS",
         cocktails
     }
 }
@@ -13,6 +13,7 @@ export const getCocktails = cocktails => {
 // get all cocktails
 export const getAllCocktails = () => {
     return dispatch => {
+      dispatch({type: "LOADING_COCKTAILS"})
       return fetch(`${DOMAIN_URL}/api/v1/cocktails`, {
         method: "GET",
         headers: {

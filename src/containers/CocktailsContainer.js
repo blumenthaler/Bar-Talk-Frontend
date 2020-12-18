@@ -15,16 +15,18 @@ class CocktailsContainer extends React.Component {
         // console.log(this.props)
         return (
             <div>
-                <Cocktails cocktails={this.props.cocktails} recipes={this.props.recipes} currentUser={this.props.currentUser}/>
+                <Cocktails cocktails={this.props.cocktails.cocktails.data} loading={this.props.cocktails.loading} recipes={this.props.recipes} currentUser={this.props.currentUser}/>
             </div>
         )
     }
 }
 
 const mapStateToProps = state => {
+    // console.log(state.cocktails.loading)
     return {
         recipes: state.recipes.data,
-        cocktails: state.cocktails.data
+        cocktails: state.cocktails,
+        // loading: state.cocktails.loading
     }
 }
 
