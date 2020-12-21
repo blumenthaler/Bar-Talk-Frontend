@@ -4,8 +4,8 @@ import React from 'react';
 import Login from './components/users/Login.js'
 import Signup from './components/users/Signup.js'
 import Logout from './components/users/Logout.js'
-import RecipesContainer from './containers/RecipesContainer.js'
-import CocktailsContainer from './containers/CocktailsContainer.js'
+// import RecipesContainer from './containers/RecipesContainer.js'
+import CocktailsContainer from './components/containers/CocktailsContainer.js'
 import { getCurrentUser } from './actions/currentUser.js';
 import { connect } from 'react-redux';
 
