@@ -5,7 +5,7 @@ class Comment extends React.Component {
     render() {
         return (
             <li>
-                {this.props.comment.content}
+                {this.props.user.username}: "{this.props.comment.attributes.content}"
             </li>
         )
     }

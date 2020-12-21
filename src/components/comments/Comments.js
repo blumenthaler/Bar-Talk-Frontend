@@ -11,10 +11,13 @@ class Comments extends React.Component {
         }
         else {
             return (
+                <>
+                <h4>Comments</h4>
                 <ul>
                     {this.props.comments.map(comment => <Comment 
-                   comment={comment} key={comment.id} />)}
+                   comment={comment} key={comment.id} user={this.props.users.find(user => user.id.toString() === comment.relationships.user.data.id)} />)}
                 </ul>
+                </>
             )
         }
     }
