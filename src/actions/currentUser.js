@@ -1,4 +1,6 @@
 import {DOMAIN_URL} from '../domain.js'
+import { resetLoginForm } from './loginForm.js'
+import { resetSignupForm } from './signupForm.js'
 
 // sync
 export const setCurrentUser = user => {
@@ -15,8 +17,6 @@ export const clearCurrentUser = () => {
   }
 }
 
-
-// const DOMAIN_URL = 'http://localhost:3000' 
 // async
 export const login = credentials => {
     // console.log("credentials are", credentials)
@@ -36,6 +36,7 @@ export const login = credentials => {
           }
           else {
             dispatch(setCurrentUser(user))
+            dispatch(resetLoginForm())
           }
       })
       .catch(console.log)
@@ -62,6 +63,7 @@ export const signup = credentials => {
         }
         else {
           dispatch(login(credentials))
+          dispatch(resetSignupForm())
         }
     })
     .catch(console.log)
