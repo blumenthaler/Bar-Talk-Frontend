@@ -10,13 +10,13 @@ class CocktailsContainer extends React.Component {
     }
 
     render() {
-        if (this.props.cocktails.loading) {
+        if ((this.props.cocktails.loading) || (!this.props.cocktails.cocktails.included) ) {
             return (<h2>Loading...</h2>)
         }
         else {
             return (
                 <div>
-                    <Cocktails cocktails={this.props.cocktails.cocktails.data} loading={this.props.cocktails.loading} recipes={this.props.cocktails.cocktails.included} currentUser={this.props.currentUser}/>
+                    <Cocktails cocktails={this.props.cocktails.cocktails.data} loading={this.props.cocktails.loading} currentUser={this.props.currentUser}/>
                 </div>
             )
         }
