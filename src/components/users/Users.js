@@ -10,10 +10,12 @@ class Users extends React.Component {
             )
         }
         else {
-            // console.log(this.props)
+            console.log(this.props)
+            console.log(this.props.users[0].id === this.props.currentUser.data.id)
             return (
                 <ol>
-                    {this.props.users.map(user => <User key={user.id} currentUser={this.props.currentUser} user={user} recipes={this.props.recipes.filter(recipe => recipe.relationships.user.data.id === user.id.toString() )} />)}
+                    {this.props.users.map(user => <User key={user.id} currentUser={this.props.currentUser} user={user} />)}
+                  
                 </ol>
             )
         }
@@ -21,3 +23,5 @@ class Users extends React.Component {
 }
 
 export default Users
+
+// recipes={this.props.recipes.filter(recipe => recipe.relationships.user.data.id === user.id.toString() )} />)}

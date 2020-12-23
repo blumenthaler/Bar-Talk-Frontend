@@ -5,18 +5,16 @@ import Users from '../users/Users.js';
 
 
 class UsersContainer extends React.Component {
-    
-    componentDidMount() {
-        this.props.getAllUsers()
-    }
 
     render() {
-        if ((this.props.users.loading) || (this.props.users.users.length === 0)) {
+        if ((this.props.users.loading) || (!this.props.users)) {
             return (<h2>Loading...</h2>)
         }
         else {
+            // console.log(this.props)
 
-        const sorted = this.props.users.users.reduce((acc, user) => {
+        // sorts users, current user listed first
+        const sorted = this.props.users.reduce((acc, user) => {
             if (user.username === this.props.currentUser.username) {
                 return [user, ...acc];
             }
@@ -25,9 +23,8 @@ class UsersContainer extends React.Component {
 
             return (
                 <Users 
-                    users={sorted.filter(user => (this.props.recipes.map(recipe => recipe.relationships.user.data.id)).includes(user.id.toString()) )} 
+                    users={sorted} 
                     cocktail={this.props.cocktail}
-                    recipes={this.props.recipes}
                     currentUser={this.props.currentUser}
                 />
             )
@@ -37,7 +34,7 @@ class UsersContainer extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        users: state.users
+        users: state.cocktails.cocktails.included.filter(data => data.type === "user"),
     }
 }
 
