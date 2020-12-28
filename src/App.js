@@ -23,6 +23,17 @@ class App extends React.Component {
   }
 
   render () {
+    if (!this.props.currentUser) {
+      return (
+        <>
+        <h2>Welcome to Bar Talk!</h2>
+        <h2>Login or Signup</h2>
+        <Login />
+        <Signup />
+        </>
+      )
+    }
+    else {
     return (
       <Router>
         {
@@ -43,6 +54,7 @@ class App extends React.Component {
         }
       </Router>
     );
+  }
   }
 }
 
