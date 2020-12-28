@@ -19,7 +19,10 @@ class ProfileContainer extends React.Component {
         const filteredCocktails = this.props.cocktails.cocktails.data.filter(cocktail => cocktailIds.includes(cocktail.id) )
 
             return (
-                <Cocktails cocktails={filteredCocktails} currentUser={this.props.currentUser}/>
+                <>
+                <h1>Your Recipes</h1>
+                <Cocktails cocktails={filteredCocktails} currentUser={this.props.currentUser} profile={true}/>
+                </>
             )
         }
     }
