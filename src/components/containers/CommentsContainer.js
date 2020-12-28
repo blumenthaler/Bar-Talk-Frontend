@@ -14,14 +14,13 @@ class CommentsContainer extends React.Component {
             return (<h2>Loading...</h2>)
         }
         else {
-
-        // const {comments} = this.props
-        // console.log(this.props)
+        const users = this.props.included.filter(data => data.type === "user")
+        const comments = this.props.comments.comments.data.filter(comment => (this.props.recipe.relationships.comments.data.map(comment => comment.id)).includes(comment.id.toString()))
+        
             return (
                 <div>
-                    {/* <Comments /> */}
-                    <Comments comments={this.props.comments.comments.data.filter(comment => (this.props.recipe.relationships.comments.data.map(comment => comment.id)).includes(comment.id.toString()))}
-                    users={this.props.users.users} /> 
+                    <Comments comments={comments}
+                    users={users} /> 
                 </div>
             )
             }    
@@ -31,7 +30,7 @@ class CommentsContainer extends React.Component {
 const mapStateToProps = state => {
     return {
         comments: state.comments,
-        users: state.users
+        included: state.comments.comments.included
     }
 }
 
