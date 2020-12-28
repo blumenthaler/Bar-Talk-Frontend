@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
+import Logout from './users/Logout'
 
 const NavBar = ({ currentUser, loggedIn }) => {
     return (
@@ -16,6 +17,9 @@ const NavBar = ({ currentUser, loggedIn }) => {
               </li>
               <li>
                 <NavLink to="/popular">Popular Recipes</NavLink>
+              </li>
+              <li>
+                <Logout />
               </li>
             </ul>
           </nav>
