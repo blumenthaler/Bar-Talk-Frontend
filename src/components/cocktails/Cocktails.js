@@ -13,7 +13,7 @@ class Cocktails extends React.Component {
         else {
             return (
                 <ol>
-                    {this.props.cocktails.map(cocktail => <Cocktail key={cocktail.id} cocktail={cocktail}  currentUser={this.props.currentUser} />)}
+                    {this.props.cocktails.map(cocktail => <Cocktail key={cocktail.id} cocktail={cocktail}  currentUser={this.props.currentUser} profile={this.props.profile} />)}
                     {/* <Cocktail /> */}
                 </ol>
             )
