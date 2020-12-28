@@ -6,7 +6,7 @@ import Signup from './components/users/Signup.js'
 import Logout from './components/users/Logout.js'
 import NavBar from './components/NavBar.js'
 // import RecipesContainer from './containers/RecipesContainer.js'
-import CocktailsContainer from './components/containers/CocktailsContainer.js'
+import CocktailsContainer from './components/containers/AllCocktailsContainer.js'
 import { getCurrentUser } from './actions/currentUser.js';
 import { connect } from 'react-redux';
 import {

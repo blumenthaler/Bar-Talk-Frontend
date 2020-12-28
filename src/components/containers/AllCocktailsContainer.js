@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Cocktails from '../cocktails/Cocktails.js';
 import { getAllCocktails } from '../../actions/cocktails.js';
 
-class CocktailsContainer extends React.Component {
+class AllCocktailsContainer extends React.Component {
 
     componentDidMount() {
         this.props.getAllCocktails()
@@ -32,4 +32,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {getAllCocktails})(CocktailsContainer)
+export default connect(mapStateToProps, {getAllCocktails})(AllCocktailsContainer)
