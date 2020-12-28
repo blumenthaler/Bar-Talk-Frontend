@@ -29,13 +29,13 @@ class App extends React.Component {
           <div>
             <NavBar />
             <Switch>
-              <Route exact path="/">
+              {/* <Route exact path="/">
                 <Home />
+              </Route> */}
+              <Route exact path="/cocktails">
+                <CocktailsContainer currentUser={this.props.currentUser}/>
               </Route>
-              {/* <Route exact path="/cocktails">
-                <CocktailsContainer />
-              </Route>
-              <Route exact path="/popular">
+              {/* <Route exact path="/popular">
                 <PopularRecipesContainer />
               </Route> */}
             </Switch>
