@@ -5,6 +5,7 @@ import Login from './components/users/Login.js'
 import Signup from './components/users/Signup.js'
 import Logout from './components/users/Logout.js'
 import NavBar from './components/NavBar.js'
+import ProfileContainer from './components/containers/ProfileContainer.js'
 // import RecipesContainer from './containers/RecipesContainer.js'
 import CocktailsContainer from './components/containers/AllCocktailsContainer.js'
 import { getCurrentUser } from './actions/currentUser.js';
@@ -40,9 +41,9 @@ class App extends React.Component {
           <div>
             <NavBar />
             <Switch>
-              {/* <Route exact path="/">
-                <Home />
-              </Route> */}
+              <Route exact path="/">
+                <ProfileContainer currentUser={this.props.currentUser}/>
+              </Route>
               <Route exact path="/cocktails">
                 <CocktailsContainer currentUser={this.props.currentUser}/>
               </Route>
