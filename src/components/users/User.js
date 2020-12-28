@@ -1,24 +1,20 @@
 import React from 'react'
 import RecipesContainer from '../containers/RecipesContainer.js';
 
-class User extends React.Component {
-    render() {
-        // let title;
-        // if (this.props.currentUser.id === this.props.user.id) {
-        //     title = "Your Recipe:"
-        // }
-        // else {
-        //     title = `${this.props.user.username}'s Recipe:`
-        // }
-
+const User = props => {
+        let title;
+        if (props.currentUser.data.id === props.user.id) {
+            title = "Your Recipe:"
+        }
+        else {
+            title = `${props.user.attributes.username}'s Recipe:`
+        }
         return (
             <>
-            
-                <h4>Hello</h4> 
-                {/* <RecipesContainer recipes={this.props.recipes} user={this.props.user} currentUser={this.props.currentUser} /> */}
+                <h4>{title}</h4> 
+                <RecipesContainer recipes={props.recipes} user={props.user} currentUser={props.currentUser} />
             </>
         )
-    }
 }
 
 export default User
