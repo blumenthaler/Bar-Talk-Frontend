@@ -11,21 +11,26 @@ class UsersContainer extends React.Component {
             return (<h2>Loading...</h2>)
         }
         else {
-            // console.log(this.props)
+
+        // only pass recipes, users as props if they belong to this specific cocktail
+        const filteredRecipes = this.props.recipes.filter(recipe => recipe.relationships.cocktail.data.id === this.props.cocktail.id)
+
+        const filteredUsers = this.props.users.filter(user => (filteredRecipes.map(recipe => recipe.relationships.user.data.id)).includes(user.id))
 
         // sorts users, current user listed first
-        const sorted = this.props.users.reduce((acc, user) => {
+        const sorted = filteredUsers.reduce((acc, user) => {
             if (user.username === this.props.currentUser.username) {
                 return [user, ...acc];
             }
             return [...acc, user]
         }, [])
-
+        
             return (
                 <Users 
                     users={sorted} 
                     cocktail={this.props.cocktail}
                     currentUser={this.props.currentUser}
+                    recipes={filteredRecipes}
                 />
             )
         }
@@ -35,6 +40,7 @@ class UsersContainer extends React.Component {
 const mapStateToProps = state => {
     return {
         users: state.cocktails.cocktails.included.filter(data => data.type === "user"),
+        recipes: state.cocktails.cocktails.included.filter(data => data.type === "recipe")
     }
 }
 
