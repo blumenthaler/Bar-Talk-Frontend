@@ -18,7 +18,7 @@ class AllCocktailsContainer extends React.Component {
                 <>
                 <h1>All Cocktails</h1>
                 <div>
-                    <Cocktails cocktails={this.props.cocktails.cocktails.data} loading={this.props.cocktails.loading} currentUser={this.props.currentUser} profile={false}/>
+                    <Cocktails cocktails={this.props.cocktails.cocktails.data} loading={this.props.cocktails.loading} currentUser={this.props.currentUser} />
                 </div>
                 </>
             )
