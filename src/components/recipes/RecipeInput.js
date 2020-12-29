@@ -8,23 +8,29 @@ class RecipeInput extends React.Component {
         ingredients: "",
         garnish: "",
         notes: "",
+        votes: 0
     }
 
     handleOnSubmit = event => {
         event.preventDefault()
-        console.log("booyah")        
+        this.props.addRecipe(this.state, this.props.currentUser.data, this.props.cocktail)  
+        this.setState({
+            name: "",
+            spirit: "",
+            ingredients: "",
+            garnish: "",
+            notes: "",
+            votes: 0
+        })    
     }
 
     handleOnChange = event => {
-        console.log(event.target.name)
         this.setState({
             [event.target.name]: event.target.value
         })
-        
     }
 
     render() {
-        console.log(this.state)
         return (
             <>
             <form onSubmit={(event) => this.handleOnSubmit(event)}> 
@@ -35,6 +41,7 @@ class RecipeInput extends React.Component {
                 <input type="text" name="notes" onChange={this.handleOnChange} value={this.state.notes}/><br />
                 <input type="submit"/>
             </form>
+            <br />
             </>
         )
     }
