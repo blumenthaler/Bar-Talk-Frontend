@@ -5,6 +5,13 @@ import Cocktails from '../cocktails/Cocktails.js'
 
 class ProfileContainer extends React.Component {
 
+    constructor() {
+        super()
+        this.state = {
+            profile: true
+        }
+    }
+
     componentDidMount() {
         this.props.getAllCocktails()
     }
@@ -21,7 +28,7 @@ class ProfileContainer extends React.Component {
             return (
                 <>
                 <h1>Your Recipes</h1>
-                <Cocktails cocktails={filteredCocktails} currentUser={this.props.currentUser} profile={true}/>
+                <Cocktails cocktails={filteredCocktails} currentUser={this.props.currentUser} profile={this.state.profile}/>
                 </>
             )
         }

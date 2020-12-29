@@ -5,6 +5,13 @@ import { getAllCocktails } from '../../actions/cocktails.js';
 
 class AllCocktailsContainer extends React.Component {
 
+    constructor() {
+        super()
+        this.state ={
+            profile: false
+        }
+    }
+
     componentDidMount() {
         this.props.getAllCocktails()
     }
@@ -18,7 +25,7 @@ class AllCocktailsContainer extends React.Component {
                 <>
                 <h1>All Cocktails</h1>
                 <div>
-                    <Cocktails cocktails={this.props.cocktails.cocktails.data} loading={this.props.cocktails.loading} currentUser={this.props.currentUser} />
+                    <Cocktails cocktails={this.props.cocktails.cocktails.data} loading={this.props.cocktails.loading} currentUser={this.props.currentUser} profile={this.state.profile}/>
                 </div>
                 </>
             )
