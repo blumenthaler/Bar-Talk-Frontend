@@ -69,12 +69,14 @@ export const addRecipe = (recipe, user, history) => {
         body: JSON.stringify(data)
       })
       .then(resp => resp.json())
-      .then(data => {
-          if (data.error) {
-            console.log(data.error)
+      .then(obj => {
+          if (obj.error) {
+            console.log(obj.error)
           }
           else {
-            dispatch(addNewRecipe(data))
+            // I must make sure that when logging in, we automatically render profile page
+            // otherwise this action of adding a new recipe will not work
+            dispatch(addNewRecipe(obj))
             dispatch(getAllCocktails())
             history.push('/')
           }
