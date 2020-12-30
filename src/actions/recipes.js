@@ -1,4 +1,5 @@
 import {DOMAIN_URL} from '../domain.js'
+import { getAllCocktails } from './cocktails.js'
 
 // sync
 export const getRecipes = recipes => {
@@ -42,7 +43,7 @@ export const getAllRecipes = () => {
 
 // Add new Recipe to the database
 // Keep here or move to cocktails? (corresponding reducer is cocktails reducer)
-export const addRecipe = (recipe, user) => {
+export const addRecipe = (recipe, user, history) => {
   const {name, spirit, ingredients, garnish, notes} = recipe
   const user_id = user.id
 
@@ -73,10 +74,9 @@ export const addRecipe = (recipe, user) => {
             console.log(data.error)
           }
           else {
-            console.log(data)
-            // show the user's new recipe!
-            return dispatch(addNewRecipe(data))
-            
+            dispatch(addNewRecipe(data))
+            dispatch(getAllCocktails())
+            history.push('/')
           }
       })
       .catch(console.log)
