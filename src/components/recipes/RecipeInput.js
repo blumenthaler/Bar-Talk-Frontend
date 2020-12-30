@@ -23,7 +23,7 @@ class RecipeInput extends React.Component {
                 name,
                 spirit
             }
-            this.props.addRecipe(sendable, this.props.currentUser.data)
+            this.props.addRecipe(sendable, this.props.currentUser.data, this.props.history)
             this.setState({
                 name,
                 spirit,
@@ -35,7 +35,7 @@ class RecipeInput extends React.Component {
             
         }
         else {
-            this.props.addRecipe(this.state, this.props.currentUser.data)  
+            this.props.addRecipe(this.state, this.props.currentUser.data, this.props.history)  
             this.setState({
                 name: "",
                 spirit: "",
@@ -54,8 +54,6 @@ class RecipeInput extends React.Component {
     }
 
     render() {
-        
-        
         return (
             <>
             <form onSubmit={(event) => this.handleOnSubmit(event)}> 

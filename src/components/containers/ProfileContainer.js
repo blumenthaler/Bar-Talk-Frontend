@@ -17,7 +17,7 @@ class ProfileContainer extends React.Component {
     }
 
     render() {
-        if ((this.props.cocktails.loading) || (!this.props.cocktails.cocktails.data)) {
+        if (!this.props.cocktails.cocktails.data) {
             return (<h2>Loading...</h2>)
         }
         else {
@@ -28,7 +28,7 @@ class ProfileContainer extends React.Component {
             return (
                 <>
                 <h1>Your Recipes</h1>
-                <Cocktails cocktails={filteredCocktails} currentUser={this.props.currentUser} profile={this.state.profile}/>
+                <Cocktails cocktails={filteredCocktails} currentUser={this.props.currentUser} profile={this.state.profile} history={this.props.history}/>
                 </>
             )
         }

@@ -14,7 +14,7 @@ class RecipesContainer extends React.Component {
         return (
             <div>
                 <Recipes user={this.props.user} recipes={filteredRecipes} currentUser={this.props.currentUser} />
-                <RecipeInput currentUser={this.props.currentUser} addRecipe={this.props.addRecipe} cocktail={this.props.cocktail} />
+                <RecipeInput currentUser={this.props.currentUser} addRecipe={this.props.addRecipe} cocktail={this.props.cocktail} history={this.props.history}/>
             </div>
         )
     }

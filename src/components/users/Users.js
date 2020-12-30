@@ -10,7 +10,7 @@ const Users = props => {
         else {
             return (
                 <ol>
-                    {props.users.map(user => <User key={user.id} currentUser={props.currentUser} user={user} recipes={props.recipes} />)}
+                    {props.users.map(user => <User key={user.id} currentUser={props.currentUser} user={user} recipes={props.recipes} history={props.history} />)}
                 </ol>
             )
         }

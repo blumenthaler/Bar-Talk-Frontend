@@ -8,7 +8,7 @@ class Cocktail extends React.Component {
         return (
             <li>
                 {attributes.name} - {attributes.spirit.charAt(0).toUpperCase() + attributes.spirit.slice(1)}
-                <UsersContainer cocktail={this.props.cocktail} currentUser={this.props.currentUser} profile={this.props.profile}/>
+                <UsersContainer cocktail={this.props.cocktail} currentUser={this.props.currentUser} profile={this.props.profile} history={this.props.history}/>
             </li>
         )
     }
