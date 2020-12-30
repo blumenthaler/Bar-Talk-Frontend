@@ -8,10 +8,16 @@ export const getRecipes = recipes => {
     }
 }
 
-
+export const addNewRecipe = recipe => {
+  return {
+    type: "ADD_NEW_RECIPE",
+    recipe
+  }
+}
 
 //async
 // get all recipes
+// currently unused
 export const getAllRecipes = () => {
     return dispatch => {
       dispatch({type: "LOADING_RECIPES"})
@@ -35,13 +41,10 @@ export const getAllRecipes = () => {
 }
 
 // Add new Recipe to the database
-export const addRecipe = (recipe, user, cocktail) => {
-  console.log(recipe)
-  console.log(user)
-  console.log(cocktail)
+// Keep here or move to cocktails? (corresponding reducer is cocktails reducer)
+export const addRecipe = (recipe, user) => {
   const {name, spirit, ingredients, garnish, notes} = recipe
   const user_id = user.id
-  const cocktail_id = cocktail.id
 
   const data = {
     recipe: {
@@ -50,12 +53,9 @@ export const addRecipe = (recipe, user, cocktail) => {
       ingredients: ingredients,
       garnish: garnish,
       notes: notes,
-      votes: 0,
-      user_id: user_id,
-      cocktail_id: cocktail_id
+      user_id: user_id
     }
   }
-  console.log(data)
 
   return dispatch => {
     dispatch({type: "ADDING_NEW_RECIPE"})
@@ -68,14 +68,15 @@ export const addRecipe = (recipe, user, cocktail) => {
         body: JSON.stringify(data)
       })
       .then(resp => resp.json())
-      .then(recipes => {
-          if (recipes.error) {
-            console.log(recipes.error)
+      .then(data => {
+          if (data.error) {
+            console.log(data.error)
           }
           else {
-            console.log('success')
+            console.log(data)
             // show the user's new recipe!
-            // dispatch(getRecipes(recipes))
+            return dispatch(addNewRecipe(data))
+            
           }
       })
       .catch(console.log)
