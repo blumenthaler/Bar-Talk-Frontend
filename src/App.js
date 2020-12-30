@@ -11,10 +11,12 @@ import CocktailsContainer from './components/containers/AllCocktailsContainer.js
 import { getCurrentUser } from './actions/currentUser.js';
 import { connect } from 'react-redux';
 import {
-  BrowserRouter as Router,
+  // BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  withRouter
 } from 'react-router-dom';
+import RecipeInput from './components/recipes/RecipeInput';
 
 
 class App extends React.Component {
@@ -24,6 +26,8 @@ class App extends React.Component {
   }
 
   render () {
+    const {match} = this.props
+
     if (!this.props.currentUser) {
       return (
         <>
@@ -35,25 +39,29 @@ class App extends React.Component {
       )
     }
     else {
+      console.log(this.props)
     return (
-      <Router>
-        {
+        
           <div>
-            <NavBar />
+            <NavBar location={this.props.location}/>
             <Switch>
-              <Route exact path="/">
-                <ProfileContainer currentUser={this.props.currentUser}/>
+              <Route exact path="/" >
+                <ProfileContainer currentUser={this.props.currentUser} history={this.props.history} location={this.props.location} match={this.props.match} />
               </Route>
+
+              <Route exact path='/recipes/new' >
+                <RecipeInput currentUser={this.props.currentUser} history={this.props.history} location={this.props.location} match={this.props.match} cocktail={null} />
+              </Route>
+
               <Route exact path="/cocktails">
-                <CocktailsContainer currentUser={this.props.currentUser}/>
+                <CocktailsContainer currentUser={this.props.currentUser} history={this.props.history}/>
               </Route>
               {/* <Route exact path="/popular">
-                <PopularRecipesContainer />
+                <PopularRecipesContainer currentUser={this.props.currentUser} history={this.props.history}/>
               </Route> */}
             </Switch>
           </div>
-        }
-      </Router>
+        
     );
   }
   }
@@ -65,6 +73,6 @@ const mapStateToProps = ({ currentUser }) => {
   }
 } 
 
-export default connect(mapStateToProps, { getCurrentUser })(App);
+export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));
 
 // this.props.currentUser ? <><Logout /><CocktailsContainer currentUser={this.props.currentUser}/></> : <><Login /> <Signup /> </>
