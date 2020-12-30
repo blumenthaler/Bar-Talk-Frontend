@@ -13,14 +13,16 @@ const NavBar = ({ currentUser, loggedIn }) => {
                 <NavLink to="/">Home</NavLink>              
               </li>
               <li>
+                <NavLink to="/recipes/new">Add a New Recipe</NavLink>
+              </li>
+              <li>
                 <NavLink to="/cocktails">All Cocktails</NavLink>
               </li>
+
               <li>
                 <NavLink to="/popular">Popular Recipes</NavLink>
               </li>
-              <li>
-                <Logout />
-              </li>
+              {loggedIn ? <li><Logout /></li> : null }
             </ul>
           </nav>
           }
