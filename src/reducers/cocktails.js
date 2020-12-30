@@ -14,8 +14,27 @@ export default (state = {
                 cocktails: action.cocktails,
                 loading: false
             }
-        // case "GET_ALL_COCKTAILS":
-        //     return action.cocktails
+        case "ADDING_NEW_RECIPE":
+            return {
+                ...state,
+                loading: true
+            }
+        case "ADD_NEW_RECIPE":
+            const thisUser = action.recipe.included.find(data => data.type === 'user')
+            const thisCocktail = action.recipe.included.find(data => data.type === 'cocktail')
+
+            if (!state.cocktails.included.filter(data => data.type === "user").find(user => user.id === thisUser.id)) {
+                state.cocktails.included.push(thisUser)
+            }
+
+            if (!state.cocktails.data.find(cocktail => cocktail.id === thisCocktail.id)) {
+                state.cocktails.data.push(thisCocktail)
+            }
+            
+            state.cocktails.included.push(action.recipe.data)
+            console.log(state.cocktails)
+            console.log(action)
+            return state
         default:
             return state;
     }
