@@ -1,3 +1,5 @@
+// now I am only really using cocktails fetch; not this
+
 export default (state = {
     recipes: [],
     loading: false
@@ -14,13 +16,6 @@ export default (state = {
                 recipes: action.recipes,
                 loading: false
             }
-        case "ADDING_NEW_RECIPE":
-            return {
-                ...state,
-                loading: true
-            }
-        case "CREATE_NEW_RECIPE":
-            return state
         default:
             return state;
     }
