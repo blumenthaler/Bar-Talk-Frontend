@@ -5,7 +5,9 @@ import { login } from '../../actions/currentUser.js';
 
 
 
-const Login = ({loginForm, updateLoginForm, login}) => {
+const Login = props => {
+
+    const {loginForm, updateLoginForm, login, history} = props
 
     const handleChange = event => {
         const { name, value } = event.target
@@ -19,7 +21,9 @@ const Login = ({loginForm, updateLoginForm, login}) => {
     const handleSubmit = event => {
         event.preventDefault()
         login(loginForm)
+        history.push('/')
     }
+
     return (
         <form onSubmit={handleSubmit}>
             <input placeholder="Username" type="text" name="username" onChange={handleChange} value={loginForm.username}></input>
