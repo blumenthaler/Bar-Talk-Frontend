@@ -5,7 +5,7 @@ import { signup } from '../../actions/currentUser.js';
 
 
 
-const Signup = ({signupForm, updateSignupForm, signup}) => {
+const Signup = ({signupForm, updateSignupForm, signup, history}) => {
 
     const handleChange = event => {
         const { name, value } = event.target
@@ -19,6 +19,7 @@ const Signup = ({signupForm, updateSignupForm, signup}) => {
     const handleSubmit = event => {
         event.preventDefault()
         signup(signupForm)
+        history.push('/')
     }
     return (
         <form onSubmit={handleSubmit}>
