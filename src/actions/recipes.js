@@ -74,11 +74,6 @@ export const addRecipe = (recipe, user, history) => {
             console.log(obj.error)
           }
           else {
-            // added history push after login/signup
-            // Recipe does not show when being added..
-            // even with history.push
-            // from AllCocktails, a new cocktail is added... even with the same name & spirit; BUT it is displayed, unlike the other versions of the form
-            // please debug!
             dispatch(addNewRecipe(obj))
             dispatch(getAllCocktails())
             history.push('/')
