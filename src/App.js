@@ -6,17 +6,15 @@ import Signup from './components/users/Signup.js'
 import Logout from './components/users/Logout.js'
 import NavBar from './components/NavBar.js'
 import ProfileContainer from './components/containers/ProfileContainer.js'
-// import RecipesContainer from './containers/RecipesContainer.js'
 import CocktailsContainer from './components/containers/AllCocktailsContainer.js'
 import { getCurrentUser } from './actions/currentUser.js';
 import { connect } from 'react-redux';
 import {
-  // BrowserRouter as Router,
   Switch,
   Route,
   withRouter
 } from 'react-router-dom';
-import RecipeInput from './components/recipes/RecipeInput';
+import RecipeInput from './components/recipes/input/RecipeInput';
 
 
 class App extends React.Component {
@@ -72,5 +70,3 @@ const mapStateToProps = ({ currentUser }) => {
 } 
 
 export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));
-
-// this.props.currentUser ? <><Logout /><CocktailsContainer currentUser={this.props.currentUser}/></> : <><Login /> <Signup /> </>
