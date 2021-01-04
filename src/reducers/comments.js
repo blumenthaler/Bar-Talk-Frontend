@@ -9,7 +9,6 @@ export default (state = {
                 loading: true
             }
         case "ADD_COMMENTS":
-            console.log(state)
             return {
                 ...state,
                 comments: action.comments,
@@ -38,7 +37,14 @@ export default (state = {
                 ...state,
                 loading: false
             }
-          
+        case "DELETING_COMMENT":
+            return {
+                ...state,
+                loading: true
+            }
+        case "DELETE_COMMENT":
+            // delete the comment here
+            return state
         default:
             return state;
     }
