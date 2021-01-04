@@ -32,8 +32,6 @@ export default (state = {
             }
             
             state.cocktails.included.push(action.recipe.data)
-            console.log(state.cocktails)
-            console.log(action)
             return state
         default:
             return state;
