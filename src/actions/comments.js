@@ -16,6 +16,15 @@ export const addNewComment = comment => {
   }
 }
 
+export const deletedComment = comment => {
+  return {
+    type: "DELETE_COMMENT",
+    comment
+  }
+}
+
+
+
 //async
 // get all comments
 export const getAllComments = () => {
@@ -70,5 +79,27 @@ export const addComment = comment => {
           }
       })
       .catch(console.log)
+  }
+}
+
+export const deleteComment = comment => {
+  return dispatch => {
+  dispatch({type: "DELETING_COMMENT"})
+    return fetch(`${DOMAIN_URL}/api/v1/comments/` + comment.id, {
+        credentials: "include",
+        method: "DELETE",
+    })
+    .then(resp => resp.json())
+    .then(r => {
+      if (r.error) {
+        console.log(r.error)
+      }
+      else {
+        console.log(r)
+        dispatch(deletedComment(r))
+        dispatch(getAllCocktails())
+      }
+    })
+    .catch(console.log)
   }
 }
