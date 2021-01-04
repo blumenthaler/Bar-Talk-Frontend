@@ -25,11 +25,8 @@ class RecipesContainer extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         const filteredRecipes = this.props.recipes.filter(recipe => recipe.relationships.user.data.id === this.props.user.id)
-
-
-        
+  
         return (
             <div>
                 <Recipes user={this.props.user} recipes={filteredRecipes} currentUser={this.props.currentUser} />
