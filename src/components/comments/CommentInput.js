@@ -5,7 +5,7 @@ export default class CommentInput extends React.Component {
     state = {
         content: "",
         recipe_id: this.props.recipe.id,
-        user_id: this.props.user.data.id
+        user_id: this.props.user.data.id,
     }
 
     handleOnChange = event => {
