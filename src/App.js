@@ -33,15 +33,13 @@ class App extends React.Component {
         <>
         <h2>Welcome to Bar Talk!</h2>
         <h2>Login or Signup</h2>
-        <Login />
-        <Signup />
+        <Login history={this.props.history}/>
+        <Signup history={this.props.history}/>
         </>
       )
     }
     else {
-      console.log(this.props)
     return (
-        
           <div>
             <NavBar location={this.props.location}/>
             <Switch>
