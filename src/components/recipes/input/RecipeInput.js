@@ -17,8 +17,8 @@ class RecipeInput extends React.Component {
     handleOnSubmit = event => {
         event.preventDefault()
         if (!!this.props.cocktail) {
-            let name = document.getElementById(`${this.props.cocktail.id}_name`).innerText
-            let spirit = document.getElementById(`${this.props.cocktail.id}_spirit`).innerText
+            let name = document.getElementById(`${this.props.cocktail.id}_name`).innerText.split('Name: ')[1]
+            let spirit = document.getElementById(`${this.props.cocktail.id}_spirit`).innerText.split('Spirit: ')[1]
             let sendable = {
                 ...this.state,
                 name,
