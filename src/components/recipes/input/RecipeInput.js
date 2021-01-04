@@ -1,6 +1,7 @@
 import React from 'react';
+import {RecipeWithCocktail} from './RecipeWithCocktail.js'
 import {connect} from 'react-redux';
-import {addRecipe} from '../../actions/recipes.js'
+import {addRecipe} from '../../../actions/recipes.js'
 
 class RecipeInput extends React.Component {
     
@@ -58,7 +59,7 @@ class RecipeInput extends React.Component {
             <>
             <form onSubmit={(event) => this.handleOnSubmit(event)}> 
                 {!this.props.cocktail ? <><input type="text" name="name" onChange={this.handleOnChange} value={this.state.name}/><br />
-                <input type="text" name="spirit" onChange={this.handleOnChange} value={this.state.spirit}/><br /></> : <><div id={this.props.cocktail.id + '_name'} >{this.props.cocktail.attributes.name}</div><div id={this.props.cocktail.id + '_spirit'}>{this.props.cocktail.attributes.spirit.charAt(0).toUpperCase() + this.props.cocktail.attributes.spirit.slice(1)}</div></>}
+                <input type="text" name="spirit" onChange={this.handleOnChange} value={this.state.spirit}/><br /></> : <RecipeWithCocktail cocktail={this.props.cocktail}/>}
                 
                 <input type="text" name="ingredients" onChange={this.handleOnChange} value={this.state.ingredients}/><br />
                 <input type="text" name="garnish" onChange={this.handleOnChange} value={this.state.garnish}/><br />
