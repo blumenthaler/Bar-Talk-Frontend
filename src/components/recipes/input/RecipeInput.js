@@ -33,7 +33,7 @@ class RecipeInput extends React.Component {
                 notes: "",
                 votes: 0
             })
-            
+            this.props.triggerRecipeForm()
         }
         else {
             this.props.addRecipe(this.state, this.props.currentUser.data, this.props.history)  
@@ -44,7 +44,8 @@ class RecipeInput extends React.Component {
                 garnish: "",
                 notes: "",
                 votes: 0
-            })   
+            })
+            this.props.triggerRecipeForm()   
         } 
     }
 
