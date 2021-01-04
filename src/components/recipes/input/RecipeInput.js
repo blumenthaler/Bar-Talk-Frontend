@@ -58,12 +58,12 @@ class RecipeInput extends React.Component {
         return (
             <>
             <form onSubmit={(event) => this.handleOnSubmit(event)}> 
-                {!this.props.cocktail ? <><label>Name: </label><input type="text" name="name" onChange={this.handleOnChange} value={this.state.name}/><br />
+                {!this.props.cocktail ? <><h1>Add a New Recipe!</h1><label>Name: </label><input type="text" name="name" onChange={this.handleOnChange} value={this.state.name}/><br />
                 <label>Spirit: </label><input type="text" name="spirit" onChange={this.handleOnChange} value={this.state.spirit}/><br /></> : <RecipeWithCocktail cocktail={this.props.cocktail}/>}
                 
                 <label>Ingredients: </label><input type="text" name="ingredients" onChange={this.handleOnChange} value={this.state.ingredients}/><br />
                 <label>Garnish: </label><input type="text" name="garnish" onChange={this.handleOnChange} value={this.state.garnish}/><br />
-                <label>Notes: </label><input type="text" name="notes" onChange={this.handleOnChange} value={this.state.notes}/><br />
+                <label>Notes: </label><input type="text" name="notes" onChange={this.handleOnChange} value={this.state.notes}/><br /><br />
                 <input type="submit"/>
             </form>
             <br />
