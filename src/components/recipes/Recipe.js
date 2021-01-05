@@ -1,7 +1,7 @@
 import React from 'react'
 import CommentsContainer from '../containers/CommentsContainer.js'
 import { EditRecipeButton } from './edit/EditRecipeButton.js'
-import {EditRecipeForm} from './edit/EditRecipeForm'
+import EditRecipeForm from './edit/EditRecipeForm'
 
 class Recipe extends React.Component {
         
@@ -27,7 +27,7 @@ class Recipe extends React.Component {
             if (this.state.isEditing) {
                 return (
                     <>
-                        <EditRecipeForm recipe={this.props.recipe} triggerEditingForm={this.triggerEditingForm}/>
+                        <EditRecipeForm editingRecipe={this.props.editingRecipe} recipe={this.props.recipe} triggerEditingForm={this.triggerEditingForm} />
                     </>
                 )
             }
