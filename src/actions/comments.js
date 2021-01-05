@@ -95,8 +95,7 @@ export const deleteComment = comment => {
         console.log(r.error)
       }
       else {
-        console.log(r)
-        dispatch(deletedComment(r))
+        dispatch(deletedComment(comment))
         dispatch(getAllCocktails())
       }
     })
