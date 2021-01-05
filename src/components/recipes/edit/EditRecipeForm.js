@@ -16,18 +16,10 @@ export default class EditRecipeForm extends React.Component {
         }
     }
 
-    // pushHistory = () => {
-    //     const history = useHistory()
-    //     const match = useRouteMatch()
-    //     console.log(match)
-    //     console.log(history)
-    // }
-
     handleOnSubmit = event => {
         event.preventDefault()
         this.props.editingRecipe(this.props.recipe.id, this.state)
         this.props.triggerEditingForm()
-        
     }
 
     handleOnChange = event => {
@@ -37,7 +29,6 @@ export default class EditRecipeForm extends React.Component {
     }
 
     render() {
-        // this.pushHistory()
         const { spirit } = this.props.recipe.attributes
         return (
             <form onSubmit={this.handleOnSubmit}>
@@ -55,5 +46,3 @@ export default class EditRecipeForm extends React.Component {
         )
     }
 }
-
-{/* <button onClick={() => this.props.triggerEditingForm()}>Cancel</button> */}
