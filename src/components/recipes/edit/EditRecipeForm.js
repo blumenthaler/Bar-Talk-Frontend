@@ -1,4 +1,5 @@
 import React from 'react'
+import {CancelEditButton} from './CancelEditButton.js'
 
 export default class EditRecipeForm extends React.Component {
     
@@ -15,6 +16,13 @@ export default class EditRecipeForm extends React.Component {
         }
     }
 
+    // pushHistory = () => {
+    //     const history = useHistory()
+    //     const match = useRouteMatch()
+    //     console.log(match)
+    //     console.log(history)
+    // }
+
     handleOnSubmit = event => {
         event.preventDefault()
         this.props.editingRecipe(this.props.recipe.id, this.state)
@@ -29,6 +37,7 @@ export default class EditRecipeForm extends React.Component {
     }
 
     render() {
+        // this.pushHistory()
         const { spirit } = this.props.recipe.attributes
         return (
             <form onSubmit={this.handleOnSubmit}>
@@ -41,9 +50,10 @@ export default class EditRecipeForm extends React.Component {
 
                 <label>Notes: </label><textarea onChange={this.handleOnChange} name="notes" value={this.state.notes} /><br />
                 <input type="submit" value="Edit"></input><br />
-                <button onClick={() => this.props.triggerEditingForm()}>Cancel</button><br /><br />
+                <CancelEditButton triggerEditingForm={this.props.triggerEditingForm}/><br /><br />
             </form>
         )
     }
 }
 
+{/* <button onClick={() => this.props.triggerEditingForm()}>Cancel</button> */}
