@@ -26,20 +26,22 @@ class CommentsContainer extends React.Component {
         this.props.getAllComments()
     }
 
+
     render() {
-        console.log(this.props)
-        if ((this.props.comments.loading) || (!this.props.comments.comments.data)) {
+        if ((this.props.comments.loading) || (!this.props.comments) || (!this.props.included)) {
             return (<h2>Loading...</h2>)
         }
         else {
   
         const users = this.props.included.filter(data => data.type === "user")
-        const comments = this.props.comments.comments.data.filter(comment => (this.props.recipe.relationships.comments.data.map(comment => comment.id)).includes(comment.id.toString()))
+        const filtered = this.props.comments.filter(comment => (this.props.recipe.relationships.comments.data.map(data => data.id)).includes(comment.id))
+
         
+  
             return (
                 <>
                 <div>
-                    <Comments comments={comments}
+                    <Comments comments={filtered}
                     users={users} currentUser={this.props.currentUser} deleteComment={this.props.deleteComment} /><br />
                     {!this.state.showingCommentForm ? <NewCommentButton triggerCommentForm={this.triggerCommentForm}/> : <CommentInput user={this.props.currentUser} recipe={this.props.recipe} triggerCommentForm={this.triggerCommentForm} addComment={this.props.addComment}/> }
                 </div>
@@ -51,8 +53,7 @@ class CommentsContainer extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        comments: state.comments,
-        included: state.comments.comments.included,
+        included: state.comments.comments.included
     }
 }
 
