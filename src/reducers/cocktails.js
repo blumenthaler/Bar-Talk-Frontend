@@ -33,6 +33,19 @@ export default (state = {
             
             state.cocktails.included.push(action.recipe.data)
             return state
+            case "EDITING_RECIPE":
+                return {
+                    ...state,
+                    loading: true
+                }
+            case "EDIT_RECIPE":
+                const index = state.cocktails.included.findIndex(data => ((data.type === 'recipe') && (data.id === action.recipe.data.id)))
+
+                state.cocktails.included.splice(index, 1, action.recipe.data)
+                return {
+                    ...state,
+                    loading:false
+                }
         default:
             return state;
     }
