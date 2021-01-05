@@ -1,5 +1,15 @@
+import { useHistory, useRouteMatch } from 'react-router-dom'
+
 export const EditRecipeButton = props => {
+    const history = useHistory()
+    const match = useRouteMatch()
+    const handleClick = () => {
+        props.triggerEditingForm()
+        history.push(`${match.url}recipes/${props.recipe.id}/edit`)
+    }
+    // console.log(props.recipe.id)
+    // console.log(`${match.url}recipes/${props.recipe.id}/edit`)
     return (
-        <button onClick={() => props.triggerEditingForm()}>Edit Recipe</button>
+        <button onClick={() => handleClick()}>Edit Recipe</button>
     )
 }
