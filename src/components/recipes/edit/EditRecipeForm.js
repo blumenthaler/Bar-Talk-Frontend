@@ -1,11 +1,49 @@
+import React from 'react'
 
+export default class EditRecipeForm extends React.Component {
+    
+    constructor(props) {
+        super(props)
+        const {name, spirit, ingredients, garnish, notes, votes} = props.recipe.attributes
+        this.state = {
+            name,
+            spirit,
+            ingredients,
+            garnish,
+            notes,
+            votes
+        }
+    }
 
-export const EditRecipeForm = props => {
-    return (
-        <form>
-            <input type="text"></input>
-            <input type="submit" value="Edit"></input>
-            <button onClick={() => props.triggerEditingForm()}>Cancel</button>
-        </form>
-    )
+    handleOnSubmit = event => {
+        event.preventDefault()
+        this.props.editingRecipe(this.props.recipe.id, this.state)
+        this.props.triggerEditingForm()
+        
+    }
+
+    handleOnChange = event => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
+    render() {
+        const { spirit } = this.props.recipe.attributes
+        return (
+            <form onSubmit={this.handleOnSubmit}>
+                <div id={this.props.recipe.id + '_name_edit'}>Name: {this.props.recipe.attributes.name}</div>
+                <div id={this.props.recipe.id + '_spirit_edit'}>Spirit: {spirit.charAt(0).toUpperCase() + spirit.slice(1)}</div><br />
+
+                <label>Ingredients: </label><textarea type="text" onChange={this.handleOnChange} name="ingredients" value={this.state.ingredients} /><br />
+
+                <label>Garnish: </label><input type="text" onChange={this.handleOnChange} name="garnish" value={this.state.garnish}></input><br />
+
+                <label>Notes: </label><textarea onChange={this.handleOnChange} name="notes" value={this.state.notes} /><br />
+                <input type="submit" value="Edit"></input><br />
+                <button onClick={() => this.props.triggerEditingForm()}>Cancel</button><br /><br />
+            </form>
+        )
+    }
 }
+
