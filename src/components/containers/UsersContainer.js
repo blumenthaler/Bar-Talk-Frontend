@@ -22,6 +22,7 @@ class UsersContainer extends React.Component {
                     currentUser={this.props.currentUser}
                     recipes={filteredRecipes}
                     history={this.props.history}
+                    comments={this.props.comments}
                     />
                 )
             }
@@ -42,6 +43,7 @@ class UsersContainer extends React.Component {
                         currentUser={this.props.currentUser}
                         recipes={filteredRecipes}
                         history={this.props.history}
+                        comments={this.props.comments}
                     />
                 )
             }

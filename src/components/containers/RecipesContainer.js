@@ -29,7 +29,7 @@ class RecipesContainer extends React.Component {
   
         return (
             <div>
-                <Recipes user={this.props.user} recipes={filteredRecipes} currentUser={this.props.currentUser} />
+                <Recipes user={this.props.user} recipes={filteredRecipes} currentUser={this.props.currentUser} comments={this.props.comments}/>
 
                 {this.state.showingRecipeForm ? <RecipeInput currentUser={this.props.currentUser} addRecipe={this.props.addRecipe} cocktail={this.props.cocktail} history={this.props.history} triggerRecipeForm={this.triggerRecipeForm}/> : 
                 <NewRecipeButton currentUser={this.props.currentUser} addRecipe={this.props.addRecipe} cocktail={this.props.cocktail} history={this.props.history} triggerRecipeForm={this.triggerRecipeForm}/>}

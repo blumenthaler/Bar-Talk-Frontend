@@ -12,7 +12,7 @@ const User = props => {
         return (
             <>
                 <h4>{title}</h4> 
-                <RecipesContainer recipes={props.recipes} user={props.user} currentUser={props.currentUser} cocktail={props.cocktail} history={props.history} />
+                <RecipesContainer recipes={props.recipes} user={props.user} currentUser={props.currentUser} cocktail={props.cocktail} history={props.history} comments={props.comments} />
             </>
         )
 }

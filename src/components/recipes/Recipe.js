@@ -15,7 +15,7 @@ const Recipe = props => {
                 <br />
                 {attributes.votes}
                 <br />
-                <CommentsContainer recipe={props.recipe} currentUser={props.currentUser}/>
+                <CommentsContainer recipe={props.recipe} currentUser={props.currentUser} comments={props.comments}/>
                 <br /><br />
             </li>
         )
