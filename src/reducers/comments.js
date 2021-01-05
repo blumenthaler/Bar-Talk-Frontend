@@ -43,8 +43,16 @@ export default (state = {
                 loading: true
             }
         case "DELETE_COMMENT":
-            // delete the comment here
-            return state
+            const filteredComments = state.comments.data.filter(comment => comment.id !== action.comment.id)
+            return {
+                ...state,
+                comments: {
+                    ...state.comments,
+                    data: [filteredComments]
+                },
+                loading: false
+            }
+         
         default:
             return state;
     }
