@@ -27,16 +27,21 @@ class ProfileContainer extends React.Component {
         return filteredCocktails
     }
 
+    getComments() {
+        return this.props.cocktails.cocktails.included.filter(data => data.type === "comment")
+    }
+
     render() {
         if ((this.props.loading) || (!this.props.cocktails.cocktails.data)) {
             return (<h2>Loading...</h2>)
         }
         else {
             const filteredCocktails = this.getFilteredCocktails()
+            const comments = this.getComments()
             return (
                 <>
                 <h1>Your Recipes</h1>
-                <Cocktails cocktails={filteredCocktails} currentUser={this.props.currentUser} profile={this.state.profile} history={this.props.history}/>
+                <Cocktails cocktails={filteredCocktails} currentUser={this.props.currentUser} profile={this.state.profile} history={this.props.history} comments={comments}/>
                 </>
             )
         }
