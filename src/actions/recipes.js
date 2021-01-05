@@ -121,7 +121,6 @@ export const editingRecipe = (id, recipe) => {
         else {
           dispatch(editRecipe(obj))
           dispatch(getAllCocktails())
-          
         }
     })
     .catch(console.log)
