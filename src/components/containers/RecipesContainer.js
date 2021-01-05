@@ -3,7 +3,7 @@ import currentUser from '../../reducers/currentUser.js';
 import { connect } from 'react-redux';
 import Recipes from '../recipes/Recipes.js';
 import RecipeInput from '../recipes/input/RecipeInput.js';
-import { addRecipe } from '../../actions/recipes.js';
+import { addRecipe, editingRecipe } from '../../actions/recipes.js';
 import { NewRecipeButton } from '../recipes/input/NewRecipeButton.js';
 
 
@@ -29,7 +29,7 @@ class RecipesContainer extends React.Component {
   
         return (
             <div>
-                <Recipes user={this.props.user} recipes={filteredRecipes} currentUser={this.props.currentUser} comments={this.props.comments}/>
+                <Recipes user={this.props.user} recipes={filteredRecipes} currentUser={this.props.currentUser} comments={this.props.comments} editingRecipe={this.props.editingRecipe} />
 
                 {this.state.showingRecipeForm ? <RecipeInput currentUser={this.props.currentUser} addRecipe={this.props.addRecipe} cocktail={this.props.cocktail} history={this.props.history} triggerRecipeForm={this.triggerRecipeForm}/> : 
                 <NewRecipeButton currentUser={this.props.currentUser} addRecipe={this.props.addRecipe} cocktail={this.props.cocktail} history={this.props.history} triggerRecipeForm={this.triggerRecipeForm}/>}
@@ -39,4 +39,4 @@ class RecipesContainer extends React.Component {
 }
 
 
-export default connect(null, {addRecipe})(RecipesContainer)
+export default connect(null, {addRecipe, editingRecipe})(RecipesContainer)
