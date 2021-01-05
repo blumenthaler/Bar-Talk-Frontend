@@ -40,7 +40,7 @@ class ProfileContainer extends React.Component {
             const comments = this.getComments()
             return (
                 <>
-                <h1>Your Recipes</h1>
+                <h1>{this.props.currentUser.data.attributes.username} - Your Recipes</h1>
                 <Cocktails cocktails={filteredCocktails} currentUser={this.props.currentUser} profile={this.state.profile} history={this.props.history} comments={comments}/>
                 </>
             )
