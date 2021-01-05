@@ -7,8 +7,6 @@ export const EditRecipeButton = props => {
         props.triggerEditingForm()
         history.push(`${match.url}recipes/${props.recipe.id}/edit`)
     }
-    // console.log(props.recipe.id)
-    // console.log(`${match.url}recipes/${props.recipe.id}/edit`)
     return (
         <button onClick={() => handleClick()}>Edit Recipe</button>
     )
