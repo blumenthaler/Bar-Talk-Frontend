@@ -10,13 +10,13 @@ const NavBar = ({ currentUser, loggedIn }) => {
           <nav>
             <ul>
               <li>
-                <NavLink to="/">Home</NavLink>              
+                <NavLink to="/profile/">Home</NavLink>              
               </li>
               <li>
                 <NavLink to="/recipes/new">Add a New Recipe</NavLink>
               </li>
               <li>
-                <NavLink to="/cocktails">All Cocktails</NavLink>
+                <NavLink to="/cocktails/">All Cocktails</NavLink>
               </li>
 
               {/* <li>
