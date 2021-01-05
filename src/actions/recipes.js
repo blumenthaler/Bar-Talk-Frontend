@@ -16,6 +16,13 @@ export const addNewRecipe = recipe => {
   }
 }
 
+export const editRecipe = recipe => {
+  return {
+    type: "EDIT_RECIPE",
+    recipe
+  }
+}
+
 //async
 // get all recipes
 // currently unused
@@ -82,3 +89,41 @@ export const addRecipe = (recipe, user, history) => {
       .catch(console.log)
   }
 }
+
+export const editingRecipe = (id, recipe) => {
+  const {name, spirit, ingredients, garnish, notes, votes} = recipe
+  const data = {
+    recipe: {
+      id,
+      name,
+      spirit,
+      ingredients,
+      garnish,
+      notes,
+      votes
+    }
+  }
+  return dispatch => {
+    dispatch({type: 'EDITING_RECIPE'})
+    return fetch(`${DOMAIN_URL}/api/v1/recipes/` + id, {
+      credentials: "include",
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    .then(resp => resp.json())
+    .then(obj => {
+        if (obj.error) {
+          console.log(obj.error)
+        }
+        else {
+          dispatch(editRecipe(obj))
+          dispatch(getAllCocktails())
+          
+        }
+    })
+    .catch(console.log)
+  }
+} 
