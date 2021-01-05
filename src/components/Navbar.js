@@ -19,9 +19,9 @@ const NavBar = ({ currentUser, loggedIn }) => {
                 <NavLink to="/cocktails">All Cocktails</NavLink>
               </li>
 
-              <li>
+              {/* <li>
                 <NavLink to="/popular">Popular Recipes</NavLink>
-              </li>
+              </li> */}
               {loggedIn ? <li><Logout /></li> : null }
             </ul>
           </nav>
