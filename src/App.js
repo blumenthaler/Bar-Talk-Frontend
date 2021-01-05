@@ -52,6 +52,7 @@ class App extends React.Component {
               <Route exact path="/cocktails">
                 <CocktailsContainer currentUser={this.props.currentUser} history={this.props.history}/>
               </Route>
+              
               {/* <Route exact path="/popular">
                 <PopularRecipesContainer currentUser={this.props.currentUser} history={this.props.history}/>
               </Route> */}
