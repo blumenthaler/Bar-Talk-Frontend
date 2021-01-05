@@ -11,9 +11,10 @@ export default class Comment extends React.Component {
     return (
             <>
                 <li>
-                    {this.props.user.attributes.username}: "{this.props.comment.attributes.content}"
+                    {this.props.user.attributes.username}: "{this.props.comment.attributes.content}" 
+                    {this.props.user.id === this.props.currentUser.data.id ? <button onClick={event => this.handleDelete(event)}  >X</button> : null}
                 </li>
-                {this.props.user.id === this.props.currentUser.data.id ? <button onClick={event => this.handleDelete(event)}  >Delete</button> : null}
+                
             </>
         )
     }
