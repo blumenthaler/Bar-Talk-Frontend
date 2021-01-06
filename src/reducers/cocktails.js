@@ -49,6 +49,15 @@ export default (state = {
                     ...state,
                     loading:false
                 }
+            case "DELETING_RECIPE":
+                return {
+                    ...state,
+                    loading: true
+                }
+            case "DELETE_RECIPE":
+                console.log(state)
+                console.log(action)
+                return state
         default:
             return state;
     }
