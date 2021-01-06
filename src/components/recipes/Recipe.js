@@ -45,7 +45,7 @@ class Recipe extends React.Component {
                         {attributes.votes}
                         <br />
                         {currentUserId === recipeUserId ? <><EditRecipeButton recipe={this.props.recipe} triggerEditingForm={this.triggerEditingForm}/><br /><button>Delete Recipe</button></> : null}
-                        <CommentsContainer recipe={this.props.recipe} currentUser={this.props.currentUser} comments={this.props.comments}/>
+                        <CommentsContainer recipe={this.props.recipe} history={this.props.history} match={this.props.match} currentUser={this.props.currentUser} comments={this.props.comments}/>
                         <br /><br />
                     </li>
                 )
