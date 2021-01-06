@@ -21,7 +21,7 @@ const Login = props => {
     const handleSubmit = event => {
         event.preventDefault()
         login(loginForm)
-        history.push('/')
+        history.push('/profile/')
     }
 
     return (
