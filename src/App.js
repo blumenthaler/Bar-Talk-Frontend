@@ -8,6 +8,7 @@ import NavBar from './components/NavBar.js'
 import ProfileContainer from './components/containers/ProfileContainer.js'
 import CocktailsContainer from './components/containers/AllCocktailsContainer.js'
 import { getCurrentUser } from './actions/currentUser.js';
+import RecipesContainer from './components/containers/RecipesContainer.js';
 import { connect } from 'react-redux';
 import {
   Switch,
@@ -46,7 +47,7 @@ class App extends React.Component {
               </Route>
 
               <Route exact path='/recipes/new' >
-                <RecipeInput currentUser={this.props.currentUser} history={this.props.history} location={this.props.location} match={this.props.match} cocktail={null} />
+                <RecipesContainer currentUser={this.props.currentUser} history={this.props.history} location={this.props.location} match={this.props.match} cocktail={null} />
               </Route>
 
               <Route path="/cocktails/">
