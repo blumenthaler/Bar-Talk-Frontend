@@ -1,4 +1,5 @@
 import React from 'react'
+import { CancelCommentButton } from './CancelCommentButton'
 
 export default class CommentInput extends React.Component {
 
@@ -32,7 +33,7 @@ export default class CommentInput extends React.Component {
             <form onSubmit={event => this.handleOnSubmit(event)}>
                 <input type='text' name='content' onChange={event => this.handleOnChange(event)}></input><br />
                 <input type="submit" value="Comment"></input><br />
-                <button onClick={() => this.props.triggerCommentForm()}>Cancel</button>
+                <CancelCommentButton triggerCommentForm={this.props.triggerCommentForm} />
             </form>
             </>
         )
