@@ -1,5 +1,4 @@
 import React from 'react';
-import currentUser from '../../reducers/currentUser.js';
 import { connect } from 'react-redux';
 import Recipes from '../recipes/Recipes.js';
 import RecipeInput from '../recipes/input/RecipeInput.js';
