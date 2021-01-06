@@ -16,6 +16,7 @@ class AllCocktailsContainer extends React.Component {
         this.props.getAllCocktails()
     }
 
+    // get rid of this
     getComments() {
         return this.props.cocktails.cocktails.included.filter(data => data.type === 'comment')
     }
@@ -25,12 +26,17 @@ class AllCocktailsContainer extends React.Component {
             return (<h2>Loading...</h2>)
         }
         else {
+
+            // get rid of this
             const comments = this.getComments()
             return (
                 <>
                 <h1>All Cocktails</h1>
                 <div>
-                    <Cocktails cocktails={this.props.cocktails.cocktails.data} loading={this.props.cocktails.loading} currentUser={this.props.currentUser} profile={this.state.profile} comments={comments}/>
+                    <Cocktails cocktails={this.props.cocktails.cocktails.data} loading={this.props.cocktails.loading} currentUser={this.props.currentUser} profile={this.state.profile} 
+                    
+                    // get rid of this
+                    comments={comments}/>
                 </div>
                 </>
             )
