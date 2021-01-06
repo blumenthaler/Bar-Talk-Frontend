@@ -83,7 +83,7 @@ export const addRecipe = (recipe, user, history) => {
           else {
             dispatch(addNewRecipe(obj))
             dispatch(getAllCocktails())
-            history.push('/')
+            // history.push('/')
           }
       })
       .catch(console.log)
