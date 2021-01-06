@@ -5,7 +5,7 @@ export const CancelEditButton = props => {
     const match = useRouteMatch()
     const handleClick = () => {
         props.triggerEditingForm()
-        history.push(`${match.url}`)
+        history.push(`${match.url}/`)
         // console.log(match.url)
     }
     return (
