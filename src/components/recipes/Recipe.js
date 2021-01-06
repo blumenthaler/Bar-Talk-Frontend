@@ -19,6 +19,11 @@ class Recipe extends React.Component {
                 }
             })
         }
+
+        handleDelete = event => {
+            event.preventDefault()
+            this.props.deleteRecipe(this.props.recipe)
+        }
         
         render() {
             const currentUserId = this.props.currentUser.data.id
@@ -44,7 +49,7 @@ class Recipe extends React.Component {
                         <br />
                         {attributes.votes}
                         <br />
-                        {currentUserId === recipeUserId ? <><EditRecipeButton recipe={this.props.recipe} triggerEditingForm={this.triggerEditingForm}/><br /><button>Delete Recipe</button></> : null}
+                        {currentUserId === recipeUserId ? <><EditRecipeButton recipe={this.props.recipe} triggerEditingForm={this.triggerEditingForm}/><br /><button onClick={event => this.handleDelete(event)}>Delete Recipe</button></> : null}
                         <CommentsContainer recipe={this.props.recipe} history={this.props.history} match={this.props.match} currentUser={this.props.currentUser} comments={this.props.comments}/>
                         <br /><br />
                     </li>
