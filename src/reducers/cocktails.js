@@ -14,6 +14,9 @@ export default (state = {
                 cocktails: action.cocktails,
                 loading: false
             }
+        // I really don't know if I want to keep this here
+        // I think I need to move it to reducers/recipes
+        // and then when rendering recipes, access THIS state (state.recipes)
         case "ADDING_NEW_RECIPE":
             return {
                 ...state,
