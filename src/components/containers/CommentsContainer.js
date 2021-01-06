@@ -51,7 +51,8 @@ class CommentsContainer extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        included: state.comments.comments.included
+        included: state.comments.comments.included,
+        test: state.comments
     }
 }
 
