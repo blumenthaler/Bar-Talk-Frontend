@@ -5,8 +5,7 @@ export const CancelInputButton = props => {
     const match = useRouteMatch()
     const handleClick = () => {
         props.triggerRecipeForm()
-        history.push(`${match.url}`)
-        // console.log(match.url)
+        history.push(`${match.url}/`)
     }
     return (
         <button onClick={() => handleClick()}>Cancel</button>
