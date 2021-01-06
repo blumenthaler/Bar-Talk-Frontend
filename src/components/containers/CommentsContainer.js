@@ -31,7 +31,6 @@ class CommentsContainer extends React.Component {
             return (<h2>Loading...</h2>)
         }
         else {
-  
         const users = this.props.included.filter(data => data.type === "user")
         const filtered = this.props.comments.filter(comment => (this.props.recipe.relationships.comments.data.map(data => data.id)).includes(comment.id))
             return (
