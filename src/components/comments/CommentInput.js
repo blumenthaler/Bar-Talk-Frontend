@@ -28,7 +28,6 @@ export default class CommentInput extends React.Component {
     }
 
     render() {
-        console.log(this.props.match)
         return (
             <>
             <form onSubmit={event => this.handleOnSubmit(event)}>
