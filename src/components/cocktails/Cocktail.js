@@ -5,12 +5,17 @@ class Cocktail extends React.Component {
 
     render() {
         const {attributes} = this.props.cocktail
-        return (
-            <li>
-                {attributes.name} - {attributes.spirit.charAt(0).toUpperCase() + attributes.spirit.slice(1)}
-                <UsersContainer cocktail={this.props.cocktail} currentUser={this.props.currentUser} profile={this.props.profile} history={this.props.history} comments={this.props.comments}/>
-            </li>
-        )
+        
+        if (this.props.cocktail.relationships.recipes.data.length === 0) {return null}
+
+        else {
+            return (
+                <li>
+                    {attributes.name} - {attributes.spirit.charAt(0).toUpperCase() + attributes.spirit.slice(1)}
+                    <UsersContainer cocktail={this.props.cocktail} currentUser={this.props.currentUser} profile={this.props.profile} history={this.props.history} comments={this.props.comments}/>
+                </li>
+            )
+        }
     }
 }
 
