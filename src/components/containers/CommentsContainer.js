@@ -16,9 +16,11 @@ class CommentsContainer extends React.Component {
     }
 
     triggerCommentForm = () => {
-        this.setState({
-            showingCommentForm: !this.state.showingCommentForm,
-            isEmptyState: !this.state.isEmptyState
+        this.setState(prevState => {
+            return {
+                showingCommentForm: !prevState.showingCommentForm,
+                isEmptyState: !prevState.isEmptyState
+            }
         })
     }
 
