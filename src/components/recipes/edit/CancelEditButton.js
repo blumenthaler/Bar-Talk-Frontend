@@ -6,7 +6,6 @@ export const CancelEditButton = props => {
     const handleClick = () => {
         props.triggerEditingForm()
         history.push(`${match.url}/`)
-        // console.log(match.url)
     }
     return (
         <button onClick={() => handleClick()}>Cancel</button>
