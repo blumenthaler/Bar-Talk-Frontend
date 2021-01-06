@@ -24,10 +24,11 @@ export default class CommentInput extends React.Component {
             user_id: this.props.user.data.id
         })
         this.props.triggerCommentForm()
+        this.props.history.push(`${this.props.match.url}/`)
     }
 
     render() {
-        
+        console.log(this.props.match)
         return (
             <>
             <form onSubmit={event => this.handleOnSubmit(event)}>
