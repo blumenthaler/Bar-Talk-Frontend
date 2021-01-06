@@ -1,5 +1,4 @@
 import React from 'react'
-import currentUser from '../../reducers/currentUser.js'
 import Cocktail from './Cocktail.js'
 
 class Cocktails extends React.Component {
@@ -13,7 +12,13 @@ class Cocktails extends React.Component {
         else {
             return (
                 <ol>
-                    {this.props.cocktails.map(cocktail => <Cocktail key={cocktail.id} cocktail={cocktail}  currentUser={this.props.currentUser} profile={this.props.profile} history={this.props.history} comments={this.props.comments} />)}
+                    {this.props.cocktails.map(cocktail => <Cocktail key={cocktail.id} cocktail={cocktail}  currentUser={this.props.currentUser} profile={this.props.profile} 
+                    
+                    // do I need this here?
+                    history={this.props.history} 
+                    
+                    //get rid of this
+                    comments={this.props.comments} />)}
                     {/* <Cocktail /> */}
                 </ol>
             )

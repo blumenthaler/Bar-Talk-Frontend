@@ -12,7 +12,14 @@ class Cocktail extends React.Component {
             return (
                 <li>
                     {attributes.name} - {attributes.spirit.charAt(0).toUpperCase() + attributes.spirit.slice(1)}
-                    <UsersContainer cocktail={this.props.cocktail} currentUser={this.props.currentUser} profile={this.props.profile} history={this.props.history} comments={this.props.comments}/>
+                    
+                    <UsersContainer cocktail={this.props.cocktail} currentUser={this.props.currentUser} profile={this.props.profile} 
+                    
+                    // do I need this here?
+                    history={this.props.history} 
+                    
+                    // get rid of this
+                    comments={this.props.comments}/>
                 </li>
             )
         }
