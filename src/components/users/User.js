@@ -15,7 +15,23 @@ const User = props => {
         return (
             <>
                 <h4>{title}</h4> 
-                <RecipesContainer recipes={props.recipes} user={props.user} currentUser={props.currentUser} cocktail={props.cocktail} history={history} match={match} comments={props.comments} />
+                <RecipesContainer 
+                
+                // these make sense to me to keep being passed
+                // this way, I can make comparisons/filter the included data when I getAllRecipes in the container 
+                user={props.user} 
+                currentUser={props.currentUser} 
+                cocktail={props.cocktail} 
+
+                // do I need to incoporate these here?
+                // investigate
+                history={history} match={match} 
+
+                // get recipes from getAllRecipes in the container; not passed from above
+                recipes={props.recipes} 
+                
+                // again, not necessary here, get rid of it, render comments in the CommentsContainer
+                comments={props.comments} />
             </>
         )
 }

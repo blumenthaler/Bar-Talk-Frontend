@@ -10,7 +10,20 @@ const Users = props => {
         else {
             return (
                 <ol>
-                    {props.users.map(user => <User key={user.id} currentUser={props.currentUser} user={user} recipes={props.recipes} history={props.history} cocktail={props.cocktail} comments={props.comments} />)}
+                    {props.users.map(user => <User 
+                    
+                    // all of this makes sense, keep it
+                    key={user.id} 
+                    currentUser={props.currentUser} 
+                    user={user}
+                    cocktail={props.cocktail} 
+
+                    // get rid of this, don't use it
+                    history={props.history} 
+                    
+                    // get rid of these, render in respective containers
+                    recipes={props.recipes} 
+                    comments={props.comments} />)}
                 </ol>
             )
         }
