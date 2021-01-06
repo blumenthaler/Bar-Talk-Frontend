@@ -10,7 +10,6 @@ class CommentsContainer extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            isEmptyState: true,
             showingCommentForm: false
         }
     }
@@ -19,7 +18,6 @@ class CommentsContainer extends React.Component {
         this.setState(prevState => {
             return {
                 showingCommentForm: !prevState.showingCommentForm,
-                isEmptyState: !prevState.isEmptyState
             }
         })
     }
