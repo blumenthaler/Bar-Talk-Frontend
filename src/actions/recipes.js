@@ -23,6 +23,13 @@ export const editRecipe = recipe => {
   }
 }
 
+export const deletedRecipe = recipe => {
+  return {
+    type: "DELETE_RECIPE",
+    recipe
+  }
+}
+
 //async
 // get all recipes
 // currently unused
@@ -126,3 +133,24 @@ export const editingRecipe = (id, recipe) => {
     .catch(console.log)
   }
 } 
+
+export const deleteRecipe = recipe => {
+  return dispatch => {
+    dispatch({type: "DELETING_RECIPE"})
+    return fetch(`${DOMAIN_URL}/api/v1/recipes/` + recipe.id, {
+        credentials: "include",
+        method: "DELETE",
+    })
+    .then(resp => resp.json())
+    .then(r => {
+      if (r.error) {
+        console.log(r.error)
+      }
+      else {
+        dispatch(deletedRecipe(recipe))
+        dispatch(getAllCocktails())
+      }
+    })
+    .catch(console.log)
+  }
+}
