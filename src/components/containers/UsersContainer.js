@@ -12,11 +12,14 @@ class UsersContainer extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         if ((this.props.users.loading) || (!this.props.users)) {
             return (<h2>Loading...</h2>)
         }
         else {
+
+            // I dont know yet if this will change, or if it is actually necessary
+            // compare userRecipe ids to cocktailRecipe ids
+            // only need to render users that have recipes corresponding to each cocktail
             const filteredRecipes = this.props.recipes.filter(recipe => recipe.relationships.cocktail.data.id === this.props.cocktail.id)
             
             if (this.props.profile) {
@@ -25,8 +28,15 @@ class UsersContainer extends React.Component {
                     user={this.props.currentUser.data} 
                     cocktail={this.props.cocktail}
                     currentUser={this.props.currentUser}
+
+                    // while having filteredRecipes here is fine, there is no need to pass it as props
+                    // will render recipes from RecipesContainer
                     recipes={filteredRecipes}
+                    
+                    // I don't think I use this
                     history={this.props.history}
+
+                    // get rid of this
                     comments={this.props.comments}
                     />
                 )
@@ -46,8 +56,14 @@ class UsersContainer extends React.Component {
                         users={sorted} 
                         cocktail={this.props.cocktail}
                         currentUser={this.props.currentUser}
+
+                        // I don't think I will need this, or it will change with mapping the state
                         recipes={filteredRecipes}
+
+                        // do I need this? I don't think so
                         history={this.props.history}
+
+                        // get rid of this
                         comments={this.props.comments}
                     />
                 )
