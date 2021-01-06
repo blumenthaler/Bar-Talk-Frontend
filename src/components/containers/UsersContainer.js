@@ -7,7 +7,12 @@ import User from '../users/User.js';
 
 class UsersContainer extends React.Component {
 
+    componentDidMount() {
+        this.props.getAllUsers()
+    }
+
     render() {
+        console.log(this.props)
         if ((this.props.users.loading) || (!this.props.users)) {
             return (<h2>Loading...</h2>)
         }
@@ -54,7 +59,8 @@ class UsersContainer extends React.Component {
 const mapStateToProps = state => {
     return {
         users: state.cocktails.cocktails.included.filter(data => data.type === "user"),
-        recipes: state.cocktails.cocktails.included.filter(data => data.type === "recipe")
+        recipes: state.cocktails.cocktails.included.filter(data => data.type === "recipe"),
+        test: state.users
     }
 }
 
