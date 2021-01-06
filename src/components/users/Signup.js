@@ -19,7 +19,7 @@ const Signup = ({signupForm, updateSignupForm, signup, history}) => {
     const handleSubmit = event => {
         event.preventDefault()
         signup(signupForm)
-        history.push('/')
+        history.push('/profile/')
     }
     return (
         <form onSubmit={handleSubmit}>
