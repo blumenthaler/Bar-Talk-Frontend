@@ -11,7 +11,6 @@ class RecipesContainer extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            isEmptyState: true,
             showingRecipeForm: false
         }
     }
@@ -20,7 +19,6 @@ class RecipesContainer extends React.Component {
         this.setState(prevState => {
             return {
                 showingRecipeForm: !prevState.showingRecipeForm,
-                isEmptyState: !prevState.isEmptyState
             }
         })
     }
@@ -32,18 +30,24 @@ class RecipesContainer extends React.Component {
             )
         }
         else {
-        const filteredRecipes = this.props.recipes.filter(recipe => recipe.relationships.user.data.id === this.props.user.id)
-        return (
-            <div>
-                <Recipes user={this.props.user} recipes={filteredRecipes} currentUser={this.props.currentUser} comments={this.props.comments} editingRecipe={this.props.editingRecipe} deleteRecipe={this.props.deleteRecipe} />
+            const filteredRecipes = this.props.recipes.filter(recipe => recipe.relationships.user.data.id === this.props.user.id)
+            return (
+                <div>
+                    <Recipes user={this.props.user} recipes={filteredRecipes} currentUser={this.props.currentUser} comments={this.props.comments} editingRecipe={this.props.editingRecipe} deleteRecipe={this.props.deleteRecipe} />
 
-                {this.state.showingRecipeForm ? <RecipeInput currentUser={this.props.currentUser} addRecipe={this.props.addRecipe} cocktail={this.props.cocktail} history={this.props.history} match={this.props.match} triggerRecipeForm={this.triggerRecipeForm} /> : 
-                <NewRecipeButton currentUser={this.props.currentUser} addRecipe={this.props.addRecipe} cocktail={this.props.cocktail} history={this.props.history} triggerRecipeForm={this.triggerRecipeForm}/>}
-            </div>
-        )
+                    {this.state.showingRecipeForm ? <RecipeInput currentUser={this.props.currentUser} addRecipe={this.props.addRecipe} cocktail={this.props.cocktail} history={this.props.history} match={this.props.match} triggerRecipeForm={this.triggerRecipeForm} /> : 
+                    <NewRecipeButton currentUser={this.props.currentUser} addRecipe={this.props.addRecipe} cocktail={this.props.cocktail} history={this.props.history} triggerRecipeForm={this.triggerRecipeForm}/>}
+                </div>
+            )
         }
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        test: state.recipes
+    }
+}
 
-export default connect(null, {addRecipe, editingRecipe, deleteRecipe})(RecipesContainer)
+
+export default connect(mapStateToProps, {addRecipe, editingRecipe, deleteRecipe})(RecipesContainer)
