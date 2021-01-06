@@ -2,6 +2,7 @@ import React from 'react';
 import {RecipeWithCocktail} from './RecipeWithCocktail.js'
 import {connect} from 'react-redux';
 import {addRecipe} from '../../../actions/recipes.js'
+import { CancelInputButton } from './CancelInputButton.js';
 
 class RecipeInput extends React.Component {
     
@@ -66,7 +67,7 @@ class RecipeInput extends React.Component {
                 <label>Garnish: </label><input type="text" name="garnish" onChange={this.handleOnChange} value={this.state.garnish}/><br />
                 <label>Notes: </label><input type="text" name="notes" onChange={this.handleOnChange} value={this.state.notes}/><br /><br />
                 <input type="submit"/><br />
-                {this.props.cocktail ? <button onClick={() => this.props.triggerRecipeForm()}>Cancel</button> : null }
+                {this.props.cocktail ? <CancelInputButton triggerRecipeForm={this.props.triggerRecipeForm} /> : null }
             </form>
             <br />
             </>
