@@ -1,13 +1,27 @@
-import RecipeInput from './RecipeInput.js'
+import { useHistory, useRouteMatch } from 'react-router-dom'
 
 export const NewRecipeButton = props => {
+    const history = useHistory()
+    const match = useRouteMatch()
+    const handleClick = () => {
+        props.triggerRecipeForm()
+        if (props.cocktail) {
+            if (match.url === '/cocktails/') {
+                history.push(`${match.url}${props.cocktail.id}/recipes/new`)
+            }
+            else {
+                history.push(`${match.url}cocktails/${props.cocktail.id}/recipes/new`)
+            }
+        }
+        else {
+            history.push(`${match.url}recipes/new`)
+        }
+    }
+    
     return (
         <>
-        <button onClick={() => props.triggerRecipeForm()}>Add a New Recipe to this Cocktail</button>
+        <button onClick={() => handleClick()}>Add a New Recipe to this Cocktail</button>
         <br /><br />
         </>
     ) 
 }
-
-// change this to mirror EditRecipeButton...
-// push history when clicked, update the URL
