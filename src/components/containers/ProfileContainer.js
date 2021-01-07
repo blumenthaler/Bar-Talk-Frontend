@@ -27,11 +27,6 @@ class ProfileContainer extends React.Component {
         return filteredCocktails
     }
 
-    // get rid of this
-    getComments() {
-        return this.props.cocktails.cocktails.included.filter(data => data.type === "comment")
-    }
-
     render() {
         if ((this.props.loading) || (!this.props.cocktails.cocktails.data)) {
             return (<h2>Loading...</h2>)
@@ -39,9 +34,6 @@ class ProfileContainer extends React.Component {
         
         else {
             const filteredCocktails = this.getFilteredCocktails()
-
-            // get rid of this
-            const comments = this.getComments()
 
             if (filteredCocktails.length === 0) {
                 return (
@@ -54,14 +46,12 @@ class ProfileContainer extends React.Component {
             else {
                 return (
                     <>
-                    <h1>{this.props.currentUser.data.attributes.username} - Your Recipes</h1>
-                    <Cocktails cocktails={filteredCocktails} currentUser={this.props.currentUser} profile={this.state.profile} 
+                        <h1>{this.props.currentUser.data.attributes.username} - Your Recipes</h1>
+                        <Cocktails cocktails={filteredCocktails} currentUser={this.props.currentUser} profile={this.state.profile} 
                     
-                    // probably do not need
-                    history={this.props.history} 
-                    
-                    // delete, render comments in CommentsContainer
-                    comments={comments}/>
+                        // probably do not need
+                        history={this.props.history} 
+                        />
                     </>
                 )
             }
