@@ -29,9 +29,7 @@ const User = props => {
 
                 // get recipes from getAllRecipes in the container; not passed from above
                 recipes={props.recipes} 
-                
-                // again, not necessary here, get rid of it, render comments in the CommentsContainer
-                comments={props.comments} />
+                 />
             </>
         )
 }

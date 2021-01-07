@@ -23,7 +23,7 @@ const Users = props => {
                     
                     // get rid of these, render in respective containers
                     recipes={props.recipes} 
-                    comments={props.comments} />)}
+                     />)}
                 </ol>
             )
         }
