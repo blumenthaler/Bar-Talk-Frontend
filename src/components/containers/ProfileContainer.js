@@ -28,7 +28,8 @@ class ProfileContainer extends React.Component {
     }
 
     render() {
-        if ((this.props.loading) || (!this.props.cocktails.cocktails.data)) {
+        
+        if ((this.props.cocktails.loading) || (!this.props.cocktails.cocktails.data)) {
             return (<h2>Loading...</h2>)
         }
         
@@ -39,7 +40,7 @@ class ProfileContainer extends React.Component {
                 return (
                     <>
                      <h1>Welcome {this.props.currentUser.data.attributes.username}!</h1>
-                    <h2><a href="/recipes/new">Add a Recipe!</a></h2>
+                     <h2><a href="/recipes/new">Add a Recipe!</a></h2>
                     </>
                 )
             }
@@ -47,10 +48,11 @@ class ProfileContainer extends React.Component {
                 return (
                     <>
                         <h1>{this.props.currentUser.data.attributes.username} - Your Recipes</h1>
-                        <Cocktails cocktails={filteredCocktails} currentUser={this.props.currentUser} profile={this.state.profile} 
-                    
-                        // probably do not need
-                        history={this.props.history} 
+                        <Cocktails 
+                            cocktails={filteredCocktails} 
+                            currentUser={this.props.currentUser} 
+                            profile={this.state.profile} 
+                            loading={this.props.cocktails.loading}
                         />
                     </>
                 )

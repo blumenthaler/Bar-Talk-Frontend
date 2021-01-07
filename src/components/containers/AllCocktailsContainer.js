@@ -27,10 +27,10 @@ class AllCocktailsContainer extends React.Component {
                 <h1>All Cocktails</h1>
                 <div>
                     <Cocktails 
-                    cocktails={this.props.cocktails.cocktails.data} 
-                    loading={this.props.cocktails.loading} 
-                    currentUser={this.props.currentUser} 
-                    profile={this.state.profile}  
+                        cocktails={this.props.cocktails.cocktails.data} 
+                        loading={this.props.cocktails.loading} 
+                        currentUser={this.props.currentUser} 
+                        profile={this.state.profile}  
                     />
                 </div>
                 </>
