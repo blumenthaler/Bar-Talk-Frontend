@@ -17,14 +17,14 @@ export default class CommentInput extends React.Component {
 
     handleOnSubmit = event => {
         event.preventDefault()
-        this.props.addComment(this.state)
+        this.props.addComment(this.state, this.props.history, this.props.match)
         this.setState({
             content: "",
             recipe_id: this.props.recipe.id,
             user_id: this.props.user.data.id
         })
         this.props.triggerCommentForm()
-        this.props.history.push(`${this.props.match.url}/`)
+        // this.props.history.push(`${this.props.match.url}/`)
     }
 
     render() {

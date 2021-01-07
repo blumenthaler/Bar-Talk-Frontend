@@ -27,13 +27,13 @@ class CommentsContainer extends React.Component {
     }
 
     render() {
-        if ((this.props.comments.loading) || (!this.props.comments) || (!this.props.included)) {
+        if ((this.props.loading) || (!this.props.comments) || (!this.props.included)) {
             return (<h2>Loading...</h2>)
         }
         else {
 
         const users = this.props.included.filter(data => data.type === "user")
-        const filtered = this.props.comments.comments.data.filter(comment => (this.props.recipe.relationships.comments.data.map(data => data.id)).includes(comment.id))
+        const filtered = this.props.comments.filter(comment => (this.props.recipe.relationships.comments.data.map(data => data.id)).includes(comment.id))
             return (
                 <>
                 <div>
@@ -57,7 +57,8 @@ class CommentsContainer extends React.Component {
 const mapStateToProps = state => {
     return {
         included: state.comments.comments.included,
-        comments: state.comments
+        comments: state.comments.comments.data,
+        loading: state.comments.loading
     }
 }
 

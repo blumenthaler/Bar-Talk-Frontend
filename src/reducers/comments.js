@@ -19,24 +19,17 @@ export default (state = {
                 ...state,
                 loading: true
             }
-        case "ADD_NEW_COMMENT":
-            
-            const thisUser = action.comment.included.find(data => data.type === 'user')
-            const thisRecipe = action.comment.included.find(data => data.type === 'recipe')
-            
-            if (!state.comments.included.filter(data => data.type === "user").find(user => user.id === thisUser.id)) {
-                state.comments.included.push(thisUser)
-            }
-
-            if (!state.comments.included.find(recipe => recipe.id === thisRecipe.id)) {
-                state.comments.included.push(thisRecipe)
-            }
-            
-            state.comments.data.push(action.comment.data)
+        case "ADD_NEW_COMMENT": 
+            const commentsWithNew = {data: [...state.comments.data, action.comment.data]}
             return {
                 ...state,
+                comments: {
+                    ...state.comments,
+                    data: commentsWithNew.data
+                },
                 loading: false
             }
+            
         case "DELETING_COMMENT":
             return {
                 ...state,
@@ -48,7 +41,7 @@ export default (state = {
                 ...state,
                 comments: {
                     ...state.comments,
-                    data: [filteredComments]
+                    data: filteredComments
                 },
                 loading: false
             }
@@ -57,3 +50,15 @@ export default (state = {
             return state;
     }
 }
+
+
+            // const thisUser = action.comment.included.find(data => data.type === 'user')
+            // const thisRecipe = action.comment.included.find(data => data.type === 'recipe')
+            
+            // if (!state.comments.included.filter(data => data.type === "user").find(user => user.id === thisUser.id)) {
+            //     state.comments.included.push(thisUser)
+            // }
+
+            // if (!state.comments.included.find(recipe => recipe.id === thisRecipe.id)) {
+            //     state.comments.included.push(thisRecipe)
+            // }

@@ -49,7 +49,7 @@ export const getAllComments = () => {
     }
 }
 
-export const addComment = comment => {
+export const addComment = (comment, history, match) => {
   const {content, recipe_id, user_id} = comment
   const data = {
     comment: {
@@ -75,7 +75,11 @@ export const addComment = comment => {
           }
           else {
             dispatch(addNewComment(obj))
-            dispatch(getAllCocktails())
+            // getAllComments will not work for this
+            // Redux store is updated, but CommentsContainer will not re-render
+            dispatch(getAllComments())
+            // dispatch(getAllCocktails())
+            history.push(`${match.url}/`)
           }
       })
       .catch(console.log)
@@ -97,9 +101,7 @@ export const deleteComment = comment => {
       }
       else {
         dispatch(deletedComment(comment))
-        // I know I should not be fetching all cocktails every time
-        // for now it works but I will need to refactor it
-        dispatch(getAllCocktails())
+        dispatch(getAllComments())
       }
     })
     .catch(console.log)
