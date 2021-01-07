@@ -43,11 +43,11 @@ class App extends React.Component {
             <NavBar location={this.props.location}/>
             <Switch>
               <Route path="/profile/" >
-                <ProfileContainer currentUser={this.props.currentUser} history={this.props.history} match={this.props.match} />
+                <ProfileContainer currentUser={this.props.currentUser} />
               </Route>
 
               <Route exact path='/recipes/new' >
-                <RecipesContainer currentUser={this.props.currentUser} history={this.props.history} location={this.props.location} match={this.props.match} cocktail={null} />
+                <RecipesContainer currentUser={this.props.currentUser} cocktail={null} />
               </Route>
 
               <Route path="/cocktails/">
