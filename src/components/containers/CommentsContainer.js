@@ -31,7 +31,6 @@ class CommentsContainer extends React.Component {
             return (<h2>Loading...</h2>)
         }
         else {
-            console.log(this.props)
 
         const users = this.props.included.filter(data => data.type === "user")
         const filtered = this.props.comments.comments.data.filter(comment => (this.props.recipe.relationships.comments.data.map(data => data.id)).includes(comment.id))
@@ -43,6 +42,8 @@ class CommentsContainer extends React.Component {
                         users={users} 
                         currentUser={this.props.currentUser}
                         deleteComment={this.props.deleteComment}
+                        history={this.props.history} 
+                        match={this.props.match}
                     /><br />
 
                     {!this.state.showingCommentForm ? <NewCommentButton triggerCommentForm={this.triggerCommentForm} recipe={this.props.recipe}/> : <CommentInput user={this.props.currentUser} recipe={this.props.recipe} triggerCommentForm={this.triggerCommentForm} addComment={this.props.addComment} history={this.props.history} match={this.props.match} /> }
