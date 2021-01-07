@@ -47,7 +47,7 @@ class App extends React.Component {
               </Route>
 
               <Route exact path='/recipes/new' >
-                <RecipesContainer currentUser={this.props.currentUser} cocktail={null} />
+                <RecipesContainer currentUser={this.props.currentUser} cocktail={null} history={this.props.history} match={match} />
               </Route>
 
               <Route path="/cocktails/">
