@@ -18,8 +18,7 @@ class Cocktail extends React.Component {
                     // do I need this here?
                     history={this.props.history} 
                     
-                    // get rid of this
-                    comments={this.props.comments}/>
+                    />
                 </li>
             )
         }

@@ -17,9 +17,7 @@ class Cocktails extends React.Component {
                     // do I need this here?
                     history={this.props.history} 
                     
-                    //get rid of this
-                    comments={this.props.comments} />)}
-                    {/* <Cocktail /> */}
+                     />)}
                 </ol>
             )
         }
