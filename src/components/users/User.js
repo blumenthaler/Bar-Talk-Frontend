@@ -28,7 +28,7 @@ const User = props => {
                 history={history} match={match} 
 
                 // get recipes from getAllRecipes in the container; not passed from above
-                recipes={props.recipes} 
+                // recipes={props.recipes} 
                  />
             </>
         )
