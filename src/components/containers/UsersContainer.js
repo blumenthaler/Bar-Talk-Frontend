@@ -36,8 +36,6 @@ class UsersContainer extends React.Component {
                     // I don't think I use this
                     history={this.props.history}
 
-                    // get rid of this
-                    comments={this.props.comments}
                     />
                 )
             }
@@ -62,9 +60,6 @@ class UsersContainer extends React.Component {
 
                         // do I need this? I don't think so
                         history={this.props.history}
-
-                        // get rid of this
-                        comments={this.props.comments}
                     />
                 )
             }

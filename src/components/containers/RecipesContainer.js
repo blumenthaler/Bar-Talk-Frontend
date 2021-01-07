@@ -33,7 +33,7 @@ class RecipesContainer extends React.Component {
             const filteredRecipes = this.props.recipes.filter(recipe => recipe.relationships.user.data.id === this.props.user.id)
             return (
                 <div>
-                    <Recipes user={this.props.user} recipes={filteredRecipes} currentUser={this.props.currentUser} comments={this.props.comments} editingRecipe={this.props.editingRecipe} deleteRecipe={this.props.deleteRecipe} />
+                    <Recipes user={this.props.user} recipes={filteredRecipes} currentUser={this.props.currentUser} editingRecipe={this.props.editingRecipe} deleteRecipe={this.props.deleteRecipe} />
 
                     {this.state.showingRecipeForm ? <RecipeInput currentUser={this.props.currentUser} addRecipe={this.props.addRecipe} cocktail={this.props.cocktail} history={this.props.history} match={this.props.match} triggerRecipeForm={this.triggerRecipeForm} /> : 
                     <NewRecipeButton currentUser={this.props.currentUser} addRecipe={this.props.addRecipe} cocktail={this.props.cocktail} history={this.props.history} triggerRecipeForm={this.triggerRecipeForm}/>}
