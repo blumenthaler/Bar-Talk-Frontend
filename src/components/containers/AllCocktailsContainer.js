@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Cocktails from '../cocktails/Cocktails.js';
+import {Cocktails} from '../cocktails/Cocktails.js';
 import { getAllCocktails } from '../../actions/cocktails.js';
 
 class AllCocktailsContainer extends React.Component {

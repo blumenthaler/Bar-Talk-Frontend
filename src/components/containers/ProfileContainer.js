@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { getAllCocktails } from '../../actions/cocktails.js';
-import Cocktails from '../cocktails/Cocktails.js'
+import {Cocktails} from '../cocktails/Cocktails.js'
 
 class ProfileContainer extends React.Component {
 
