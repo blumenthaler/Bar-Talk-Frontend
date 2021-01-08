@@ -2,9 +2,7 @@ import UsersContainer from '../containers/UsersContainer.js';
 import {useRouteMatch} from 'react-router-dom'
 
 export const Cocktail = props => {
-        console.log(props)
         const {cocktails, history, location, match, currentUser, profile} = props
-        console.log(props.match.params.cocktailId)
         const cocktail = cocktails.cocktails.data.find(cocktail => cocktail.id === match.params.cocktailId)
 
         if (cocktail.relationships.recipes.data.length === 0) {
