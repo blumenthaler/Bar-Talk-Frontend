@@ -33,10 +33,6 @@ class UsersContainer extends React.Component {
                     // while having filteredRecipes here is fine, there is no need to pass it as props
                     // will render recipes from RecipesContainer
                     recipes={filteredRecipes}
-                    
-                    // I don't think I use this
-                    history={this.props.history}
-
                     />
                 )
             }
@@ -58,9 +54,6 @@ class UsersContainer extends React.Component {
 
                         // I don't think I will need this, or it will change with mapping the state
                         recipes={filteredRecipes}
-
-                        // do I need this? I don't think so
-                        history={this.props.history}
                     />
                 )
             }
