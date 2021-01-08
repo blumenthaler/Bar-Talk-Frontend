@@ -32,7 +32,11 @@ class Recipe extends React.Component {
             if (this.state.isEditing) {
                 return (
                     <>
-                        <EditRecipeForm editingRecipe={this.props.editingRecipe} recipe={this.props.recipe} triggerEditingForm={this.triggerEditingForm} />
+                        <EditRecipeForm 
+                            editingRecipe={this.props.editingRecipe} 
+                            recipe={this.props.recipe} 
+                            triggerEditingForm={this.triggerEditingForm} 
+                        />
                     </>
                 )
             }
@@ -49,8 +53,23 @@ class Recipe extends React.Component {
                         <br />
                         {attributes.votes}
                         <br />
-                        {currentUserId === recipeUserId ? <><EditRecipeButton recipe={this.props.recipe} triggerEditingForm={this.triggerEditingForm}/><br /><button onClick={event => this.handleDelete(event)}>Delete Recipe</button></> : null}
-                        <CommentsContainer recipe={this.props.recipe} history={this.props.history} match={this.props.match} currentUser={this.props.currentUser} />
+                        {currentUserId === recipeUserId ? 
+                            <>
+                                <EditRecipeButton 
+                                    recipe={this.props.recipe} 
+                                    triggerEditingForm={this.triggerEditingForm}
+                                />
+                                <br />
+                                <button onClick={event => this.handleDelete(event)}>Delete Recipe</button>
+                            </> 
+                        : null}
+                        
+                        <CommentsContainer 
+                            recipe={this.props.recipe} 
+                            history={this.props.history} 
+                            match={this.props.match} 
+                            currentUser={this.props.currentUser}
+                        />
                         <br /><br />
                     </li>
                 )
