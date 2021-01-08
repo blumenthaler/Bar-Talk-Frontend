@@ -20,6 +20,7 @@ export default class EditRecipeForm extends React.Component {
         event.preventDefault()
         this.props.editingRecipe(this.props.recipe.id, this.state)
         this.props.triggerEditingForm()
+        this.props.history.push(`${this.props.match.url}/`)
     }
 
     handleOnChange = event => {
@@ -29,6 +30,7 @@ export default class EditRecipeForm extends React.Component {
     }
 
     render() {
+        console.log(this.props)
         const { spirit } = this.props.recipe.attributes
         return (
             <form onSubmit={this.handleOnSubmit}>
