@@ -12,15 +12,15 @@ class UsersContainer extends React.Component {
     }
 
     render() {
-        if ((this.props.users.loading) || (!this.props.users)) {
+        if ((this.props.users.loading) || (!this.props.users.users.data)) {
             return (<h2>Loading...</h2>)
         }
         else {
-
+            // this.props.users.filter(user => )
             // I dont know yet if this will change, or if it is actually necessary
             // compare userRecipe ids to cocktailRecipe ids
             // only need to render users that have recipes corresponding to each cocktail
-            const filteredRecipes = this.props.recipes.filter(recipe => recipe.relationships.cocktail.data.id === this.props.cocktail.id)
+            const filteredRecipes = this.props.users.users.included.filter(recipe => recipe.relationships.cocktail.data.id === this.props.cocktail.id)
             
             if (this.props.profile) {
                 return (
@@ -41,7 +41,7 @@ class UsersContainer extends React.Component {
             }
             else {
 
-            const filteredUsers = this.props.users.filter(user => (filteredRecipes.map(recipe => recipe.relationships.user.data.id)).includes(user.id))
+            const filteredUsers = this.props.users.users.data.filter(user => (filteredRecipes.map(recipe => recipe.relationships.user.data.id)).includes(user.id))
             
             const sorted = filteredUsers.reduce((acc, user) => {
                 if (user.username === this.props.currentUser.username) {
@@ -69,9 +69,7 @@ class UsersContainer extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        users: state.cocktails.cocktails.included.filter(data => data.type === "user"),
-        recipes: state.cocktails.cocktails.included.filter(data => data.type === "recipe"),
-        test: state.users
+        users: state.users
     }
 }
 
