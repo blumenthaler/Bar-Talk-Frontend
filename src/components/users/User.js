@@ -19,7 +19,6 @@ const User = props => {
         let split = title.split(":")[0].split(" ")
         const plural = pluralize(split[split.length - 1], recipes.length)
         split[split.length -1] = plural
-        console.log(split)
         title = split.join(" ")
         title += ':'
 
