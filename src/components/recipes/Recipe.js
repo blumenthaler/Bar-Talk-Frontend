@@ -26,7 +26,6 @@ class Recipe extends React.Component {
         }
         
         render() {
-            console.log(this.props)
             const currentUserId = this.props.currentUser.data.id
             const recipeUserId = this.props.recipe.relationships.user.data.id
             const {attributes} = this.props.recipe
