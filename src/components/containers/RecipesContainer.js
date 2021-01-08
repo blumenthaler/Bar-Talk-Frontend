@@ -28,24 +28,54 @@ class RecipesContainer extends React.Component {
     }
 
     render() {
-        if ((!this.props.recipes.data) || (this.props.loading)) {
+        if ((!this.props.recipes) || (this.props.loading)) {
             return (
                 <h1>Loading...</h1>
             )
         }
         else if (!this.props.cocktail) {
             return (
-                  <RecipeInput currentUser={this.props.currentUser} addRecipe={this.props.addRecipe} cocktail={this.props.cocktail} history={this.props.history} match={this.props.match} triggerRecipeForm={this.triggerRecipeForm} /> 
+                  <RecipeInput 
+                    currentUser={this.props.currentUser} 
+                    addRecipe={this.props.addRecipe} 
+                    cocktail={this.props.cocktail} 
+                    history={this.props.history} 
+                    match={this.props.match} 
+                    triggerRecipeForm={this.triggerRecipeForm} 
+                /> 
             )
         }
         else {
-            const filteredRecipes = this.props.recipes.data.filter(recipe => recipe.relationships.user.data.id === this.props.user.id)
+            const filteredRecipes = this.props.recipes.filter(recipe => recipe.relationships.cocktail.data.id === this.props.cocktail.id)
+
+            const userRecipes = filteredRecipes.filter(recipe => recipe.relationships.user.data.id === this.props.user.id)
+       
             return (
                 <div>
-                    <Recipes user={this.props.user} recipes={filteredRecipes} currentUser={this.props.currentUser} editingRecipe={this.props.editingRecipe} deleteRecipe={this.props.deleteRecipe} />
+                    <Recipes 
+                        user={this.props.user} 
+                        recipes={userRecipes} 
+                        currentUser={this.props.currentUser} 
+                        editingRecipe={this.props.editingRecipe} 
+                        deleteRecipe={this.props.deleteRecipe} 
+                    />
 
-                    {this.state.showingRecipeForm ? <RecipeInput currentUser={this.props.currentUser} addRecipe={this.props.addRecipe} cocktail={this.props.cocktail} history={this.props.history} match={this.props.match} triggerRecipeForm={this.triggerRecipeForm} /> : 
-                    <NewRecipeButton currentUser={this.props.currentUser} addRecipe={this.props.addRecipe} cocktail={this.props.cocktail} history={this.props.history} triggerRecipeForm={this.triggerRecipeForm}/>}
+                    {this.state.showingRecipeForm ? 
+                        <RecipeInput 
+                            currentUser={this.props.currentUser} 
+                            addRecipe={this.props.addRecipe} 
+                            cocktail={this.props.cocktail} 
+                            history={this.props.history} 
+                            match={this.props.match} 
+                            triggerRecipeForm={this.triggerRecipeForm} 
+                        /> : 
+                        <NewRecipeButton 
+                            currentUser={this.props.currentUser} 
+                            addRecipe={this.props.addRecipe} 
+                            cocktail={this.props.cocktail} 
+                            history={this.props.history} 
+                            triggerRecipeForm={this.triggerRecipeForm}
+                        />}
                 </div>
             )
         }
@@ -54,7 +84,8 @@ class RecipesContainer extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        recipes: state.recipes.recipes,
+        recipes: state.recipes.recipes.data,
+        included: state.recipes.recipes.included,
         loading: state.recipes.loading
     }
 }
