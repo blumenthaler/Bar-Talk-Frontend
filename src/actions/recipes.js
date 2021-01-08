@@ -1,5 +1,4 @@
 import {DOMAIN_URL} from '../domain.js'
-import { getAllCocktails } from './cocktails.js'
 
 // sync
 export const getRecipes = recipes => {
@@ -32,7 +31,6 @@ export const deletedRecipe = recipe => {
 
 //async
 // get all recipes
-// currently unused
 export const getAllRecipes = () => {
     return dispatch => {
       dispatch({type: "LOADING_RECIPES"})
@@ -55,9 +53,8 @@ export const getAllRecipes = () => {
     }
 }
 
-// Add new Recipe to the database
-// Keep here or move to cocktails? (corresponding reducer is cocktails reducer)
-export const addRecipe = (recipe, user, history) => {
+
+export const addRecipe = (recipe, user) => {
   const {name, spirit, ingredients, garnish, notes} = recipe
   const user_id = user.id
 
@@ -89,8 +86,6 @@ export const addRecipe = (recipe, user, history) => {
           }
           else {
             dispatch(addNewRecipe(obj))
-            dispatch(getAllCocktails())
-            // history.push('/')
           }
       })
       .catch(console.log)
@@ -127,7 +122,6 @@ export const editingRecipe = (id, recipe) => {
         }
         else {
           dispatch(editRecipe(obj))
-          dispatch(getAllCocktails())
         }
     })
     .catch(console.log)
@@ -148,7 +142,6 @@ export const deleteRecipe = recipe => {
       }
       else {
         dispatch(deletedRecipe(recipe))
-        dispatch(getAllCocktails())
       }
     })
     .catch(console.log)
