@@ -14,7 +14,9 @@ const User = props => {
         }
         return (
             <>
+                {/* pluralize title based on number of recipes */}
                 <h4>{title}</h4> 
+                
                 <RecipesContainer 
                 
                 // these make sense to me to keep being passed
