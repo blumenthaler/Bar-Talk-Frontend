@@ -6,7 +6,7 @@ import Signup from './components/users/Signup.js'
 import Logout from './components/users/Logout.js'
 import NavBar from './components/NavBar.js'
 import ProfileContainer from './components/containers/ProfileContainer.js'
-import CocktailsContainer from './components/containers/AllCocktailsContainer.js'
+import AllCocktailsContainer from './components/containers/AllCocktailsContainer.js'
 import { getCurrentUser } from './actions/currentUser.js';
 import RecipesContainer from './components/containers/RecipesContainer.js';
 import { connect } from 'react-redux';
@@ -16,6 +16,7 @@ import {
   withRouter
 } from 'react-router-dom';
 import RecipeInput from './components/recipes/input/RecipeInput';
+import { Cocktail } from './components/cocktails/Cocktail';
 
 
 class App extends React.Component {
@@ -50,9 +51,7 @@ class App extends React.Component {
                 <RecipesContainer currentUser={this.props.currentUser} cocktail={null} history={this.props.history} match={match} />
               </Route>
 
-              <Route path="/cocktails/">
-                <CocktailsContainer currentUser={this.props.currentUser} />
-              </Route>
+              <Route path="/cocktails/" render={routerProps => <AllCocktailsContainer {...routerProps} currentUser={this.props.currentUser} />}/>
               
               {/* <Route exact path="/popular">
                 <PopularRecipesContainer currentUser={this.props.currentUser} history={this.props.history}/>
