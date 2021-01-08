@@ -20,7 +20,12 @@ export default (state = {
                 loading: true
             }
         case "ADD_NEW_COMMENT": 
-            const commentsWithNew = {data: [...state.comments.data, action.comment.data]}
+            const commentsWithNew = {
+                data: [
+                    ...state.comments.data, 
+                    action.comment.data
+                ]
+            }
             return {
                 ...state,
                 comments: {
@@ -29,7 +34,7 @@ export default (state = {
                 },
                 loading: false
             }
-            
+
         case "DELETING_COMMENT":
             return {
                 ...state,
@@ -50,15 +55,3 @@ export default (state = {
             return state;
     }
 }
-
-
-            // const thisUser = action.comment.included.find(data => data.type === 'user')
-            // const thisRecipe = action.comment.included.find(data => data.type === 'recipe')
-            
-            // if (!state.comments.included.filter(data => data.type === "user").find(user => user.id === thisUser.id)) {
-            //     state.comments.included.push(thisUser)
-            // }
-
-            // if (!state.comments.included.find(recipe => recipe.id === thisRecipe.id)) {
-            //     state.comments.included.push(thisRecipe)
-            // }
