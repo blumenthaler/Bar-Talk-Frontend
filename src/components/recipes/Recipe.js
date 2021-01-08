@@ -26,6 +26,7 @@ class Recipe extends React.Component {
         }
         
         render() {
+            console.log(this.props)
             const currentUserId = this.props.currentUser.data.id
             const recipeUserId = this.props.recipe.relationships.user.data.id
             const {attributes} = this.props.recipe
@@ -36,6 +37,8 @@ class Recipe extends React.Component {
                             editingRecipe={this.props.editingRecipe} 
                             recipe={this.props.recipe} 
                             triggerEditingForm={this.triggerEditingForm} 
+                            history={this.props.history}
+                            match={this.props.match}
                         />
                     </>
                 )
