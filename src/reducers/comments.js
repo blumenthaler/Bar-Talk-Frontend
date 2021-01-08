@@ -48,7 +48,11 @@ export default (state = {
                 },
                 loading: false
             }
-         
+        case "DELETE_RECIPE":
+            console.log(state)
+            console.log(action)
+            return state
+
         default:
             return state;
     }
