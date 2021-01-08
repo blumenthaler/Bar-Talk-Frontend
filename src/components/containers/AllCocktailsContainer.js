@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {Cocktails} from '../cocktails/Cocktails.js';
+import {Cocktail} from '../cocktails/Cocktail.js'
 import { getAllCocktails } from '../../actions/cocktails.js';
+import { Route } from 'react-router-dom';
 
 class AllCocktailsContainer extends React.Component {
 
@@ -21,18 +23,12 @@ class AllCocktailsContainer extends React.Component {
             return (<h2>Loading...</h2>)
         }
         else {
-
             return (
                 <>
                 <h1>All Cocktails</h1>
-                <div>
-                    <Cocktails 
-                        cocktails={this.props.cocktails.cocktails.data} 
-                        loading={this.props.cocktails.loading} 
-                        currentUser={this.props.currentUser} 
-                        profile={this.state.profile}  
-                    />
-                </div>
+                    <Cocktails cocktails={this.props.cocktails} />
+
+                    <Route path={`${this.props.match.url}/:cocktailId`} render={routerProps => <Cocktail {...routerProps} cocktails={this.props.cocktails} currentUser={this.props.currentUser} profile={this.state.profile}/>} />
                 </>
             )
         }
