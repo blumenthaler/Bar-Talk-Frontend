@@ -20,17 +20,15 @@ export default (state = {
                 loading: true
             }
         case "ADD_NEW_COMMENT": 
-            const commentsWithNew = {
-                data: [
+            const commentsWithNew = [
                     ...state.comments.data, 
                     action.comment.data
                 ]
-            }
             return {
                 ...state,
                 comments: {
                     ...state.comments,
-                    data: commentsWithNew.data
+                    data: commentsWithNew
                 },
                 loading: false
             }
