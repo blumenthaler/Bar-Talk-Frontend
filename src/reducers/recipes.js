@@ -64,6 +64,33 @@ export default (state = {
                     },
                     loading: false
                 }
+            case "ADD_NEW_COMMENT":
+                const commentForRecipe = {id: action.comment.data.id, type: "comment"}
+                const foundRecipe = state.recipes.data.find(recipe => recipe.id === action.comment.data.relationships.recipe.data.id)
+                const recipeCommentData = [...foundRecipe.relationships.comments.data, commentForRecipe]
+                const commentsWithNew = [
+                    ...state.recipes.included,
+                    action.comment.data
+                ]
+                const newRecipe = {
+                    ...foundRecipe,
+                    relationships: {
+                         ...foundRecipe.relationships,
+                         comments: {
+                             ...foundRecipe.relationships.comments,
+                             data: recipeCommentData
+                         }
+                    }
+                }
+                Object.assign(state.recipes.data[state.recipes.data.findIndex(recipe => recipe.id === newRecipe.id)], newRecipe)
+                return {
+                    ...state,
+                    recipes: {
+                        ...state.recipes,
+                        included: commentsWithNew
+                    },
+                    loading: false
+                }
         default:
             return state;
     }
