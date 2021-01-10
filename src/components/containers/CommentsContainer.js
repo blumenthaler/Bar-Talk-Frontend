@@ -8,9 +8,17 @@ class CommentsContainer extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = {
-            showingComments: false,
-            showingCommentForm: false
+        if (props.history.location.pathname.includes("comments")) {
+            this.state = {
+                showingComments: true,
+                showingCommentForm: false
+            }
+        }
+        else {
+            this.state = {
+                showingComments: false,
+                showingCommentForm: false
+            }
         }
     }
 
