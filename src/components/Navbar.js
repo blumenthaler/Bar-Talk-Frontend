@@ -1,9 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {NavLink} from 'react-router-dom';
+import {NavLink, useHistory, useRouteMatch} from 'react-router-dom';
 import Logout from './users/Logout'
 
+
 const NavBar = ({ currentUser, loggedIn }) => {
+  const history = useHistory()
+  const match = useRouteMatch()
     return (
         <div className="navbar">
           {
@@ -22,7 +25,7 @@ const NavBar = ({ currentUser, loggedIn }) => {
               {/* <li>
                 <NavLink to="/popular">Popular Recipes</NavLink>
               </li> */}
-              {loggedIn ? <li><Logout /></li> : null }
+              {loggedIn ? <li><Logout history={history} /></li> : null }
             </ul>
           </nav>
           }
