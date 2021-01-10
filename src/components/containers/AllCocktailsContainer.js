@@ -26,7 +26,7 @@ class AllCocktailsContainer extends React.Component {
             return (
                 <>
                 <h1>All Cocktails</h1>
-                    <Cocktails cocktails={this.props.cocktails} />
+                    <Cocktails cocktails={this.props.cocktails.cocktails.data} />
 
                     <Route path={`${this.props.match.url}/:cocktailId`} render={routerProps => <Cocktail {...routerProps} cocktails={this.props.cocktails} currentUser={this.props.currentUser} profile={this.state.profile}/>} />
                 </>
