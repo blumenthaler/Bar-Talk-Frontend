@@ -43,9 +43,7 @@ class App extends React.Component {
           <div>
             <NavBar location={this.props.location}/>
             <Switch>
-              <Route path="/profile/" >
-                <ProfileContainer currentUser={this.props.currentUser} />
-              </Route>
+              <Route path="/profile/"  render={routerProps => <ProfileContainer {...routerProps} currentUser={this.props.currentUser} />}/>
 
               <Route exact path='/recipes/new' >
                 <RecipesContainer currentUser={this.props.currentUser} cocktail={null} history={this.props.history} match={match} />
