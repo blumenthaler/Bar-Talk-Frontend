@@ -9,6 +9,7 @@ class CommentsContainer extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            showingComments: false,
             showingCommentForm: false
         }
     }
@@ -17,6 +18,15 @@ class CommentsContainer extends React.Component {
         this.setState(prevState => {
             return {
                 showingCommentForm: !prevState.showingCommentForm,
+            }
+        })
+    }
+
+    toggleComments = () => {
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                showingComments: !prevState.showingComments
             }
         })
     }
@@ -37,14 +47,10 @@ class CommentsContainer extends React.Component {
         let matchUrl
         this.props.match.url.charAt(this.props.match.url.length-1) === '/' ? matchUrl = this.props.match.url : matchUrl = `${this.props.match.url}/`
 
-        console.log(matchUrl)
-
             return (
                 <>
                 <div>
                     <br />
-                    <Link to={`${matchUrl}comments`}>See Comments   </Link>
-
                     <Route path={`${matchUrl}comments`} render={routerProps =>   <Comments {...routerProps} 
                         comments={filtered}
                         users={users} 
@@ -55,9 +61,14 @@ class CommentsContainer extends React.Component {
                         history={this.props.history} 
                         match={this.props.match}
                         showingCommentForm={this.state.showingCommentForm}
+                        showingComments={this.state.showingComments}
                         triggerCommentForm={this.triggerCommentForm}
                     />} 
                     />
+                        {this.state.showingComments ? 
+                            <Link onClick={() => this.toggleComments()} to={`${matchUrl}`}>Hide Comments   </Link> :
+                            <Link onClick={() => this.toggleComments()} to={`${matchUrl}comments`}>See Comments   </Link>
+                        }
                 </div>
                 </>
             )
