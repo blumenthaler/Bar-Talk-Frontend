@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { getAllCocktails } from '../../actions/cocktails.js';
 import {Cocktails} from '../cocktails/Cocktails.js'
+import {Cocktail} from '../cocktails/Cocktail.js'
+import { Route } from 'react-router-dom';
 
 class ProfileContainer extends React.Component {
 
@@ -48,12 +50,9 @@ class ProfileContainer extends React.Component {
                 return (
                     <>
                         <h1>{this.props.currentUser.data.attributes.username} - Your Recipes</h1>
-                        <Cocktails 
-                            cocktails={filteredCocktails} 
-                            currentUser={this.props.currentUser} 
-                            profile={this.state.profile} 
-                            loading={this.props.cocktails.loading}
-                        />
+                        <Cocktails cocktails={filteredCocktails} />
+
+                        <Route path={`${this.props.match.url}/cocktails/:cocktailId`} render={routerProps => <Cocktail {...routerProps} cocktails={this.props.cocktails} currentUser={this.props.currentUser} profile={this.state.profile}/>} />
                     </>
                 )
             }
