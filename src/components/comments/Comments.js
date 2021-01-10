@@ -1,10 +1,11 @@
 import React from 'react'
 import Comment from './Comment.js'
+import { NewCommentButton } from '../comments/NewCommentButton.js';
+import CommentInput from '../comments/CommentInput.js'
 
-class Comments extends React.Component {
 
-    render() {
-        if (!this.props.comments) {
+export const Comments = props => {
+        if (!props.comments) {
             return (
                 <div>Loading...</div>
             )
@@ -14,20 +15,20 @@ class Comments extends React.Component {
                 <>
                 <h4>Comments</h4>
                 <ul>
-                    {this.props.comments.map(comment => <Comment 
+                    {props.comments.map(comment => <Comment 
                         comment={comment}
                         key={comment.id} 
-                        user={this.props.users.find(user => user.id === comment.relationships.user.data.id)} 
-                        currentUser={this.props.currentUser} 
-                        deleteComment={this.props.deleteComment}
-                        history={this.props.history} 
-                        match={this.props.match} 
+                        user={props.users.find(user => user.id === comment.relationships.user.data.id)} 
+                        currentUser={props.currentUser} 
+                        deleteComment={props.deleteComment}
+                        history={props.history} 
+                        match={props.match} 
                     />)}
+
+                    
                 </ul>
+                    {!props.showingCommentForm ? <NewCommentButton triggerCommentForm={props.triggerCommentForm} recipe={props.recipe}/> : <CommentInput user={props.currentUser} recipe={props.recipe} triggerCommentForm={props.triggerCommentForm} addComment={props.addComment} history={props.history} match={props.match} /> }
                 </>
             )
         }
-    }
 }
-
-export default Comments
