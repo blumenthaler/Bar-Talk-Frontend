@@ -33,13 +33,19 @@ class CommentsContainer extends React.Component {
 
         const users = this.props.included.filter(data => data.type === "user")
         const filtered = this.props.comments.filter(comment => (this.props.recipe.relationships.comments.data.map(data => data.id)).includes(comment.id))
+        
+        let matchUrl
+        this.props.match.url.charAt(this.props.match.url.length-1) === '/' ? matchUrl = this.props.match.url : matchUrl = `${this.props.match.url}/`
+
+        console.log(matchUrl)
+
             return (
                 <>
                 <div>
                     <br />
-                    <Link to={`${this.props.match.url}comments`}>See Comments   </Link>
+                    <Link to={`${matchUrl}comments`}>See Comments   </Link>
 
-                    <Route path={`${this.props.match.path}/comments`} render={routerProps =>   <Comments {...routerProps} 
+                    <Route path={`${matchUrl}comments`} render={routerProps =>   <Comments {...routerProps} 
                         comments={filtered}
                         users={users} 
                         currentUser={this.props.currentUser}
