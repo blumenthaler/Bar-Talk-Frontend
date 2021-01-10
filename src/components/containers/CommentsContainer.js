@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Comments from '../comments/Comments.js';
+import {Comments} from '../comments/Comments.js';
+import { Route, Link } from 'react-router-dom';
 import { getAllComments, addComment, deleteComment } from '../../actions/comments.js';
-import { NewCommentButton } from '../comments/NewCommentButton.js';
-import CommentInput from '../comments/CommentInput.js'
 
 class CommentsContainer extends React.Component {
 
@@ -37,16 +36,22 @@ class CommentsContainer extends React.Component {
             return (
                 <>
                 <div>
-                    <Comments 
+                    <br />
+                    <Link to={`${this.props.match.url}comments`}>See Comments   </Link>
+
+                    <Route path={`${this.props.match.path}/comments`} render={routerProps =>   <Comments {...routerProps} 
                         comments={filtered}
                         users={users} 
                         currentUser={this.props.currentUser}
                         deleteComment={this.props.deleteComment}
+                        addComment={this.props.addComment}
+                        recipe={this.props.recipe}
                         history={this.props.history} 
                         match={this.props.match}
-                    /><br />
-
-                    {!this.state.showingCommentForm ? <NewCommentButton triggerCommentForm={this.triggerCommentForm} recipe={this.props.recipe}/> : <CommentInput user={this.props.currentUser} recipe={this.props.recipe} triggerCommentForm={this.triggerCommentForm} addComment={this.props.addComment} history={this.props.history} match={this.props.match} /> }
+                        showingCommentForm={this.state.showingCommentForm}
+                        triggerCommentForm={this.triggerCommentForm}
+                    />} 
+                    />
                 </div>
                 </>
             )
