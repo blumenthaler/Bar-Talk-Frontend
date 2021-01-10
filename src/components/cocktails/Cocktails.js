@@ -16,12 +16,14 @@ export const Cocktails = props =>  {
             newMatch = match.path + 'cocktails/'
         }
         else {newMatch = match.path}
+        
         return (
             <ol>
-                {props.cocktails.cocktails.data.map(cocktail => 
+               
+                {props.cocktails.map(cocktail => 
                     <>
                     <li>
-                    <Link key={cocktail.id} to={`${newMatch}${cocktail.id}`}>
+                    <Link key={cocktail.id} to={`${newMatch}${cocktail.id}/`}>
                         {`${cocktail.attributes.name} - ${cocktail.attributes.spirit}`}    
                     </Link>
                     </li>
