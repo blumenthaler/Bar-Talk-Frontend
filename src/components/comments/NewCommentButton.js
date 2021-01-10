@@ -13,6 +13,9 @@ export const NewCommentButton = props => {
         if (match.url === '/cocktails/') {
             history.push(`${match.url}${cocktailId}/recipes/${recipeId}/comments/new`)
         }
+        else {
+            history.push(`${match.url}/new`)
+        }
     }
     return (
         <>

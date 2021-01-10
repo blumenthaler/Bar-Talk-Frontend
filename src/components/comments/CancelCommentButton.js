@@ -5,7 +5,7 @@ export const CancelCommentButton = props => {
     const match = useRouteMatch()
     const handleClick = () => {
         props.triggerCommentForm()
-        history.push(`${match.url}/`)
+        history.push(`${match.url}`)
     }
     return (
         <button onClick={() => handleClick()}>Cancel</button>
