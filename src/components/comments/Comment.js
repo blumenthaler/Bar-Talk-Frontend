@@ -5,7 +5,7 @@ export default class Comment extends React.Component {
     handleDelete = event => {
         event.preventDefault()
         this.props.deleteComment(this.props.comment)
-        this.props.history.push(`${this.props.match.url}`)
+        this.props.history.push(`${this.props.match.url}/comments`)
     }
 
     render() {
