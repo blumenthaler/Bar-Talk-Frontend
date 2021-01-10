@@ -79,7 +79,7 @@ export const addComment = (comment, history, match) => {
             // Redux store is updated, but CommentsContainer will not re-render
             dispatch(getAllComments())
             // dispatch(getAllCocktails())
-            history.push(`${match.url}/`)
+            history.push(`${match.url}/comments`)
           }
       })
       .catch(console.log)
