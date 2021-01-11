@@ -49,10 +49,15 @@ export default (state = {
                 loading: false
             }
         case "DELETE_RECIPE":
-            console.log(state)
-            console.log(action)
-            return state
-
+            const commentsRemaining = state.comments.data.filter(comment => comment.relationships.recipe.data.id !== action.recipe.id)
+            return {
+                ...state,
+                comments: {
+                    ...state.comments,
+                    data: commentsRemaining
+                },
+                loading: false
+            }
         default:
             return state;
     }
