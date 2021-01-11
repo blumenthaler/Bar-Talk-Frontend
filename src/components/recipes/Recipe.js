@@ -2,20 +2,32 @@ import React from 'react'
 import CommentsContainer from '../containers/CommentsContainer.js'
 import { EditRecipeButton } from './edit/EditRecipeButton.js'
 import EditRecipeForm from './edit/EditRecipeForm'
+import { Route, Link } from 'react-router-dom';
 
 class Recipe extends React.Component {
         
         constructor(props) {
             super(props)
             this.state = {
-                isEditing: false
+                isEditing: false,
+                showingComments: false
             }
         }
 
         triggerEditingForm = () => {
             this.setState(prevState => {
                 return {
+                    ...prevState,
                     isEditing: !prevState.isEditing
+                }
+            })
+        }
+
+        triggerComments = () => {
+            this.setState(prevState => {
+                return {
+                    ...prevState,
+                    showingComments: !prevState.showingComments
                 }
             })
         }
@@ -26,6 +38,9 @@ class Recipe extends React.Component {
         }
         
         render() {
+            let matchUrl
+            this.props.match.url.charAt(this.props.match.url.length-1) === '/' ? matchUrl = this.props.match.url : matchUrl = `${this.props.match.url}/`
+
             const currentUserId = this.props.currentUser.data.id
             const recipeUserId = this.props.recipe.relationships.user.data.id
             const {attributes} = this.props.recipe
@@ -66,12 +81,22 @@ class Recipe extends React.Component {
                             </> 
                         : null}
                         
+                        {this.state.showingComments ? 
+                        <>
                         <CommentsContainer 
                             recipe={this.props.recipe} 
                             history={this.props.history} 
                             match={this.props.match} 
                             currentUser={this.props.currentUser}
                         />
+                        
+                        <Link onClick={() => this.triggerComments()} to={`${matchUrl}`}>Hide Comments   </Link>
+                        </> :
+                        <>
+                        <br /><br />
+                        <Link onClick={() => this.triggerComments()} to={`${matchUrl}comments`}>See Comments   </Link></>
+                        }
+                        
                         <br /><br />
                     </li>
                 )
