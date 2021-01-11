@@ -1,5 +1,5 @@
 import React from 'react'
-import Comment from './Comment.js'
+import {Comment} from './Comment.js'
 import { NewCommentButton } from '../comments/NewCommentButton.js';
 import CommentInput from '../comments/CommentInput.js'
 
