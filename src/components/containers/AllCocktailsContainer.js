@@ -19,14 +19,14 @@ class AllCocktailsContainer extends React.Component {
     }
 
     render() {
-        if ((this.props.cocktails.loading) || (!this.props.cocktails.cocktails.included) ) {
+        if ((this.props.loading) || (!this.props.cocktails.included) ) {
             return (<h2>Loading...</h2>)
         }
         else {
             return (
                 <>
                 <h1>All Cocktails</h1>
-                    <Cocktails cocktails={this.props.cocktails.cocktails.data} />
+                    <Cocktails cocktails={this.props.cocktails.data} />
 
                     <Route path={`${this.props.match.url}/:cocktailId`} render={routerProps => <Cocktail {...routerProps} cocktails={this.props.cocktails} currentUser={this.props.currentUser} profile={this.state.profile}/>} />
                 </>
@@ -37,7 +37,8 @@ class AllCocktailsContainer extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        cocktails: state.cocktails,
+        cocktails: state.cocktails.cocktails,
+        loading: state.cocktails.loading
     }
 }
 
