@@ -4,16 +4,9 @@ import {NavLink, useHistory} from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
-import { makeStyles } from '@material-ui/core/styles';
 import {logout} from '../actions/currentUser.js'
+import {useStyles} from '../material-ui/useStyles.js'
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    ...theme.typography.button,
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(1),
-  },
-}));
 
 const NavBar = props => {
   const history = useHistory()
