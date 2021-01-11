@@ -10,19 +10,11 @@ class CommentsContainer extends React.Component {
         super(props)
         if ((props.history.location.pathname.includes("comments")) && (props.history.location.pathname.includes("new"))) {
             this.state = {
-                showingComments: true,
                 showingCommentForm: true
-            }
-        }
-        else if (props.history.location.pathname.includes("comments")) {
-            this.state = {
-                showingComments: true,
-                showingCommentForm: false
             }
         }
         else {
             this.state = {
-                showingComments: false,
                 showingCommentForm: false
             }
         }
@@ -36,15 +28,6 @@ class CommentsContainer extends React.Component {
         })
     }
 
-    toggleComments = () => {
-        this.setState(prevState => {
-            return {
-                ...prevState,
-                showingComments: !prevState.showingComments
-            }
-        })
-    }
-
     componentDidMount() {
         this.props.getAllComments()
     }
@@ -54,7 +37,6 @@ class CommentsContainer extends React.Component {
             return (<h2>Loading...</h2>)
         }
         else {
-
         const users = this.props.included.filter(data => data.type === "user")
         const filtered = this.props.comments.filter(comment => (this.props.recipe.relationships.comments.data.map(data => data.id)).includes(comment.id))
         
@@ -79,10 +61,6 @@ class CommentsContainer extends React.Component {
                         triggerCommentForm={this.triggerCommentForm}
                     />} 
                     />
-                        {this.state.showingComments ? 
-                            <Link onClick={() => this.toggleComments()} to={`${matchUrl}`}>Hide Comments   </Link> :
-                            <Link onClick={() => this.toggleComments()} to={`${matchUrl}comments`}>See Comments   </Link>
-                        }
                 </div>
                 </>
             )
