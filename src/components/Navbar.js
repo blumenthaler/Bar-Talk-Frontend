@@ -1,12 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {NavLink, useHistory, useRouteMatch} from 'react-router-dom';
+import {NavLink, useHistory} from 'react-router-dom';
 import Logout from './users/Logout'
 
 
-const NavBar = ({ currentUser, loggedIn }) => {
+const NavBar = ({ loggedIn }) => {
   const history = useHistory()
-  const match = useRouteMatch()
     return (
         <div className="navbar">
           {
