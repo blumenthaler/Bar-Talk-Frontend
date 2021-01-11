@@ -2,21 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/currentUser.js';
 
-class Logout extends React.Component {
+const Logout = props => {
    
-    handleSubmit = event => {
+    const handleSubmit = event => {
         event.preventDefault()
-        this.props.logout()
-        this.props.history.push('/')
+        props.logout()
+        props.history.push('/')
     }
 
-    render() {
         return (
-            <form onSubmit={event => this.handleSubmit(event)}>
+            <form onSubmit={event => handleSubmit(event)}>
                 <input type="submit" value="Log Out"></input>
             </form>
         )
-    }
+    
 }
 
 export default connect(null, { logout })(Logout)
