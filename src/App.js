@@ -3,7 +3,6 @@ import './App.css';
 import React from 'react';
 import Login from './components/users/Login.js'
 import Signup from './components/users/Signup.js'
-import Logout from './components/users/Logout.js'
 import NavBar from './components/NavBar.js'
 import ProfileContainer from './components/containers/ProfileContainer.js'
 import AllCocktailsContainer from './components/containers/AllCocktailsContainer.js'
@@ -15,9 +14,6 @@ import {
   Route,
   withRouter
 } from 'react-router-dom';
-import RecipeInput from './components/recipes/input/RecipeInput';
-import { Cocktail } from './components/cocktails/Cocktail';
-
 
 class App extends React.Component {
 
