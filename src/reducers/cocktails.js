@@ -43,13 +43,32 @@ export default (state = {
             }
         case "DELETE_RECIPE":
             const deletedRecipe = state.cocktails.included.filter(data => ((data.type === 'recipe') && (data.id === action.recipe.id)) ? false : true)
-            return {
-                ...state,
-                cocktails: {
-                    ...state.cocktails,
-                    included: deletedRecipe
-                },
-                loading: false
+
+            const thisCocktail = state.cocktails.data.find(cocktail => cocktail.id === action.recipe.relationships.cocktail.data.id)
+            
+            const cocktailMaybeEmpty = thisCocktail.relationships.recipes.data.filter(recipeData => recipeData.id !== action.recipe.id)
+
+            if (cocktailMaybeEmpty.length === 0) {
+                const cocktailsRemoveEmpty = state.cocktails.data.filter(cocktail => cocktail.id !== thisCocktail.id)
+                return {
+                    ...state,
+                    cocktails: {
+                        ...state.cocktails,
+                        included: deletedRecipe,
+                        data: cocktailsRemoveEmpty
+                    },
+                    loading: false
+                }
+            }
+            else {
+                return {
+                    ...state,
+                    cocktails: {
+                        ...state.cocktails,
+                        included: deletedRecipe
+                    },
+                    loading: false
+                }
             }
         default:
             return state;
