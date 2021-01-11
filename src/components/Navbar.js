@@ -5,7 +5,7 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import {logout} from '../actions/currentUser.js'
-import {useStyles} from '../material-ui/useStyles.js'
+import {useStyles} from '../material-ui/navBarUseStyles.js'
 
 
 const NavBar = props => {
