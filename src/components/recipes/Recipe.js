@@ -2,7 +2,7 @@ import React from 'react'
 import CommentsContainer from '../containers/CommentsContainer.js'
 import { EditRecipeButton } from './edit/EditRecipeButton.js'
 import EditRecipeForm from './edit/EditRecipeForm'
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Recipe extends React.Component {
         
@@ -83,18 +83,19 @@ class Recipe extends React.Component {
                         
                         {this.state.showingComments ? 
                         <>
-                        <CommentsContainer 
-                            recipe={this.props.recipe} 
-                            history={this.props.history} 
-                            match={this.props.match} 
-                            currentUser={this.props.currentUser}
-                        />
+                            <CommentsContainer 
+                                recipe={this.props.recipe} 
+                                history={this.props.history} 
+                                match={this.props.match} 
+                                currentUser={this.props.currentUser}
+                            />
                         
-                        <Link onClick={() => this.triggerComments()} to={`${matchUrl}`}>Hide Comments   </Link>
+                            <Link onClick={() => this.triggerComments()} to={`${matchUrl}`}>Hide Comments</Link>
                         </> :
                         <>
-                        <br /><br />
-                        <Link onClick={() => this.triggerComments()} to={`${matchUrl}comments`}>See Comments   </Link></>
+                            <br /><br />
+                            <Link onClick={() => this.triggerComments()} to={`${matchUrl}comments`}>See Comments</Link>
+                        </>
                         }
                         
                         <br /><br />
