@@ -30,7 +30,6 @@ export default class EditRecipeForm extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         const { spirit } = this.props.recipe.attributes
         return (
             <form onSubmit={this.handleOnSubmit}>
