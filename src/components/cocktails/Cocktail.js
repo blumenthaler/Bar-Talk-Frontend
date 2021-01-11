@@ -1,5 +1,4 @@
 import UsersContainer from '../containers/UsersContainer.js';
-import {useRouteMatch, Link} from 'react-router-dom'
 
 export const Cocktail = props => {
         const {cocktails, history, location, match, currentUser, profile} = props
