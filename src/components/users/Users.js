@@ -12,17 +12,11 @@ const Users = props => {
                 <ol>
                     {props.users.map(user => <User 
                     
-                    // all of this makes sense, keep it
-                    key={user.id} 
-                    currentUser={props.currentUser} 
-                    user={user}
-                    cocktail={props.cocktail} 
-
-                    // get rid of this, don't use it
-                    history={props.history} 
-                    
-                    // get rid of these, render in respective containers
-                    recipes={props.recipes} 
+                        key={user.id} 
+                        currentUser={props.currentUser} 
+                        user={user}
+                        cocktail={props.cocktail} 
+                        recipes={props.recipes} 
                      />)}
                 </ol>
             )
