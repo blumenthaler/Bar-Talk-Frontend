@@ -28,15 +28,11 @@ const User = props => {
                 <h4>{title}</h4> 
                 
                 <RecipesContainer 
-                // these make sense to me to keep being passed
-                // this way, I can make comparisons/filter the included data when I getAllRecipes in the container 
                     user={props.user} 
                     currentUser={props.currentUser} 
                     cocktail={props.cocktail} 
-
-                // do I need to incoporate these here?
-                // investigate
-                history={history} match={match} 
+                    history={history} 
+                    match={match} 
                  />
             </>
         )
