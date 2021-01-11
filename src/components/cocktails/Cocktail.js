@@ -24,7 +24,7 @@ export const Cocktail = props => {
         }
         else {
             return (
-                <li>
+                <>
                     <h2>{cocktail.attributes.name} - {cocktail.attributes.spirit.charAt(0).toUpperCase() + cocktail.attributes.spirit.slice(1)}</h2>
                     
                     <UsersContainer 
@@ -32,7 +32,7 @@ export const Cocktail = props => {
                         currentUser={currentUser} 
                         profile={profile} 
                     />
-                </li>
+                </>
             )
         }
     }
