@@ -24,13 +24,43 @@ export default (state = {
                     ...state.comments.data, 
                     action.comment.data
                 ]
-            return {
-                ...state,
-                comments: {
-                    ...state.comments,
-                    data: commentsWithNew
-                },
-                loading: false
+            let newIncluded = []
+            const commentUsers = state.comments.included.filter(data => data.type === 'user')
+            const newCommentUser = action.comment.included.find(data => data.type === 'user')
+            if (!commentUsers.find(user => user.id === newCommentUser.id)) {
+                newIncluded = [
+                    ...state.comments.included,
+                    newCommentUser
+                ]
+            }
+            const commentRecipes = state.comments.included.filter(data => data.type === 'recipe')
+            const newCommentRecipe = action.comment.included.find(data => data.type === 'recipe')
+            if (!commentRecipes.find(recipe => recipe.id === newCommentRecipe.id)) {
+                newIncluded = [
+                    ...state.comments.included,
+                    newCommentRecipe
+                ]
+            }
+            if (newIncluded.length !== 0) {
+                return {
+                    ...state,
+                    comments: {
+                        ...state.comments,
+                        data: commentsWithNew,
+                        included: newIncluded
+                    },
+                    loading: false
+                }
+            }
+            else {
+                return {
+                    ...state,
+                    comments: {
+                        ...state.comments,
+                        data: commentsWithNew
+                    },
+                    loading: false
+                }
             }
 
         case "DELETING_COMMENT":
