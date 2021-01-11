@@ -21,17 +21,17 @@ class ProfileContainer extends React.Component {
     getFilteredCocktails() {
         const userId = this.props.currentUser.data.id
 
-        const recipes = this.props.cocktails.cocktails.included.filter(data => data.type === 'recipe').filter(recipe => recipe.relationships.user.data.id === userId)
+        const recipes = this.props.cocktails.included.filter(data => data.type === 'recipe').filter(recipe => recipe.relationships.user.data.id === userId)
 
         const cocktailIds = recipes.map(recipe => recipe.relationships.cocktail.data.id)
-        const filteredCocktails = this.props.cocktails.cocktails.data.filter(cocktail => cocktailIds.includes(cocktail.id) )
+        const filteredCocktails = this.props.cocktails.data.filter(cocktail => cocktailIds.includes(cocktail.id) )
 
         return filteredCocktails
     }
 
     render() {
         
-        if ((this.props.cocktails.loading) || (!this.props.cocktails.cocktails.data)) {
+        if ((this.props.loading) || (!this.props.cocktails.data)) {
             return (<h2>Loading...</h2>)
         }
         
@@ -62,7 +62,8 @@ class ProfileContainer extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        cocktails: state.cocktails
+        cocktails: state.cocktails.cocktails,
+        loading: state.cocktails.loading
     }
 }
 
