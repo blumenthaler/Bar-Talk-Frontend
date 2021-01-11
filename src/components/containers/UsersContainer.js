@@ -16,11 +16,6 @@ class UsersContainer extends React.Component {
             return (<h2>Loading...</h2>)
         }
         else {
-            // this.props.users.filter(user => )
-            // I dont know yet if this will change, or if it is actually necessary
-            // compare userRecipe ids to cocktailRecipe ids
-            // only need to render users that have recipes corresponding to each cocktail
-
             const filteredRecipes = this.props.recipes.filter(recipe => recipe.relationships.cocktail.data.id === this.props.cocktail.id)
             
             if (this.props.profile) {
@@ -29,9 +24,6 @@ class UsersContainer extends React.Component {
                     user={this.props.currentUser.data} 
                     cocktail={this.props.cocktail}
                     currentUser={this.props.currentUser}
-
-                    // while having filteredRecipes here is fine, there is no need to pass it as props
-                    // will render recipes from RecipesContainer
                     recipes={filteredRecipes}
                     />
                 )
@@ -51,8 +43,6 @@ class UsersContainer extends React.Component {
                         users={sorted} 
                         cocktail={this.props.cocktail}
                         currentUser={this.props.currentUser}
-
-                        // I don't think I will need this, or it will change with mapping the state
                         recipes={filteredRecipes}
                     />
                 )
