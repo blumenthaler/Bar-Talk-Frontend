@@ -20,18 +20,19 @@ const Signup = ({signupForm, updateSignupForm, signup, history}) => {
         updateSignupForm(updatedFormInfo)
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = event => {
+        if (!!event) {event.preventDefault()}
         signup(signupForm)
         history.push('/profile/')
     }
     return (
-        <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
+        <form className={classes.root} noValidate autoComplete="off" onSubmit={event => handleSubmit(event)}>
             <Input placeholder="Username" name="username" value={signupForm.username} onChange={handleChange} />
 
             <Input placeholder="Password" name="password" type="password" value={signupForm.password} onChange={handleChange} />
 
             <Button variant="contained" id="submit-signup-button" onClick={() => handleSubmit()}>Sign Up</Button>
-            {/* <input type="submit" value="Sign Up"></input> */}
+            <input className="hidden" type="submit" />
         </form>
     )
 }
