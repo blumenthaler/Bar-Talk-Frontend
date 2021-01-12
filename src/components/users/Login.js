@@ -4,7 +4,7 @@ import { updateLoginForm } from '../../actions/loginForm.js';
 import { login } from '../../actions/currentUser.js';
 import { Button } from '@material-ui/core';
 import {textFieldUseStyles} from '../../material-ui/textFieldUseStyles.js'
-import TextField from '@material-ui/core/TextField';
+import Input from '@material-ui/core/Input';
 
 const Login = props => {
     const {loginForm, updateLoginForm, login, history} = props
@@ -26,9 +26,9 @@ const Login = props => {
 
     return (
         <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
-            <TextField id="login-username" label="Username" name="username" value={loginForm.username} onChange={handleChange} />
-            <TextField id="login-password" label="Password" name="password" type="password" value={loginForm.password} onChange={handleChange} />
-            <Button variant="contained" color="primary" onClick={() => handleSubmit()}>Log In</Button>
+            <Input placeholder="Username" name="username" value={loginForm.username} onChange={handleChange} />
+            <Input placeholder="Password" name="password" type="password" value={loginForm.password} onChange={handleChange} />
+            <Button variant="contained" id='submit-login-button' onClick={() => handleSubmit()}>Log In</Button>
             {/* <input type="submit" visible="hidden"></input> */}
         </form>
     )
