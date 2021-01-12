@@ -27,10 +27,15 @@ class App extends React.Component {
     if (!this.props.currentUser) {
       return (
         <>
-        <h2>Welcome to Bar Talk!</h2>
-        <h2>Login or Signup</h2>
-        <Login history={this.props.history}/>
-        <Signup history={this.props.history}/>
+        <div className='welcome'>
+          <h1 className='welcome-child'>Welcome to Bar Talk!</h1>
+          <br className='welcome-child'/>
+          <h2 className='welcome-child'>Login</h2>
+          <Login className='welcome-child' history={this.props.history}/>
+          <br className='welcome-child'/>
+          <h2>Signup</h2>
+          <Signup className='welcome-child' history={this.props.history}/>
+        </div>
         </>
       )
     }

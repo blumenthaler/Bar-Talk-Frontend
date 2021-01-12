@@ -42,6 +42,13 @@ body {
   background-color: #71697a;
 }
 
+.welcome {
+  position: relative;
+  left: 25%;
+  right: 25%;
+  color: #E4BE9E;
+}
+
 #navbar {
   background-color: #E4BE9E;
 }
