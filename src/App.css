@@ -36,3 +36,35 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  color: #d9d2b6;
+  background-color: #71697a;
+}
+
+#navbar {
+  background-color: #d9d2b6;
+}
+
+#nav-link {
+  background-color: #d9d2b6;
+  font-size: 1.35em;
+}
+
+#nav-link:hover {
+  background-color: #71697a;
+  color: #d0e1d4;
+  font-size: 1.35em;
+}
+
+#submit-login-button {
+  color: #71697A;
+  background-color: #E4BE9E;
+  font-weight: bold;
+}
+
+#submit-signup-button {
+  color: #71697A;
+  background-color: #E4BE9E;
+  font-weight: bold;
+}
