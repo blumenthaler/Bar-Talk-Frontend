@@ -5,13 +5,13 @@ export const textFieldUseStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(1),
       width: '20ch',
-      color: '#e4be9e',
+      color: '#f2f6d0',
     },
     '& .MuiInputBase-input': {
       borderBottomColor: 'white',
     },
     '& .MuiInput-input': {
-      color: '#e4be9e',
+      color: '#f2f6d0',
     },
     '& .MuiInput-underline:before': {
       borderBottomColor: '#e4be9e',
