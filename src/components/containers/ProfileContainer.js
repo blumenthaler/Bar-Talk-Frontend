@@ -2,8 +2,11 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { getAllCocktails } from '../../actions/cocktails.js';
 import {Cocktails} from '../cocktails/Cocktails.js'
+import {CocktailsCard} from '../cocktails/CocktailsCard.js'
 import {Cocktail} from '../cocktails/Cocktail.js'
 import { Route } from 'react-router-dom';
+import CardHeader from '@material-ui/core/CardHeader';
+import {headerUseStyles} from '../../material-ui/headerUseStyles.js'
 
 class ProfileContainer extends React.Component {
 
@@ -50,7 +53,7 @@ class ProfileContainer extends React.Component {
                 return (
                     <>
                         <h1>{this.props.currentUser.data.attributes.username} - Your Recipes</h1>
-                        <Cocktails cocktails={filteredCocktails} />
+                        <CocktailsCard cocktails={filteredCocktails} />
 
                         <Route path={`${this.props.match.url}/cocktails/:cocktailId`} render={routerProps => <Cocktail {...routerProps} cocktails={this.props.cocktails} currentUser={this.props.currentUser} profile={this.state.profile}/>} />
                     </>
