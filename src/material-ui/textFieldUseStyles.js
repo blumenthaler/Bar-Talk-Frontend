@@ -12,6 +12,7 @@ export const textFieldUseStyles = makeStyles((theme) => ({
     },
     '& .MuiInput-input': {
       color: '#f2f6d0',
+      'font-weight': 'bold',
     },
     '& .MuiInput-underline:before': {
       borderBottomColor: '#e4be9e',
