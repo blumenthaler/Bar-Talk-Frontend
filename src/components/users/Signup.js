@@ -4,11 +4,11 @@ import { updateSignupForm } from '../../actions/signupForm.js';
 import { signup } from '../../actions/currentUser.js';
 import { Button } from '@material-ui/core';
 import {textFieldUseStyles} from '../../material-ui/textFieldUseStyles.js'
-import TextField from '@material-ui/core/TextField';
+import Input from '@material-ui/core/Input';
 
 
 const Signup = ({signupForm, updateSignupForm, signup, history}) => {
-
+    
     const classes = textFieldUseStyles()
 
     const handleChange = event => {
@@ -26,11 +26,11 @@ const Signup = ({signupForm, updateSignupForm, signup, history}) => {
     }
     return (
         <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
-            <TextField id="submit-username" label="Username" name="username" value={signupForm.username} onChange={handleChange} />
+            <Input placeholder="Username" name="username" value={signupForm.username} onChange={handleChange} />
 
-            <TextField id="signup-password" label="Password" name="password" type="password" value={signupForm.password} onChange={handleChange} />
+            <Input placeholder="Password" name="password" type="password" value={signupForm.password} onChange={handleChange} />
 
-            <Button variant="contained" color="primary" onClick={() => handleSubmit()}>Sign Up</Button>
+            <Button variant="contained" id="submit-signup-button" onClick={() => handleSubmit()}>Sign Up</Button>
             {/* <input type="submit" value="Sign Up"></input> */}
         </form>
     )
