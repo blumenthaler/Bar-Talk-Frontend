@@ -37,7 +37,7 @@ class App extends React.Component {
     else {
     return (
           <div>
-            <NavBar location={this.props.location}/>
+            <NavBar location={this.props.location} id='navbar'/>
             <Switch>
               <Route path="/profile/"  render={routerProps => <ProfileContainer {...routerProps} currentUser={this.props.currentUser} />}/>
 
