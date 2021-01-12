@@ -43,11 +43,12 @@ body {
 }
 
 #navbar {
-  background-color: #d9d2b6;
+  background-color: #E4BE9E;
 }
 
 #nav-link {
-  background-color: #d9d2b6;
+  background-color: #E4BE9E;
+  color: #71697a;
   font-size: 1.35em;
 }
 
