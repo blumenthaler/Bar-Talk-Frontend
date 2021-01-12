@@ -47,11 +47,11 @@ body {
   left: 25%;
   right: 25%;
   color: #E4BE9E;
-  /* text-align: center; */
 }
 
 .welcome-child {
   font-style: italic;
+  text-align:unset;
 }
 
 .hidden {
@@ -72,7 +72,6 @@ body {
 }
 
 #nav-link:hover {
-  /* background-color: #71697a; */
   color: #F2F6D0;
   font-size: 1.35em;
 }
@@ -81,7 +80,6 @@ body {
   color: #D0E1D4;
   background-color: #E4BE9E
 }
-
 
 #submit-login-button {
   color: #71697A;
