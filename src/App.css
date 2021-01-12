@@ -38,7 +38,7 @@
 }
 
 body {
-  color: #F2F6D0;
+  color: #D9D2B6;
   background-color: #71697a;
 }
 
@@ -47,6 +47,15 @@ body {
   left: 25%;
   right: 25%;
   color: #E4BE9E;
+  /* text-align: center; */
+}
+
+.welcome-child {
+  font-style: italic;
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 #navbar {
@@ -63,10 +72,16 @@ body {
 }
 
 #nav-link:hover {
-  background-color: #71697a;
-  color: #d0e1d4;
+  /* background-color: #71697a; */
+  color: #F2F6D0;
   font-size: 1.35em;
 }
+
+#nav-link:active {
+  color: #D0E1D4;
+  background-color: #E4BE9E
+}
+
 
 #submit-login-button {
   color: #71697A;
