@@ -38,7 +38,7 @@
 }
 
 body {
-  color: #d9d2b6;
+  color: #F2F6D0;
   background-color: #71697a;
 }
 
@@ -50,6 +50,9 @@ body {
   background-color: #E4BE9E;
   color: #71697a;
   font-size: 1.35em;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 20px;
 }
 
 #nav-link:hover {
