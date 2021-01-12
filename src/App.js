@@ -30,10 +30,12 @@ class App extends React.Component {
         <div className='welcome'>
           <h1 className='welcome-child'>Welcome to Bar Talk!</h1>
           <br className='welcome-child'/>
+          <h3 className='welcome-child'>This is a description of the application</h3>
+          <br className='welcome-child'/>
           <h2 className='welcome-child'>Login</h2>
           <Login className='welcome-child' history={this.props.history}/>
-          <br className='welcome-child'/>
-          <h2>Signup</h2>
+          <br className='welcome-child'/><br className='welcome-child'/>
+          <h2 className='welcome-child'>Signup</h2>
           <Signup className='welcome-child' history={this.props.history}/>
         </div>
         </>
