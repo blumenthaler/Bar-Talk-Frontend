@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {Cocktails} from '../cocktails/Cocktails.js';
 import {Cocktail} from '../cocktails/Cocktail.js'
+import {CocktailsCard} from '../cocktails/CocktailsCard.js'
 import { getAllCocktails } from '../../actions/cocktails.js';
 import { Route } from 'react-router-dom';
 
@@ -26,7 +27,7 @@ class AllCocktailsContainer extends React.Component {
             return (
                 <>
                 <h1>All Cocktails</h1>
-                    <Cocktails cocktails={this.props.cocktails.data} />
+                    <CocktailsCard cocktails={this.props.cocktails.data} />
 
                     <Route path={`${this.props.match.url}/:cocktailId`} render={routerProps => <Cocktail {...routerProps} cocktails={this.props.cocktails} currentUser={this.props.currentUser} profile={this.state.profile}/>} />
                 </>
