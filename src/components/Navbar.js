@@ -22,20 +22,20 @@ const NavBar = props => {
         <div className="navbar">
           {
           <AppBar position="static">
-            <Toolbar>
+            <Toolbar id="navbar">
             
-              <NavLink className={classes.root} to="/profile/">Home</NavLink>              
+              <NavLink className={classes.root} id="nav-link" to="/profile/">Home</NavLink>              
               
               
-              <NavLink className={classes.root} to="/recipes/new">Add a New Recipe</NavLink>
+              <NavLink className={classes.root} id="nav-link" to="/recipes/new">New Recipe</NavLink>
               
               
-              <NavLink className={classes.root} to="/cocktails/">All Cocktails</NavLink>
+              <NavLink className={classes.root} id="nav-link" to="/cocktails/">All Cocktails</NavLink>
               
               {/* 
                 <NavLink to="/popular">Popular Recipes</NavLink>
                */}
-              {props.loggedIn ? <NavLink className={classes.root} to="/logout/" onClick={event => handleLogout(event)}>Log Out</NavLink> : null }
+              {props.loggedIn ? <NavLink className={classes.root} id="nav-link" to="/logout/" onClick={event => handleLogout(event)}>Log Out</NavLink> : null }
             </Toolbar>
           </AppBar>
           }
