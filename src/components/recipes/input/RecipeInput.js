@@ -62,12 +62,12 @@ class RecipeInput extends React.Component {
         return (
             <>
             <form onSubmit={(event) => this.handleOnSubmit(event)}> 
-                {!this.props.cocktail ? <><h1>Add a New Recipe!</h1><label>Name: </label><input type="text" name="name" onChange={this.handleOnChange} value={this.state.name}/><br />
-                <label>Spirit: </label><input type="text" name="spirit" onChange={this.handleOnChange} value={this.state.spirit}/><br /></> : <RecipeWithCocktail cocktail={this.props.cocktail}/>}
+                {!this.props.cocktail ? <><h1>Add a New Recipe!</h1><label className='form-label'>Name: </label><input type="text" name="name" className="form-field" onChange={this.handleOnChange} value={this.state.name}/><br />
+                <label className='form-label'>Spirit: </label><input className="form-field" type="text" name="spirit" onChange={this.handleOnChange} value={this.state.spirit}/><br /></> : <RecipeWithCocktail cocktail={this.props.cocktail}/>}
                 
-                <label>Ingredients: </label><input type="text" name="ingredients" onChange={this.handleOnChange} value={this.state.ingredients}/><br />
-                <label>Garnish: </label><input type="text" name="garnish" onChange={this.handleOnChange} value={this.state.garnish}/><br />
-                <label>Notes: </label><input type="text" name="notes" onChange={this.handleOnChange} value={this.state.notes}/><br /><br />
+                <label className='form-label'>Ingredients: </label><input className="form-field" type="text" name="ingredients" onChange={this.handleOnChange} value={this.state.ingredients}/><br />
+                <label className='form-label'>Garnish: </label><input className="form-field" type="text" name="garnish" onChange={this.handleOnChange} value={this.state.garnish}/><br />
+                <label className='form-label'>Notes: </label><input className="form-field" type="text" name="notes" onChange={this.handleOnChange} value={this.state.notes}/><br /><br />
                 <input type="submit"/><br />
                 {this.props.cocktail ? <CancelInputButton triggerRecipeForm={this.props.triggerRecipeForm} /> : null }
             </form>
