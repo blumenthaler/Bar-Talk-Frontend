@@ -1,4 +1,5 @@
 import { useHistory, useRouteMatch } from 'react-router-dom'
+import { Button } from '@material-ui/core';
 
 export const CancelInputButton = props => {
     const history = useHistory()
@@ -8,6 +9,6 @@ export const CancelInputButton = props => {
         history.push(`${match.url}/`)
     }
     return (
-        <button onClick={() => handleClick()}>Cancel</button>
+        <Button variant="contained" id='submit-login-button' style={{'margin-left': '38%', backgroundColor: '#d0e1d4'}} onClick={() => handleClick()}>Cancel</Button>
     )
 }
