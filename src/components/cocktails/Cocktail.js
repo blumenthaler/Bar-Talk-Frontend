@@ -1,4 +1,5 @@
 import UsersContainer from '../containers/UsersContainer.js';
+import {UsersCard} from '../users/UsersCard.js'
 
 export const Cocktail = props => {
         const {cocktails, history, location, match, currentUser, profile} = props
@@ -26,7 +27,7 @@ export const Cocktail = props => {
                 <>
                     <h2>{cocktail.attributes.name} - {cocktail.attributes.spirit.charAt(0).toUpperCase() + cocktail.attributes.spirit.slice(1)}</h2>
                     
-                    <UsersContainer 
+                    <UsersCard 
                         cocktail={cocktail} 
                         currentUser={currentUser} 
                         profile={profile} 
