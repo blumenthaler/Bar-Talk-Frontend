@@ -1,4 +1,3 @@
-import {Users} from './Users'
 import UsersContainer from '../containers/UsersContainer.js'
 import Card from '@material-ui/core/Card';
 import {cardUseStyles} from '../../material-ui/cardUseStyles.js'

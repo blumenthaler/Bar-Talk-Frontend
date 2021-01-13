@@ -1,4 +1,3 @@
-import UsersContainer from '../containers/UsersContainer.js';
 import {UsersCard} from '../users/UsersCard.js'
 
 export const Cocktail = props => {
