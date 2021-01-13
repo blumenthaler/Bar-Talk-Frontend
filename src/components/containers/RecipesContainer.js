@@ -4,6 +4,7 @@ import Recipes from '../recipes/Recipes.js';
 import RecipeInput from '../recipes/input/RecipeInput.js';
 import { addRecipe, editingRecipe, deleteRecipe, getAllRecipes } from '../../actions/recipes.js';
 import { NewRecipeButton } from '../recipes/input/NewRecipeButton.js';
+import {RecipeInputCard} from '../recipes/input/RecipeInputCard.js'
 
 
 class RecipesContainer extends React.Component {
@@ -35,7 +36,7 @@ class RecipesContainer extends React.Component {
         }
         else if (!this.props.cocktail) {
             return (
-                  <RecipeInput 
+                  <RecipeInputCard 
                     currentUser={this.props.currentUser} 
                     addRecipe={this.props.addRecipe} 
                     cocktail={this.props.cocktail} 
@@ -61,7 +62,7 @@ class RecipesContainer extends React.Component {
                     />
 
                     {this.state.showingRecipeForm ? 
-                        <RecipeInput 
+                        <RecipeInputCard 
                             currentUser={this.props.currentUser} 
                             addRecipe={this.props.addRecipe} 
                             cocktail={this.props.cocktail} 
