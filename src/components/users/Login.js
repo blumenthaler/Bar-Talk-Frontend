@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { updateLoginForm } from '../../actions/loginForm.js';
 import { login } from '../../actions/currentUser.js';
 import { Button } from '@material-ui/core';
-import {textFieldUseStyles} from '../../material-ui/textFieldUseStyles.js'
+import {loginSignupTextFieldUseStyles} from '../../material-ui/loginSignupTextFieldUseStyles.js'
 import Input from '@material-ui/core/Input';
 
 const Login = props => {
     const {loginForm, updateLoginForm, login, history} = props
-    const classes = textFieldUseStyles()
+    const classes = loginSignupTextFieldUseStyles()
 
     const handleChange = event => {
         const { name, value } = event.target
