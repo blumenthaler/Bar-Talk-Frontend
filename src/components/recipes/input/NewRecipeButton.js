@@ -1,4 +1,6 @@
 import { useHistory, useRouteMatch } from 'react-router-dom'
+import {Button} from '@material-ui/core'
+import { shadows } from '@material-ui/system';
 
 export const NewRecipeButton = props => {
     const history = useHistory()
@@ -17,7 +19,7 @@ export const NewRecipeButton = props => {
     }
     return (
         <>
-        <button onClick={() => handleClick()}>Add a New Recipe to this Cocktail</button>
+        <Button variant="contained" style={{marginLeft: "10px", backgroundColor: "#45062e", color: "#ffe8d4", minWidth: "350px", fontWeight: "bold"}} onClick={() => handleClick()}>Add a New Recipe to this Cocktail</Button>
         <br /><br />
         </>
     ) 
