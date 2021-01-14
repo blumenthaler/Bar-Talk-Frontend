@@ -1,4 +1,5 @@
 import { useHistory, useRouteMatch } from 'react-router-dom'
+import { Button } from '@material-ui/core';
 
 export const CancelEditButton = props => {
     const history = useHistory()
@@ -8,6 +9,16 @@ export const CancelEditButton = props => {
         history.push(`${match.url}/`)
     }
     return (
-        <button onClick={() => handleClick()}>Cancel</button>
+        <Button variant="contained" style={{backgroundColor: "#45062e", color: "#ffe8d4", maxWidth: "80px", fontWeight: 'bold'}} onClick={() => handleClick()}>Cancel</Button>
+        // <button onClick={() => handleClick()}>Cancel</button>
     )
 }
+
+
+
+
+
+
+
+        
+    
