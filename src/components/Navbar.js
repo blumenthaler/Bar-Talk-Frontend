@@ -24,7 +24,7 @@ const NavBar = props => {
           <AppBar position="static">
             <Toolbar id="navbar" style={{justifyContent: "center"}}>
 
-              <h2>&#127864;</h2>
+              <h2 style={{marginRight: '5px'}}>&#127864;</h2>
             
               <NavLink className={classes.root} id="nav-link" to="/profile/">Home</NavLink>              
               
