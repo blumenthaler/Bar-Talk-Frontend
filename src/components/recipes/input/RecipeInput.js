@@ -98,7 +98,7 @@ class RecipeInput extends React.Component {
 
                 <Input placeholder="Notes:" name="notes" value={this.state.notes} onChange={this.handleOnChange} /><br /><br />
 
-                <Button id="add-recipe-button" variant="contained" style={this.findButtonStyle()} onClick={() => this.handleOnSubmit()}>Add Recipe</Button><br />
+                <Button id="add-recipe-button" variant="contained" style={this.findButtonStyle()} onClick={() => this.handleOnSubmit()}>Add Recipe</Button>
                 <input type='submit' className="hidden"></input>
                 {this.props.cocktail ? <CancelInputButton triggerRecipeForm={this.props.triggerRecipeForm} /> : null }
             </form>

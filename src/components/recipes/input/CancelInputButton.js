@@ -9,6 +9,6 @@ export const CancelInputButton = props => {
         history.push(`${match.url}/`)
     }
     return (
-        <Button variant="contained" id='submit-login-button' style={{'margin-left': '25%', backgroundColor: '#d0e1d4'}} onClick={() => handleClick()}>Cancel</Button>
+        <Button variant="contained" id='submit-login-button' style={{marginLeft: '25%', backgroundColor: '#d0e1d4', marginTop: "-50px"}} onClick={() => handleClick()}>Cancel</Button>
     )
 }
