@@ -1,7 +1,7 @@
 import React from 'react'
 import {Comment} from './Comment.js'
 import { NewCommentButton } from '../comments/NewCommentButton.js';
-import CommentInput from '../comments/CommentInput.js'
+import {CommentInputCard} from '../comments/CommentInputCard.js';
 
 
 export const Comments = props => {
@@ -28,7 +28,20 @@ export const Comments = props => {
                     
                 </ul>
                 <br />
-                    {!props.showingCommentForm ? <NewCommentButton triggerCommentForm={props.triggerCommentForm} recipe={props.recipe}/> : <CommentInput user={props.currentUser} recipe={props.recipe} triggerCommentForm={props.triggerCommentForm} addComment={props.addComment} history={props.history} match={props.match} /> }
+                    {!props.showingCommentForm ? 
+                    <NewCommentButton 
+                        triggerCommentForm={props.triggerCommentForm} 
+                        recipe={props.recipe}
+                    />
+                    : 
+                    <CommentInputCard
+                        user={props.currentUser} 
+                        recipe={props.recipe} 
+                        triggerCommentForm={props.triggerCommentForm} 
+                        addComment={props.addComment} 
+                        history={props.history} 
+                        match={props.match} 
+                    /> }
                 </>
             )
         }
