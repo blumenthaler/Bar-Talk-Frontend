@@ -10,7 +10,7 @@ export const Comment = props => {
             <>
                 <li>
                     {props.user.attributes.username}: "{props.comment.attributes.content}" 
-                    {props.user.id === props.currentUser.data.id ? <button onClick={event => handleDelete(event)}  >X</button> : null}
+                    {props.user.id === props.currentUser.data.id ? <button style={{marginLeft: "10px"}} onClick={event => handleDelete(event)}  >X</button> : null}
                 </li>
                 
             </>
