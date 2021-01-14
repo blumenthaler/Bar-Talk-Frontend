@@ -63,21 +63,20 @@ class Recipe extends React.Component {
                     <li>
                         {attributes.name}
                         <br />
-                        {attributes.ingredients}
+                        Ingredients: {attributes.ingredients}
                         <br />
-                        {attributes.garnish}
+                        Garnish: {attributes.garnish}
                         <br />
-                        {attributes.notes}
+                        Notes: {attributes.notes}
                         <br />
-                        {attributes.votes}
-                        <br /><br />
+                        {/* {attributes.votes}<br /> */}
+                        <br />
                         {currentUserId === recipeUserId ? 
                             <>
                                 <EditRecipeButton 
                                     recipe={this.props.recipe} 
                                     triggerEditingForm={this.triggerEditingForm}
                                 />
-                                <br /><br />
                                 <DeleteRecipeButton handleDelete={this.handleDelete} />
                                 <br />
                             </> 
