@@ -2,6 +2,7 @@ import React from 'react'
 import CommentsContainer from '../containers/CommentsContainer.js'
 import { EditRecipeButton } from './edit/EditRecipeButton.js'
 import {DeleteRecipeButton} from './edit/DeleteRecipeButton.js'
+import {CommentsCard} from '../comments/CommentsCard.js'
 import EditRecipeForm from './edit/EditRecipeForm'
 import { Link } from 'react-router-dom';
 
@@ -84,13 +85,12 @@ class Recipe extends React.Component {
                         
                         {this.state.showingComments ? 
                         <>
-                            <CommentsContainer 
+                            <CommentsCard 
                                 recipe={this.props.recipe} 
                                 history={this.props.history} 
                                 match={this.props.match} 
                                 currentUser={this.props.currentUser}
                             />
-                        
                             <Link className='comment-link' onClick={() => this.triggerComments()} to={`${matchUrl}`}>Hide Comments</Link>
                         </> :
                         <>
