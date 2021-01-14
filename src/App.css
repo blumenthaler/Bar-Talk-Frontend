@@ -123,6 +123,13 @@
   font-weight: bold;
 }
 
+#edit-recipe-button {
+  max-width: 50px;
+  background-color: #45062e;
+  color: #ffe8d4;
+  font-weight: bold;
+}
+
 .form-label {
   float: left;
   margin-left: 26%;
