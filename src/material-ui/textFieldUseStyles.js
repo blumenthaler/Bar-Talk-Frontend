@@ -4,7 +4,7 @@ export const textFieldUseStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
       margin: theme.spacing(1),
-      width: '20ch',
+      width: '40ch',
       color: '#f2f6d0',
     },
     '& .MuiInputBase-input': {
