@@ -82,6 +82,12 @@
   font-weight: bold;
 }
 
+#add-recipe-button {
+  color: #71697A;
+  background-color: #E4BE9E;
+  font-weight: bold;
+}
+
 #submit-signup-button {
   color: #71697A;
   background-color: #E4BE9E;
