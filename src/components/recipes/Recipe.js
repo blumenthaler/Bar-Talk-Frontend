@@ -1,6 +1,7 @@
 import React from 'react'
 import CommentsContainer from '../containers/CommentsContainer.js'
 import { EditRecipeButton } from './edit/EditRecipeButton.js'
+import {DeleteRecipeButton} from './edit/DeleteRecipeButton.js'
 import EditRecipeForm from './edit/EditRecipeForm'
 import { Link } from 'react-router-dom';
 
@@ -32,8 +33,8 @@ class Recipe extends React.Component {
             })
         }
 
-        handleDelete = event => {
-            event.preventDefault()
+        handleDelete = () => {
+            // event.preventDefault()
             this.props.deleteRecipe(this.props.recipe)
         }
         
@@ -69,15 +70,16 @@ class Recipe extends React.Component {
                         {attributes.notes}
                         <br />
                         {attributes.votes}
-                        <br />
+                        <br /><br />
                         {currentUserId === recipeUserId ? 
                             <>
                                 <EditRecipeButton 
                                     recipe={this.props.recipe} 
                                     triggerEditingForm={this.triggerEditingForm}
                                 />
+                                <br /><br />
+                                <DeleteRecipeButton handleDelete={this.handleDelete} />
                                 <br />
-                                <button onClick={event => this.handleDelete(event)}>Delete Recipe</button>
                             </> 
                         : null}
                         
