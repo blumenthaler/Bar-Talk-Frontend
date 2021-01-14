@@ -91,6 +91,7 @@ class Recipe extends React.Component {
                                 match={this.props.match} 
                                 currentUser={this.props.currentUser}
                             />
+                            <br />
                             <Link className='comment-link' onClick={() => this.triggerComments()} to={`${matchUrl}`}>Hide Comments</Link>
                         </> :
                         <>

@@ -8,7 +8,7 @@ export const CommentsCard = props => {
     return (
         <>
         <div style={{ display:'flex', justifyContent:'center' }}>
-            <Card className={classes.root} style={{minWidth: '600px'}}>
+            <Card className={classes.root} style={{marginTop: '20px', marginLeft: '-10%', backgroundColor: "#7f055f", color: '#ffe8d4', maxWidth: '1000px', minWidth: '500px'}}>
                 <CommentsContainer 
                     recipe={props.recipe} 
                     history={props.history} 
