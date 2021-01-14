@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {addRecipe} from '../../../actions/recipes.js'
 import { CancelInputButton } from './CancelInputButton.js';
 import { Button } from '@material-ui/core';
+import Input from '@material-ui/core/Input';
 
 class RecipeInput extends React.Component {
     
@@ -19,8 +20,18 @@ class RecipeInput extends React.Component {
     handleOnSubmit = event => {
         if (!!event) {event.preventDefault()}
         if (!!this.props.cocktail) {
-            let name = document.getElementById(`${this.props.cocktail.id}_name`).innerText.split('Name: ')[1]
-            let spirit = document.getElementById(`${this.props.cocktail.id}_spirit`).innerText.split('Spirit: ')[1]
+            let getName = document.getElementById(`${this.props.cocktail.id}_name`).innerText.split('NAME: ')[1].toLowerCase()
+
+            let name
+            if (getName.includes(" ")) {
+                let splitted = getName.split(" ")
+                let upperCased = splitted.map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                name = upperCased.join(" ")
+            }
+            else {
+                name = getName.charAt(0).toUpperCase() + getName.slice(1);
+            }
+            let spirit = document.getElementById(`${this.props.cocktail.id}_spirit`).innerText.split('SPIRIT: ')[1].toLowerCase()
             let sendable = {
                 ...this.state,
                 name,
@@ -59,7 +70,7 @@ class RecipeInput extends React.Component {
         })
     }
 
-    findStyle = () => {
+    findButtonStyle = () => {
         if (!this.props.cocktail) {
             return {'margin-left': '25%', 'margin-right': '25%'}
         }
@@ -69,21 +80,27 @@ class RecipeInput extends React.Component {
     }
 
     render() {
-
-        
+        const style = {color: '#71697a'}
         return (
             <>
-            <form onSubmit={(event) => this.handleOnSubmit(event)}> 
-                {!this.props.cocktail ? <><h1>Add a New Recipe!</h1><label className='form-label'>Name: </label><input type="text" name="name" className="form-field" onChange={this.handleOnChange} value={this.state.name}/><br />
-                <label className='form-label'>Spirit: </label><input className="form-field" type="text" name="spirit" onChange={this.handleOnChange} value={this.state.spirit}/><br /></> : <RecipeWithCocktail cocktail={this.props.cocktail}/>}
-                
-                <label className='form-label'>Ingredients: </label><input className="form-field" type="text" name="ingredients" onChange={this.handleOnChange} value={this.state.ingredients}/><br />
-                <label className='form-label'>Garnish: </label><input className="form-field" type="text" name="garnish" onChange={this.handleOnChange} value={this.state.garnish}/><br />
-                <label className='form-label'>Notes: </label><input className="form-field" type="text" name="notes" onChange={this.handleOnChange} value={this.state.notes}/><br /><br />
-                <input type="submit" className="hidden"/>
+            <form className={this.props.classes.root} noValidate autoComplete="off" style={{display: "inline-block", color: "black"}} onSubmit={(event) => this.handleOnSubmit(event)}> 
+                {!this.props.cocktail ? 
+                    <>
+                    <h1 style={style}>Add a New Recipe!</h1>
+                    <Input placeholder="Name:" name="name" value={this.state.name} onChange={this.handleOnChange} /><br />
+                    <Input placeholder="Spirit:" name="spirit" value={this.state.spirit} onChange={this.handleOnChange} /><br />
+                    </> 
+                    : <RecipeWithCocktail cocktail={this.props.cocktail} />       
+                }
+                <Input placeholder="Ingredients:" name="ingredients" value={this.state.ingredients} onChange={this.handleOnChange} /><br />
 
-                <Button variant="contained" id='submit-login-button' style={this.findStyle()} onClick={() => this.handleOnSubmit()}>Add Recipe</Button><br /><br />
-                {this.props.cocktail ? <CancelInputButton findStyle={this.findStyle} triggerRecipeForm={this.props.triggerRecipeForm} /> : null }
+                <Input placeholder="Garnish:" name="garnish" value={this.state.garnish} onChange={this.handleOnChange} /><br />
+
+                <Input placeholder="Notes:" name="notes" value={this.state.notes} onChange={this.handleOnChange} /><br /><br />
+
+                <Button id="add-recipe-button" variant="contained" style={this.findButtonStyle()} onClick={() => this.handleOnSubmit()}>Add Recipe</Button><br />
+                <input type='submit' className="hidden"></input>
+                {this.props.cocktail ? <CancelInputButton triggerRecipeForm={this.props.triggerRecipeForm} /> : null }
             </form>
             <br />
             </>
