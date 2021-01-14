@@ -66,6 +66,35 @@
   margin-right: 20px;
 }
 
+.content-link {
+  text-decoration: none;
+  color: #536b78;
+  font-weight: bold;
+}
+
+.content-link:hover {
+  color: #f2f6d0;
+}
+
+.content-link:active {
+  color: #cee5f2;
+}
+
+.comment-link {
+  color: #7c98b3;
+  text-decoration: none;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.comment-link:hover {
+  color: #d0e1d4;
+}
+
+.comment-link:active {
+  color: #F2F6D0;
+}
+
 #nav-link:hover {
   color: #F2F6D0;
   font-size: 1.35em;
