@@ -29,12 +29,12 @@ class App extends React.Component {
         <>
         <div className='welcome'>
           <h1 className='welcome-child'>&#127864; Welcome to Bar Talk! &#127864;</h1>
-          <br className='welcome-child'/>
-          <h3 className='welcome-child'>This is a description of the application</h3>
-          <br className='welcome-child'/>
+          <br />
+          <h3 className='welcome-child'>Share and discuss your favorite cocktail recipes!</h3>
+          <br />
           <h2 className='welcome-child'>Login</h2>
           <Login className='welcome-child' history={this.props.history}/>
-          <br className='welcome-child'/><br className='welcome-child'/>
+          <br /><br />
           <h2 className='welcome-child'>Signup</h2>
           <Signup className='welcome-child' history={this.props.history}/>
         </div>
