@@ -83,11 +83,11 @@
 }
 
 .content-link:hover {
-  color: #f2f6d0;
+  color: #45062e;
 }
 
 .content-link:active {
-  color: #cee5f2;
+  color: #ffe8d4;
 }
 
 .comment-link {
@@ -98,11 +98,11 @@
 }
 
 .comment-link:hover {
-  color: #d0e1d4;
+  color: #45062e;
 }
 
 .comment-link:active {
-  color: #F2F6D0;
+  color: #ffe8d4;
 }
 
 #submit-login-button {
