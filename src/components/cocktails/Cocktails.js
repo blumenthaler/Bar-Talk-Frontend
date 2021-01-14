@@ -24,7 +24,7 @@ export const Cocktails = props =>  {
                     <>
                     <li>
                     <Link className="content-link" key={cocktail.id} to={`${newMatch}${cocktail.id}/`}>
-                        {`${cocktail.attributes.name} - ${cocktail.attributes.spirit.charAt(0).toUpperCase() + cocktail.attributes.spirit.slice(1)}`}    
+                        {`${cocktail.attributes.name} - ${cocktail.attributes.spirit.charAt(0).toUpperCase() + cocktail.attributes.spirit.slice(1)}`}
                     </Link>
                     </li>
                     </>

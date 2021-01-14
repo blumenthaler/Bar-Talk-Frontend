@@ -9,7 +9,7 @@ export const CocktailsCard = props => {
     return (
         <>
         <div style={{ display:'flex', justifyContent:'center' }}>
-            <Card className={classes.root} style={{'min-width': '300px'}}>
+            <Card className={classes.root} style={{minWidth: '300px'}}>
                 Cocktails:
                 <Cocktails cocktails={props.cocktails}/>
             </Card>
