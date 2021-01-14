@@ -1,5 +1,6 @@
 import React from 'react'
 import {CancelEditButton} from './CancelEditButton.js'
+import { Button } from '@material-ui/core';
 
 export default class EditRecipeForm extends React.Component {
     
@@ -16,8 +17,8 @@ export default class EditRecipeForm extends React.Component {
         }
     }
 
-    handleOnSubmit = event => {
-        event.preventDefault()
+    handleOnSubmit = () => {
+        // event.preventDefault()
         this.props.editingRecipe(this.props.recipe.id, this.state)
         this.props.triggerEditingForm()
         this.props.history.push(`${this.props.match.url}/`)
@@ -41,7 +42,8 @@ export default class EditRecipeForm extends React.Component {
                 <label>Garnish: </label><input type="text" onChange={this.handleOnChange} name="garnish" value={this.state.garnish}></input><br />
 
                 <label>Notes: </label><textarea onChange={this.handleOnChange} name="notes" value={this.state.notes} /><br />
-                <input type="submit" value="Edit"></input><br />
+                <Button variant="contained" id='edit-recipe-button' onClick={this.handleOnSubmit}>Edit</Button>
+                {/* <input type="submit" value="Edit"></input><br /> */}
                 <CancelEditButton triggerEditingForm={this.props.triggerEditingForm}/><br /><br />
             </form>
         )
