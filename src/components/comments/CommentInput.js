@@ -1,5 +1,7 @@
 import React from 'react'
 import { CancelCommentButton } from './CancelCommentButton'
+import Input from '@material-ui/core/Input';
+import { Button } from '@material-ui/core';
 
 export default class CommentInput extends React.Component {
 
@@ -15,8 +17,8 @@ export default class CommentInput extends React.Component {
         })
     }
 
-    handleOnSubmit = event => {
-        event.preventDefault()
+    handleOnSubmit = (event) => {
+        if (event) {event.preventDefault()}
         this.props.addComment(this.state, this.props.history, this.props.match)
         this.setState({
             content: "",
@@ -27,11 +29,17 @@ export default class CommentInput extends React.Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <>
-            <form onSubmit={event => this.handleOnSubmit(event)}>
-                <input type='text' name='content' onChange={event => this.handleOnChange(event)}></input><br />
-                <input type="submit" value="Comment"></input><br />
+            <form className={this.props.classes.root} onSubmit={event => this.handleOnSubmit(event)}>
+
+                <Input placeholder="Comment..." name="content" value={this.state.content} onChange={event => this.handleOnChange(event)} />
+                <br /><br />
+                <input type="submit" className='hidden' value="Comment" />
+
+                <Button variant="contained" style={{backgroundColor: "#e5a4cb", color: "#45062e", marginLeft: "-30%", fontWeight: 'bold'}} onClick={() => this.handleOnSubmit()}>Comment</Button>
+
                 <CancelCommentButton triggerCommentForm={this.props.triggerCommentForm} />
             </form>
             </>
