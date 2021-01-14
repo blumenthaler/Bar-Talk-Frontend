@@ -84,7 +84,7 @@ class RecipeInput extends React.Component {
             return {marginLeft: '25%', marginRight: '25%', backgroundColor: '#ffe8d4', color: '#7f055f'}
         }
         else {
-            return {backgroundColor: '#ebd2be', color: '#45062e'}
+            return {backgroundColor: '#ebd2be', color: '#45062e', maxWidth: "225px"}
         }
     }
 
