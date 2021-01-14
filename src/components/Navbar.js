@@ -22,7 +22,7 @@ const NavBar = props => {
         <div className="navbar">
           {
           <AppBar position="static">
-            <Toolbar id="navbar" style={{'justify-content': "center"}}>
+            <Toolbar id="navbar" style={{justifyContent: "center"}}>
             
               <NavLink className={classes.root} id="nav-link" to="/profile/">Home</NavLink>              
               
