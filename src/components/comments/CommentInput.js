@@ -29,7 +29,6 @@ export default class CommentInput extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <>
             <form className={this.props.classes.root} onSubmit={event => this.handleOnSubmit(event)}>

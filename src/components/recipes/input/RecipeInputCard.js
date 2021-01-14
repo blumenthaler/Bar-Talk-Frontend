@@ -1,12 +1,10 @@
 import Card from '@material-ui/core/Card';
 import {cardUseStyles} from '../../../material-ui/cardUseStyles.js'
 import {textFieldUseStyles} from '../../../material-ui/textFieldUseStyles.js'
-import {newRecipeTextFieldUseStyles} from '../../../material-ui/newRecipeTextFieldUseStyles.js'
 import RecipeInput from './RecipeInput.js'
 
 
 export const RecipeInputCard = props => {
-    console.log(props)
     const classes = cardUseStyles()
     let formClasses = textFieldUseStyles()
     const findStyle = () => {
