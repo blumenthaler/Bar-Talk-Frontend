@@ -28,7 +28,7 @@ class App extends React.Component {
       return (
         <>
         <div className='welcome'>
-          <h1 className='welcome-child'>Welcome to Bar Talk!</h1>
+          <h1 className='welcome-child'>&#127864; Welcome to Bar Talk! &#127864;</h1>
           <br className='welcome-child'/>
           <h3 className='welcome-child'>This is a description of the application</h3>
           <br className='welcome-child'/>
