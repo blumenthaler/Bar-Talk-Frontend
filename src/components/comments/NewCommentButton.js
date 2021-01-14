@@ -1,4 +1,5 @@
 import { useHistory, useRouteMatch } from 'react-router-dom'
+import {Button} from '@material-ui/core'
 
 export const NewCommentButton = props => {
     const recipeId = props.recipe.id
@@ -18,9 +19,6 @@ export const NewCommentButton = props => {
         }
     }
     return (
-        <>
-        <button onClick={() => handleClick()}>Add Comment</button>
-        <br /><br />
-        </>
-    ) 
+        <Button variant="contained" style={{marginLeft: "10px", backgroundColor: "#45062e", color: "#ffe8d4", minWidth: "100px", fontWeight: "bold"}} onClick={() => handleClick()}>Add Comment</Button>
+    )
 }
