@@ -79,15 +79,19 @@ export default (state = {
                 loading: false
             }
         case "DELETE_RECIPE":
-            const commentsRemaining = state.comments.data.filter(comment => comment.relationships.recipe.data.id !== action.recipe.id)
-            return {
-                ...state,
-                comments: {
-                    ...state.comments,
-                    data: commentsRemaining
-                },
-                loading: false
+            if (!!state.comments.data) {
+                const commentsRemaining = state.comments.data.filter(comment => comment.relationships.recipe.data.id !== action.recipe.id)
+                return {
+                    ...state,
+                    comments: {
+                        ...state.comments,
+                        data: commentsRemaining
+                    },
+                    loading: false
+                }
             }
+            else {return  state}
+            
         default:
             return state;
     }
