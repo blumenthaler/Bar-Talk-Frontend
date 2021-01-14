@@ -60,8 +60,8 @@ class RecipeInput extends React.Component {
                 votes: 0
             })
             this.props.triggerRecipeForm()
-            this.props.history.push(`/profile/`)   
-        } 
+            this.props.history.push(`/profile/`)
+        }
     }
 
     handleOnChange = event => {
@@ -70,33 +70,42 @@ class RecipeInput extends React.Component {
         })
     }
 
-    findButtonStyle = () => {
+    findTextFieldStyle = () => {
         if (!this.props.cocktail) {
-            return {'margin-left': '25%', 'margin-right': '25%'}
+            return {marginLeft: '22%'}
         }
         else {
-            return {'margin-left': '25%', 'margin-right': '25%', backgroundColor: '#d0e1d4'}
+            return {marginLeft: '2%'}
+        }
+    }
+
+    findButtonStyle = () => {
+        if (!this.props.cocktail) {
+            return {marginLeft: '25%', marginRight: '25%', backgroundColor: '#ffe8d4', color: '#7f055f'}
+        }
+        else {
+            return {backgroundColor: '#ebd2be', color: '#45062e'}
         }
     }
 
     render() {
-        const style = {color: '#71697a'}
+        const style = {color: '#ffe8d4'}
         return (
             <>
             <form className={this.props.classes.root} noValidate autoComplete="off" style={{display: "inline-block", color: "black"}} onSubmit={(event) => this.handleOnSubmit(event)}> 
                 {!this.props.cocktail ? 
                     <>
                     <h1 style={style}>Add a New Recipe!</h1>
-                    <Input placeholder="Name:" name="name" value={this.state.name} onChange={this.handleOnChange} /><br />
-                    <Input placeholder="Spirit:" name="spirit" value={this.state.spirit} onChange={this.handleOnChange} /><br />
+                    <Input style={this.findTextFieldStyle()} placeholder="Name:" name="name" value={this.state.name} onChange={this.handleOnChange} /><br />
+                    <Input style={this.findTextFieldStyle()} placeholder="Spirit:" name="spirit" value={this.state.spirit} onChange={this.handleOnChange} /><br />
                     </> 
                     : <RecipeWithCocktail cocktail={this.props.cocktail} />       
                 }
-                <Input placeholder="Ingredients:" name="ingredients" value={this.state.ingredients} onChange={this.handleOnChange} /><br />
+                <Input style={this.findTextFieldStyle()} placeholder="Ingredients:" name="ingredients" value={this.state.ingredients} onChange={this.handleOnChange} /><br />
 
-                <Input placeholder="Garnish:" name="garnish" value={this.state.garnish} onChange={this.handleOnChange} /><br />
+                <Input style={this.findTextFieldStyle()} placeholder="Garnish:" name="garnish" value={this.state.garnish} onChange={this.handleOnChange} /><br />
 
-                <Input placeholder="Notes:" name="notes" value={this.state.notes} onChange={this.handleOnChange} /><br /><br />
+                <Input style={this.findTextFieldStyle()} placeholder="Notes:" name="notes" value={this.state.notes} onChange={this.handleOnChange} /><br /><br />
 
                 <Button id="add-recipe-button" variant="contained" style={this.findButtonStyle()} onClick={() => this.handleOnSubmit()}>Add Recipe</Button>
                 <input type='submit' className="hidden"></input>
