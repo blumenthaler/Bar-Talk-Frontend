@@ -1,6 +1,5 @@
 import { useHistory, useRouteMatch } from 'react-router-dom'
 import {Button} from '@material-ui/core'
-import { shadows } from '@material-ui/system';
 
 export const NewRecipeButton = props => {
     const history = useHistory()
