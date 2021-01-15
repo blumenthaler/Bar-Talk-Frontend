@@ -19,6 +19,6 @@ export const NewCommentButton = props => {
         }
     }
     return (
-        <Button variant="contained" style={{marginLeft: "10px", backgroundColor: "#45062e", color: "#ffe8d4", minWidth: "100px", fontWeight: "bold"}} onClick={() => handleClick()}>Add Comment</Button>
+        <Button variant="contained" id='new-comment-btn' onClick={() => handleClick()}>Add Comment</Button>
     )
 }

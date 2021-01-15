@@ -219,6 +219,14 @@
   max-width: 5px;
 }
 
+#new-comment-btn {
+  margin-left: 10px;
+  background-color: #45062e;
+  color: #ffe8d4; 
+  min-width: 100px; 
+  font-weight: bold;
+}
+
 .form-label {
   float: left;
   margin-left: 26%;
