@@ -1,4 +1,5 @@
 import {UsersCard} from '../users/UsersCard.js'
+import {Button} from '@material-ui/core'
 
 export const Cocktail = props => {
         const {cocktails, history, location, match, currentUser, profile} = props
@@ -11,8 +12,8 @@ export const Cocktail = props => {
         if (!cocktail) {
             return (
             <>
-            <h2>This cocktail no longer exists.</h2>
-            <button onClick={() => handleClick()}>Click here to add a new recipe</button>
+                <h2>This cocktail no longer exists.</h2>
+                <Button variant="contained" style={{marginLeft: "35%", backgroundColor: "#7f055f", color: "#ffe8d4", minWidth: "350px", fontWeight: "bold"}} onClick={() => handleClick()}>Click here to add a new recipe</Button>
             </>
             )
         }
