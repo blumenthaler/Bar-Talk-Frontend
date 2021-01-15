@@ -59,7 +59,8 @@ class RecipeInput extends React.Component {
             this.setState(prevState => {
                 return {
                     ...prevState,
-                    name: this.getTitleCase(prevState.name)
+                    name: this.getTitleCase(prevState.name),
+                    spirit: prevState.spirit.toLowerCase()
                 }
             })
             this.props.addRecipe(this.state, this.props.currentUser.data, this.props.history)  
