@@ -22,7 +22,7 @@ class App extends React.Component {
 
   render () {
     const {match} = this.props
-
+    document.getElementsByTagName("title")[0].innerText = 'Bar Talk - Cocktail Recipe Forum'
     if (!this.props.currentUser) {
       return (
         <>
