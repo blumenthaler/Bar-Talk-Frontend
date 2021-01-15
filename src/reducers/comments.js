@@ -20,49 +20,18 @@ export default (state = {
                 loading: true
             }
         case "ADD_NEW_COMMENT": 
-            const commentsWithNew = [
-                    ...state.comments.data, 
-                    action.comment.data
-                ]
-            let newIncluded = []
+            Object.assign(state.comments.data[state.comments.data.length - 1], action.comment.data)
             const commentUsers = state.comments.included.filter(data => data.type === 'user')
             const newCommentUser = action.comment.included.find(data => data.type === 'user')
             if (!commentUsers.find(user => user.id === newCommentUser.id)) {
-                newIncluded = [
-                    ...state.comments.included,
-                    newCommentUser
-                ]
+                Object.assign(state.comments.included[state.comments.included.length - 1], newCommentUser)
             }
             const commentRecipes = state.comments.included.filter(data => data.type === 'recipe')
             const newCommentRecipe = action.comment.included.find(data => data.type === 'recipe')
             if (!commentRecipes.find(recipe => recipe.id === newCommentRecipe.id)) {
-                newIncluded = [
-                    ...state.comments.included,
-                    newCommentRecipe
-                ]
+               Object.assign(state.comments.included[state.comments.included.length - 1], newCommentRecipe)
             }
-            if (newIncluded.length !== 0) {
-                return {
-                    ...state,
-                    comments: {
-                        ...state.comments,
-                        data: commentsWithNew,
-                        included: newIncluded
-                    },
-                    loading: false
-                }
-            }
-            else {
-                return {
-                    ...state,
-                    comments: {
-                        ...state.comments,
-                        data: commentsWithNew
-                    },
-                    loading: false
-                }
-            }
-
+            return state
         case "DELETING_COMMENT":
             return {
                 ...state,
