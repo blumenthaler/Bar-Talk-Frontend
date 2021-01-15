@@ -9,7 +9,7 @@ export const UsersCard = props => {
     
     return (
         <>
-        <div style={{ display:'flex', justifyContent:'center' }}>
+        <div className='card-container'>
             <Card className={classes.root} style={{minWidth: '600px'}}>
                 <UsersContainer 
                     cocktail={cocktail} 
