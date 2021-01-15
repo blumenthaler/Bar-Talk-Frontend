@@ -25,7 +25,7 @@ export const Cocktail = props => {
         else {
             return (
                 <>
-                    <h2>{cocktail.attributes.name} - {cocktail.attributes.spirit.charAt(0).toUpperCase() + cocktail.attributes.spirit.slice(1)}</h2>
+                    <h2>{cocktail.attributes.name.charAt(0).toUpperCase() + cocktail.attributes.name.slice(1)} - {cocktail.attributes.spirit.charAt(0).toUpperCase() + cocktail.attributes.spirit.slice(1)}</h2>
                     
                     <UsersCard 
                         cocktail={cocktail} 
