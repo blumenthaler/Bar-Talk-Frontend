@@ -184,6 +184,14 @@
   font-weight: bold;
 }
 
+#edit-recipe-btn {
+  margin-left: 10px;
+  background-color: #7f055f; 
+  color: #ffe8d4; 
+  min-width: 100px; 
+  font-weight: bold;
+}
+
 .form-label {
   float: left;
   margin-left: 26%;
