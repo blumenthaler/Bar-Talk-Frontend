@@ -139,6 +139,15 @@
   font-weight: bold;
 }
 
+#cancel-recipe-input-btn {
+  color: #45062e;
+  background-color: #ffe8d4;
+  font-weight: bold;
+  margin-top: -50px;
+  margin-left: 9px;
+  max-width: 225px;
+}
+
 #no-cocktail-new-recipe {
   margin-left: 35%;
   background-color: #7f055f; 
