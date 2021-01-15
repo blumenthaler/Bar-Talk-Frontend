@@ -57,6 +57,19 @@
   background-color: #ebd2be;
 }
 
+#welcome-link {
+  color: #e5a4cb;
+  text-decoration: none;
+}
+
+#welcome-link:hover {
+  color: #ebd2be;
+}
+
+#welcome-link:active {
+  color: #7f055f;
+}
+
 #nav-link {
   background-color: #ebd2be;
   color: #7f055f;

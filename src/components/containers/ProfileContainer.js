@@ -45,7 +45,7 @@ class ProfileContainer extends React.Component {
                 return (
                     <>
                      <h1>Welcome {this.props.currentUser.data.attributes.username}!</h1>
-                     <h2><a class="content-link" href="/recipes/new">Add a Recipe!</a></h2>
+                     <h2><a id="welcome-link" href="/recipes/new">Add a Recipe!</a></h2>
                     </>
                 )
             }
