@@ -200,6 +200,15 @@
   font-weight: bold
 }
 
+#comments-card {
+  margin-top: 20px;
+  margin-left: -10%; 
+  background-color: #7f055f; 
+  color: #ffe8d4;
+  max-width: 700px; 
+  min-width: 500px;
+}
+
 .form-label {
   float: left;
   margin-left: 26%;

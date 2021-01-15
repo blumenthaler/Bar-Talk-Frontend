@@ -7,8 +7,8 @@ export const CommentsCard = props => {
     const classes = cardUseStyles()
     return (
         <>
-        <div style={{ display:'flex', justifyContent:'center' }}>
-            <Card className={classes.root} style={{marginTop: '20px', marginLeft: '-10%', backgroundColor: "#7f055f", color: '#ffe8d4', maxWidth: '1000px', minWidth: '500px'}}>
+        <div className='card-container'>
+            <Card className={classes.root} id='comments-card'>
                 <CommentsContainer 
                     recipe={props.recipe} 
                     history={props.history} 
