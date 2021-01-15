@@ -21,7 +21,7 @@ const NavBar = props => {
         <div className="navbar">
           {
           <AppBar position="static">
-            <Toolbar id="navbar" style={{justifyContent: "center"}}>
+            <Toolbar id="navbar">
 
               <h2 style={{marginRight: '5px'}}>&#127864;</h2>
             
