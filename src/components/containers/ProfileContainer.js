@@ -1,12 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { getAllCocktails } from '../../actions/cocktails.js';
-import {Cocktails} from '../cocktails/Cocktails.js'
 import {CocktailsCard} from '../cocktails/CocktailsCard.js'
 import {Cocktail} from '../cocktails/Cocktail.js'
 import { Route } from 'react-router-dom';
-import CardHeader from '@material-ui/core/CardHeader';
-import {headerUseStyles} from '../../material-ui/headerUseStyles.js'
 
 class ProfileContainer extends React.Component {
 
