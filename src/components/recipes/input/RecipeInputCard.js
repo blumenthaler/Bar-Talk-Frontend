@@ -1,9 +1,8 @@
 import Card from '@material-ui/core/Card';
-import {cardUseStyles} from '../../../material-ui/cardUseStyles.js'
 import {textFieldUseStyles} from '../../../material-ui/textFieldUseStyles.js'
-import {recipeInputNoCocktailUseStyles} from '../../../material-ui/recipeInputNoCocktailUseStyles.js'
-import {recipeInputWithCocktailUseStyles} from '../../../material-ui/recipeInputWithCocktail.js'
-import {recipeInputProfileUseStyles} from '../../../material-ui/recipeInputProfileUseStyles.js'
+import {recipeInputNoCocktailUseStyles} from '../../../material-ui/recipe/recipeInputNoCocktailUseStyles.js'
+import {recipeInputWithCocktailUseStyles} from '../../../material-ui/recipe/recipeInputWithCocktail.js'
+import {recipeInputProfileUseStyles} from '../../../material-ui/recipe/recipeInputProfileUseStyles.js'
 
 import RecipeInput from './RecipeInput.js'
 

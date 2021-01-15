@@ -1,6 +1,6 @@
 import EditRecipeForm from "./EditRecipeForm.js"
 import Card from '@material-ui/core/Card';
-import {editRecipeUseStyles} from '../../../material-ui/editRecipeUseStyles.js'
+import {editRecipeUseStyles} from '../../../material-ui/recipe/editRecipeUseStyles.js'
 import {textFieldUseStyles} from '../../../material-ui/textFieldUseStyles.js'
 
 
