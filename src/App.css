@@ -234,6 +234,13 @@
   font-weight: bold;
 }
 
+#cancel-comment-btn {
+  background-color: #e5a4cb; 
+  color: #45062e; 
+  margin-left: 0; 
+  font-weight: bold;
+}
+
 .form-label {
   float: left;
   margin-left: 26%;

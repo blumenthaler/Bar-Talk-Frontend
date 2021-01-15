@@ -10,6 +10,6 @@ export const CancelCommentButton = props => {
     }
     return (
 
-        <Button variant="contained" style={{backgroundColor: "#e5a4cb", color: "#45062e", marginLeft: "0", fontWeight: 'bold'}} onClick={() => handleClick()}>Cancel</Button>
+        <Button variant="contained" id='cancel-comment-btn' onClick={() => handleClick()}>Cancel</Button>
     )
 }
