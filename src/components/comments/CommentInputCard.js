@@ -9,7 +9,7 @@ export const CommentInputCard = props => {
     
     return (
         <>
-        <div style={{ display:'flex', justifyContent:'center' }}>
+        <div className='card-container'>
             <Card className={classes.root} style={{maxWidth: '1000px', minWidth: '300px', backgroundColor: '#45062e'}}>
                 <CommentInput
                     classes={formClasses}
