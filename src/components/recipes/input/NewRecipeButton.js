@@ -18,7 +18,7 @@ export const NewRecipeButton = props => {
     }
     return (
         <>
-        <Button variant="contained" style={{marginLeft: "10px", backgroundColor: "#7f055f", color: "#ffe8d4", minWidth: "350px", fontWeight: "bold"}} onClick={() => handleClick()}>Add a New Recipe to this Cocktail</Button>
+        <Button variant="contained" id='new-recipe-btn' onClick={() => handleClick()}>Add a New Recipe to this Cocktail</Button>
         <br /><br />
         </>
     ) 

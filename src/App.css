@@ -139,6 +139,14 @@
   font-weight: bold;
 }
 
+#new-recipe-btn {
+  margin-left: 10px; 
+  background-color: #7f055f; 
+  color: #ffe8d4; 
+  min-width: 350px; 
+  font-weight: bold;
+}
+
 #cancel-recipe-input-btn {
   color: #45062e;
   background-color: #ffe8d4;
