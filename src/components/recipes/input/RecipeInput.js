@@ -92,23 +92,22 @@ class RecipeInput extends React.Component {
         }
     }
 
-    findButtonStyle = () => {
+    setButtonId = () => {
         if (!this.props.cocktail) {
-            return {marginLeft: '25%', marginRight: '25%', backgroundColor: '#ffe8d4', color: '#7f055f'}
+            return "add-recipe-no-cocktail-btn"
         }
         else {
-            return {backgroundColor: '#ebd2be', color: '#45062e', maxWidth: "225px"}
+            return "add-recipe-with-cocktail-btn"
         }
     }
 
     render() {
-        const style = {color: '#ffe8d4'}
         return (
             <>
             <form className={this.props.classes.root} noValidate autoComplete="off" style={{display: "inline-block", color: "black"}} onSubmit={(event) => this.handleOnSubmit(event)}> 
                 {!this.props.cocktail ? 
                     <>
-                    <h1 style={style}>Add a New Recipe!</h1>
+                    <h1 style={{color: '#ffe8d4'}}>Add a New Recipe!</h1>
                     <Input style={this.findTextFieldStyle()} placeholder="Name:" name="name" value={this.state.name} onChange={this.handleOnChange} /><br />
                     <Input style={this.findTextFieldStyle()} placeholder="Spirit:" name="spirit" value={this.state.spirit} onChange={this.handleOnChange} /><br />
                     </> 
@@ -120,7 +119,7 @@ class RecipeInput extends React.Component {
 
                 <Input style={this.findTextFieldStyle()} placeholder="Notes:" name="notes" value={this.state.notes} onChange={this.handleOnChange} /><br /><br />
 
-                <Button id="add-recipe-button" variant="contained" style={this.findButtonStyle()} onClick={() => this.handleOnSubmit()}>Add Recipe</Button>
+                <Button id={this.setButtonId()} variant="contained" onClick={() => this.handleOnSubmit()}>Add Recipe</Button>
                 <input type='submit' className="hidden"></input>
                 {this.props.cocktail ? <CancelInputButton triggerRecipeForm={this.props.triggerRecipeForm} /> : null }
             </form>

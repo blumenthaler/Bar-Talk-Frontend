@@ -58,6 +58,21 @@
   justify-content: center;
 }
 
+#add-recipe-no-cocktail-btn {
+  margin-left: 25%;
+  margin-right: 25%; 
+  background-color: #ffe8d4; 
+  color: #7f055f;
+  font-weight: bold;
+}
+
+#add-recipe-with-cocktail-btn {
+  background-color: #ebd2be;
+  color: #45062e;
+  max-width: 225px;
+  font-weight: bold;
+}
+
 #welcome-link {
   color: #e5a4cb;
   text-decoration: none;
@@ -120,12 +135,6 @@
 
 #submit-login-button {
   color: #45062e;
-  background-color: #E4BE9E;
-  font-weight: bold;
-}
-
-#add-recipe-button {
-  color: #71697A;
   background-color: #E4BE9E;
   font-weight: bold;
 }
