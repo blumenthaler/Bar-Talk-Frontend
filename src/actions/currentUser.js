@@ -19,7 +19,6 @@ export const clearCurrentUser = () => {
 
 // async
 export const login = credentials => {
-    // console.log("credentials are", credentials)
     return dispatch => {
       return fetch(`${DOMAIN_URL}/api/v1/login`, {
         credentials: "include",
@@ -72,7 +71,6 @@ export const signup = credentials => {
 
 // get the logged in user
 export const getCurrentUser = () => {
-    // console.log('checking for current user...')
     return dispatch => {
       return fetch(`${DOMAIN_URL}/api/v1/get_current_user`, {
         credentials: "include",

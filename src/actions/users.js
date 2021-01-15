@@ -8,10 +8,7 @@ export const getUsers = users => {
     }
 }
 
-
-
 //async
-// get all users
 export const getAllUsers = () => {
     return dispatch => {
       dispatch({type: "LOADING_USERS"})

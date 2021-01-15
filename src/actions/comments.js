@@ -75,10 +75,7 @@ export const addComment = (comment, history, match) => {
           }
           else {
             dispatch(addNewComment(obj))
-            // getAllComments will not work for this
-            // Redux store is updated, but CommentsContainer will not re-render
             dispatch(getAllComments())
-            // dispatch(getAllCocktails())
             history.push(`${match.url}/comments`)
           }
       })
