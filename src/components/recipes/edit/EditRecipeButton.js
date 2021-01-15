@@ -6,7 +6,12 @@ export const EditRecipeButton = props => {
     const match = useRouteMatch()
     const handleClick = () => {
         props.triggerEditingForm()
-        history.push(`${match.url}recipes/${props.recipe.id}/edit`)
+        if (match.url.charAt(match.url.length - 1) === "/") {
+            history.push(`${match.url}recipes/${props.recipe.id}/edit`)
+        }
+        else {
+            history.push(`${match.url}/recipes/${props.recipe.id}/edit`)
+        }
     }
     return (
         <Button variant="contained" style={{marginLeft: "10px", backgroundColor: "#7f055f", color: "#ffe8d4", minWidth: "100px", fontWeight: "bold"}} onClick={() => handleClick()}>Edit Recipe</Button>
