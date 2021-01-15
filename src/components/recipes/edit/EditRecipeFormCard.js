@@ -9,7 +9,7 @@ export const EditRecipeFormCard = props => {
     const formClasses = textFieldUseStyles()
     return (
         <>
-        <div style={{ display:'flex', justifyContent:'center' }}>
+        <div className='card-container'>
             <Card className={classes.root} style={{minWidth: '450px', marginLeft: '-10%'}}>
                 <EditRecipeForm 
                     classes={formClasses}
