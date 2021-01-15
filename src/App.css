@@ -55,6 +55,7 @@
 
 #navbar {
   background-color: #ebd2be;
+  justify-content: center;
 }
 
 #welcome-link {
@@ -86,7 +87,6 @@
 
 #nav-link:active {
   color: #e5a4cb;
-  /* background-color: #E4BE9E */
 }
 
 .content-link {
@@ -127,6 +127,14 @@
 #add-recipe-button {
   color: #71697A;
   background-color: #E4BE9E;
+  font-weight: bold;
+}
+
+#no-cocktail-new-recipe {
+  margin-left: 35%;
+  background-color: #7f055f; 
+  color: #ffe8d4; 
+  min-width: 350px; 
   font-weight: bold;
 }
 

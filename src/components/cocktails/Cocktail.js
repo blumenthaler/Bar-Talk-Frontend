@@ -13,7 +13,7 @@ export const Cocktail = props => {
             return (
             <>
                 <h2>This cocktail no longer exists.</h2>
-                <Button variant="contained" style={{marginLeft: "35%", backgroundColor: "#7f055f", color: "#ffe8d4", minWidth: "350px", fontWeight: "bold"}} onClick={() => handleClick()}>Click here to add a new recipe</Button>
+                <Button variant="contained" id='no-cocktail-new-recipe' onClick={() => handleClick()}>Click here to add a new recipe</Button>
             </>
             )
         }
