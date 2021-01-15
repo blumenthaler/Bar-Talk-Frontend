@@ -209,6 +209,16 @@
   min-width: 500px;
 }
 
+#delete-comment-btn {
+  margin-left: 10px;
+  background-color: #45062e;
+  color: #ffe8d4; 
+  font-weight: bold; 
+  max-height: 20px; 
+  min-width: 3px;
+  max-width: 5px;
+}
+
 .form-label {
   float: left;
   margin-left: 26%;

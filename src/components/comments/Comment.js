@@ -14,15 +14,7 @@ export const Comment = props => {
                     {props.user.id === props.currentUser.data.id ?     
                     <Button 
                         variant="contained" 
-                        style={{
-                            marginLeft: "10px",
-                            backgroundColor: "#45062e",
-                            color: "#ffe8d4", 
-                            fontWeight: "bold", 
-                            maxHeight: "20px", 
-                            minWidth: '3px',
-                            maxWidth: '5px'
-                        }}
+                        id='delete-comment-btn'
                         onClick={() => handleDelete()}
                     >X</Button>
                     : null}
