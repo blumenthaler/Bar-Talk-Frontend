@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Recipes from '../recipes/Recipes.js';
-import RecipeInput from '../recipes/input/RecipeInput.js';
 import { addRecipe, editingRecipe, deleteRecipe, getAllRecipes } from '../../actions/recipes.js';
 import { NewRecipeButton } from '../recipes/input/NewRecipeButton.js';
 import {RecipeInputCard} from '../recipes/input/RecipeInputCard.js'
