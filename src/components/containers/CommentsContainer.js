@@ -46,7 +46,6 @@ class CommentsContainer extends React.Component {
             return (
                 <>
                 <div>
-                    <br />
                     <Route path={`${matchUrl}comments`} render={routerProps =>   <Comments {...routerProps} 
                         comments={filtered}
                         users={users} 

@@ -25,8 +25,7 @@ const User = props => {
         
         return (
             <>
-                <h4>{title}</h4> 
-                
+                <h4 style={{marginRight: '30px'}}>{title}</h4> 
                 <RecipesContainer 
                     user={props.user} 
                     currentUser={props.currentUser} 

@@ -60,6 +60,7 @@ class RecipesContainer extends React.Component {
                         editingRecipe={this.props.editingRecipe} 
                         deleteRecipe={this.props.deleteRecipe} 
                     />
+                    <br />
 
                     {this.state.showingRecipeForm ? 
                         <RecipeInputCard 

@@ -10,7 +10,7 @@ export const CocktailsCard = props => {
         <>
         <div style={{ display:'flex', justifyContent:'center' }}>
             <Card className={classes.root} style={{minWidth: '300px'}}>
-                Cocktails:
+                <h2 style={{marginLeft: '-10px'}}>Cocktails</h2>
                 <Cocktails cocktails={props.cocktails}/>
             </Card>
         </div>

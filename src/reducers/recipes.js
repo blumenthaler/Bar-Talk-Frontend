@@ -1,5 +1,3 @@
-// now I am only really using cocktails fetch; not this
-
 export default (state = {
     recipes: [],
     loading: false
