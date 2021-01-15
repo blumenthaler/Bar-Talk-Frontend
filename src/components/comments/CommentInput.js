@@ -37,7 +37,7 @@ export default class CommentInput extends React.Component {
                 <br /><br />
                 <input type="submit" className='hidden' value="Comment" />
 
-                <Button variant="contained" style={{backgroundColor: "#e5a4cb", color: "#45062e", marginLeft: "-30%", fontWeight: 'bold'}} onClick={() => this.handleOnSubmit()}>Comment</Button>
+                <Button variant="contained" id='submit-comment-btn' onClick={() => this.handleOnSubmit()}>Comment</Button>
 
                 <CancelCommentButton triggerCommentForm={this.props.triggerCommentForm} />
             </form>

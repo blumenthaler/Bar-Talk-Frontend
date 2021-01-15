@@ -227,6 +227,13 @@
   font-weight: bold;
 }
 
+#submit-comment-btn {
+  background-color: #e5a4cb; 
+  color: #45062e; 
+  margin-left: -30%; 
+  font-weight: bold;
+}
+
 .form-label {
   float: left;
   margin-left: 26%;
