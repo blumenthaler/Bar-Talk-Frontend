@@ -1,28 +1,32 @@
 import Card from '@material-ui/core/Card';
 import {cardUseStyles} from '../../../material-ui/cardUseStyles.js'
 import {textFieldUseStyles} from '../../../material-ui/textFieldUseStyles.js'
+import {recipeInputNoCocktailUseStyles} from '../../../material-ui/recipeInputNoCocktailUseStyles.js'
+import {recipeInputWithCocktailUseStyles} from '../../../material-ui/recipeInputWithCocktail.js'
+import {recipeInputProfileUseStyles} from '../../../material-ui/recipeInputProfileUseStyles.js'
+
 import RecipeInput from './RecipeInput.js'
 
 
 export const RecipeInputCard = props => {
-    const classes = cardUseStyles()
-    let formClasses = textFieldUseStyles()
-    const findStyle = () => {
-        if ((props.cocktail) && (props.match.url.includes("profile"))){
-            return {minWidth: '550px', backgroundColor: '#45062e', marginRight: '30px', marginLeft: '15px'} 
-        }
-        else if (props.cocktail) {
-            return {minWidth: '550px', backgroundColor: '#45062e', marginRight: '30px', marginLeft: '-5%'} 
-        }
-        else {
-            return {minWidth: '550px', backgroundColor: '#45062e', marginRight: '20%', marginLeft: '20%', color: '#71697a', border: 'none', boxShadow: "none"}
-        }
+    let classes
+    if ((props.cocktail) && (props.match.url.includes("profile"))){
+        classes = recipeInputProfileUseStyles()
     }
+    else if (props.cocktail) {
+        classes = recipeInputWithCocktailUseStyles()
+    }
+    else {
+        classes = recipeInputNoCocktailUseStyles()
+    }
+
+    const formClasses = textFieldUseStyles()
+    
     return (
         <>
         <br />
         <div>
-            <Card className={classes.root} style={findStyle()}>
+            <Card className={classes.root}>
             <RecipeInput 
                     currentUser={props.currentUser} 
                     addRecipe={props.addRecipe} 
