@@ -177,6 +177,13 @@
   font-weight: bold;
 }
 
+#cancel-edit-recipe-btn {
+  background-color: #45062e;
+  color: #ffe8d4; 
+  max-width: 80px;
+  font-weight: bold;
+}
+
 .form-label {
   float: left;
   margin-left: 26%;

@@ -9,8 +9,7 @@ export const CancelEditButton = props => {
         history.push(`${match.url}/`)
     }
     return (
-        <Button variant="contained" style={{backgroundColor: "#45062e", color: "#ffe8d4", maxWidth: "80px", fontWeight: 'bold'}} onClick={() => handleClick()}>Cancel</Button>
-        // <button onClick={() => handleClick()}>Cancel</button>
+        <Button variant="contained" id='cancel-edit-recipe-btn' onClick={() => handleClick()}>Cancel</Button>
     )
 }
 
