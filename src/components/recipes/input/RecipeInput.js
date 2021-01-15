@@ -17,20 +17,26 @@ class RecipeInput extends React.Component {
         votes: 0
     }
 
+    getTitleCase = string => {
+        if (string.includes(" ")) {
+            let splitted = string.split(" ")
+            let upperCased = splitted.map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            return upperCased.join(" ")
+        }
+        else {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+    }
+
     handleOnSubmit = event => {
         if (!!event) {event.preventDefault()}
+        let name
         if (!!this.props.cocktail) {
             let getName = document.getElementById(`${this.props.cocktail.id}_name`).innerText.split('NAME: ')[1].toLowerCase()
 
-            let name
-            if (getName.includes(" ")) {
-                let splitted = getName.split(" ")
-                let upperCased = splitted.map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                name = upperCased.join(" ")
-            }
-            else {
-                name = getName.charAt(0).toUpperCase() + getName.slice(1);
-            }
+            // title case name for submission
+            name = this.getTitleCase(getName)
+
             let spirit = document.getElementById(`${this.props.cocktail.id}_spirit`).innerText.split('SPIRIT: ')[1].toLowerCase()
             let sendable = {
                 ...this.state,
@@ -50,6 +56,12 @@ class RecipeInput extends React.Component {
             this.props.history.push(`${this.props.match.url}/`)   
         }
         else {
+            this.setState(prevState => {
+                return {
+                    ...prevState,
+                    name: this.getTitleCase(prevState.name)
+                }
+            })
             this.props.addRecipe(this.state, this.props.currentUser.data, this.props.history)  
             this.setState({
                 name: "",
