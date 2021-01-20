@@ -4,7 +4,7 @@ export const Comment = props => {
     
     const handleDelete = () => {
         props.deleteComment(props.comment)
-        props.history.push(`${props.match.url}/comments`)
+        props.history.push(`${props.match.url}/recipes/${props.recipe.id}/comments`)
     }
 
     return (
