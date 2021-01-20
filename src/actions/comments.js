@@ -1,5 +1,4 @@
 import {DOMAIN_URL} from '../domain.js'
-import {getAllCocktails} from './cocktails.js'
 
 // sync
 export const getComments = comments => {
@@ -76,7 +75,7 @@ export const addComment = (comment, history, match) => {
           else {
             dispatch(addNewComment(obj))
             dispatch(getAllComments())
-            history.push(`${match.url}/comments`)
+            history.push(`${match.url}/recipes/${recipe_id}/comments`)
           }
       })
       .catch(console.log)
