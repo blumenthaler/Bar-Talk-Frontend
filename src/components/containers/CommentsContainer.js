@@ -46,7 +46,7 @@ class CommentsContainer extends React.Component {
             return (
                 <>
                 <div>
-                    <Route path={`${matchUrl}comments`} render={routerProps =>   <Comments {...routerProps} 
+                    <Route path={`${matchUrl}recipes/${this.props.recipe.id}/comments`} render={routerProps =>   <Comments {...routerProps} 
                         comments={filtered}
                         users={users} 
                         currentUser={this.props.currentUser}
