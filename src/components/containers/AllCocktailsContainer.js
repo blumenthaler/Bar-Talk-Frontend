@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {Cocktails} from '../cocktails/Cocktails.js';
-import {Cocktail} from '../cocktails/Cocktail.js'
+import Cocktails from '../cocktails/Cocktails.js';
+import Cocktail from '../cocktails/Cocktail.js'
 import {CocktailsCard} from '../cocktails/CocktailsCard.js'
 import { getAllCocktails } from '../../actions/cocktails.js';
 import { Route } from 'react-router-dom';
@@ -10,7 +10,7 @@ class AllCocktailsContainer extends React.Component {
 
     constructor() {
         super()
-        this.state ={
+        this.state = {
             profile: false
         }
     }

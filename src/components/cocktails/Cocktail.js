@@ -1,8 +1,11 @@
 import {UsersCard} from '../users/UsersCard.js'
 import {Button} from '@material-ui/core'
+import React from 'react'
 
-export const Cocktail = props => {
-        const {cocktails, history, location, match, currentUser, profile} = props
+export default class Cocktail extends React.Component {
+
+    render () {
+        const {cocktails, history, location, match, currentUser, profile} = this.props
         const cocktail = cocktails.data.find(cocktail => cocktail.id === match.params.cocktailId)
 
         const handleClick = () => {
@@ -51,3 +54,4 @@ export const Cocktail = props => {
             )
         }
     }
+}

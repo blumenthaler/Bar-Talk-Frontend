@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { getAllCocktails } from '../../actions/cocktails.js';
 import {CocktailsCard} from '../cocktails/CocktailsCard.js'
-import {Cocktail} from '../cocktails/Cocktail.js'
+import Cocktail from '../cocktails/Cocktail.js'
 import { Route, Link } from 'react-router-dom';
 
 class ProfileContainer extends React.Component {

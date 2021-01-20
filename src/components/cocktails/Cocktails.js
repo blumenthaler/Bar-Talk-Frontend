@@ -1,35 +1,34 @@
-import React from 'react'
-import { Cocktail } from './Cocktail.js'
+import React, { Component } from 'react'
+import Cocktail from './Cocktail.js'
 import {Link, useRouteMatch} from 'react-router-dom'
+import CocktailLink from './CocktailLink'
 
 
-export const Cocktails = props =>  {
-    const match = useRouteMatch()
-    if ((props.loading) || (!props.cocktails)) {
+export default class Cocktails extends React.Component  {
+
+    render() {
+    
+    if ((this.props.loading) || (!this.props.cocktails)) {
         return (
             <h2>loading...</h2>
         )
     }
     else {
         let newMatch
-        if (match.path === '/profile/') {
-            newMatch = match.path + 'cocktails/'
+        if (this.props.match.path === '/profile/') {
+            newMatch = this.props.match.path + 'cocktails/'
         }
-        else {newMatch = match.path}
+        else {newMatch = this.props.match.path}
         
         return (
             <ol>
-               
-                {props.cocktails.map(cocktail => 
+                {this.props.cocktails.map(cocktail => 
                     <>
-                    <li>
-                    <Link className="content-link" key={cocktail.id} to={`${newMatch}${cocktail.id}/`}>
-                        {`${cocktail.attributes.name} - ${cocktail.attributes.spirit.charAt(0).toUpperCase() + cocktail.attributes.spirit.slice(1)}`}
-                    </Link>
-                    </li>
+                    <CocktailLink cocktail={cocktail} newMatch={newMatch}/>
                     </>
                 )}
             </ol>
         )
+    }
     }
 }
