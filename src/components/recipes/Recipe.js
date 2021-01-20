@@ -94,7 +94,7 @@ class Recipe extends React.Component {
                         </> :
                         <>
                             <br />
-                            <Link className='comment-link' onClick={() => this.triggerComments()} to={`${matchUrl}comments`}>See Comments</Link>
+                            <Link className='comment-link' onClick={() => this.triggerComments()} to={`${matchUrl}recipes/${this.props.recipe.id}/comments`}>See Comments</Link>
                         </>
                         }
                         
