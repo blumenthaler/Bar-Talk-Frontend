@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import { getAllCocktails } from '../../actions/cocktails.js';
 import {CocktailsCard} from '../cocktails/CocktailsCard.js'
 import {Cocktail} from '../cocktails/Cocktail.js'
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 class ProfileContainer extends React.Component {
 
@@ -42,7 +42,7 @@ class ProfileContainer extends React.Component {
                 return (
                     <>
                      <h1>Welcome {this.props.currentUser.data.attributes.username}!</h1>
-                     <h2><a id="welcome-link" href="/recipes/new">Add a Recipe!</a></h2>
+                     <h2><Link id="welcome-link" to="/recipes/new">Add a Recipe!</Link></h2>
                     </>
                 )
             }
