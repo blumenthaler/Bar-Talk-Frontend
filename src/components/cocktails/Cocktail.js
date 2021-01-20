@@ -23,9 +23,24 @@ export const Cocktail = props => {
             )
         }
         else {
+            const titleCase = () => {
+                let title
+                if (cocktail.attributes.name.includes(" ")) {
+                    let split = cocktail.attributes.name.split(" ")
+                        for (let i = 0; i < split.length; i++) {
+                            split[i] = split[i].charAt(0).toUpperCase() + split[i].slice(1)
+                            title = split.join(" ")
+                        }
+                    return title
+                }
+                else {
+                    title = cocktail.attributes.name.charAt(0).toUpperCase() + cocktail.attributes.name.slice(1)
+                    return title
+                }
+            }
             return (
                 <>
-                    <h2>{cocktail.attributes.name.charAt(0).toUpperCase() + cocktail.attributes.name.slice(1)} - {cocktail.attributes.spirit.charAt(0).toUpperCase() + cocktail.attributes.spirit.slice(1)}</h2>
+                    <h2>{titleCase()} - {cocktail.attributes.spirit.charAt(0).toUpperCase() + cocktail.attributes.spirit.slice(1)}</h2>
                     
                     <UsersCard 
                         cocktail={cocktail} 
