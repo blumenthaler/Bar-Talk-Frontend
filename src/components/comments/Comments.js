@@ -18,6 +18,7 @@ export const Comments = props => {
                     {props.comments.map(comment => <Comment 
                         comment={comment}
                         key={comment.id} 
+                        recipe={props.recipe}
                         user={props.users.find(user => user.id === comment.relationships.user.data.id)} 
                         currentUser={props.currentUser} 
                         deleteComment={props.deleteComment}
